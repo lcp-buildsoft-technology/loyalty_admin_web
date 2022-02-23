@@ -1,0 +1,122 @@
+<body>
+    <div class=" content">
+        <div class=" row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class=" card-title">Add Voucher</h2>
+                    </div>
+                    <div class="card-body">
+                        <form class="form">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Voucher Title *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="text" name="vchtitle" [(ngModel)]='vch.title' maxlength="18" placeholder="Buy 1 Free 1%">
+                                        <p class="validation">{{ valid['title'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">Thumbnail *</label>
+                                    <div class="col-md-8">
+                                        <input type="file" style="color: transparent;width: 50%;" id="upload" name="file" (change)="onselectFile($event)">
+                                        <p class="validation">{{ valid['thumbnail'] }}</p>
+                                        <img src="{{ url }}" alt="" style="width: 50%; object-fit: cover;">
+                                    </div>
+                                </div><br>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Type *</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="vchtype" [(ngModel)]='vch.type'>
+                                            <option value="FixAmount" style="color: black;">Discount (Fix Amount)
+                                            </option>
+                                            <option value="Percentage" style="color: black;">Discount (Percentage Off)
+                                            </option>
+                                        </select>
+
+                                        <p class="validation">{{ valid['type'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Voucher Quantity *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="number" min="1" max="1000" name="vchqty" [(ngModel)]='vch.quantity'>
+                                        <p class="validation">{{ valid['quantity'] }}</p>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Merchant *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" [(ngModel)]='vch.merchantid' class="form-control" name="notireceiver" id="">
+                                            <option value="All">All</option>
+                                            <option *ngFor="let merch of merchArr" value="{{merch._id}}">
+                                                {{merch.companyname}}</option>
+                                        </select>
+                                        <p class="validation">{{ valid['merchant'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Discount *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="text" name="vchdiscount" [(ngModel)]='vch.discount' maxlength="5" placeholder="20%" [pattern]="discountPattern" #discount="ngModel">
+                                        <div *ngIf="discount.errors?.pattern" style="color:red;">
+                                            *Invalid discount amount.
+                                        </div>
+                                        <p class="validation">{{ valid['discount'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Min Spend(RM) *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="text" name="vchminspend" [(ngModel)]='vch.minspend' maxlength="6" placeholder="200" [pattern]="spendPattern" #minspend="ngModel">
+                                        <div *ngIf="minspend.errors?.pattern" style="color:red;">
+                                            *Invalid Minimum Spend Amount.
+                                        </div>
+                                        <p class="validation">{{ valid['minspend'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Start Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" name="vchsdate" [(ngModel)]='vch.sdate'>
+                                        <p class="validation">{{ valid['sdate'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">End Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" name="vchedate" [(ngModel)]='vch.edate'>
+                                        <p class="validation">{{ valid['edate'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">T&C *</label>
+                                    <div class="col-md-8">
+                                        <textarea class=" form-control" type="text" name="vchtermsandcondition" [(ngModel)]='vch.termsandcondition' placeholder="Here some rules for use the voucher..."></textarea>
+                                        <p class="validation">{{ valid['termsandcondition'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Detail *</label>
+                                        <p class="validation">{{ valid['detail'] }}</p>
+                                        <textarea class=" form-control" name="vchdetail" [(ngModel)]='vch.detail' id="mymce1" placeholder="This voucher is use to..."></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button type="button" class="sbtn" style="margin-right: 10px;" (click)='sendVch();'>Save</button>
+                                <button type="button" class="sbtn" (click)="goBack()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

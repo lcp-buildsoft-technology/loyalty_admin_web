@@ -1,0 +1,292 @@
+<body>
+    <div class=" content">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class=" card-title">Add Rewards</h2>
+
+                        <div class=" form-group row">
+                            <label class="col-md-3 col-form-label"> Reward Type *</label>
+                            <div class="col-md-8">
+                                <select style="background-color: #2c2c2c;" class="form-control" name="rwdtypee" [(ngModel)]="rewardtype" (change)="getrewardtype($event.target.value)">
+                                    <option value="Points" >Points</option>
+                                    <option value="Voucher" >Voucher</option>
+                                </select>
+                            </div>
+                        </div><br>
+                    </div>
+
+                    <div class="card-body" id="rewtypepoints" style="display:none">
+                        <form class="form">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Reward Title *</label>
+                                    <div class="col-md-8">
+                                        <input maxlength="18" class=" form-control" type="text" name="rwdtitle" [(ngModel)]='rwd.title' placeholder="Happy Birthday">
+                                        <p class="validation">{{ valid['title'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Expired in (Day)*</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="number" step="1" name="vchdiscount" [(ngModel)]='rwd.duration' maxlength="7" placeholder="30">
+                                        <p class="validation">{{ valid['duration'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Type *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" class="form-control" name="rwdtype" [(ngModel)]='rwd.type' (change)="checktype();">
+                                            <option value="Daily" >Daily</option>
+                                            <option value="Monthly" >Monthly</option>
+                                            <option value="Annually" >Annually</option>
+                                        </select>
+                                        <p class="validation">{{ valid['type'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row" style="display:none" id="rwdcheckwhos">
+                                    <label class="col-md-3 col-form-label"> Check From *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" class="form-control" name="rwdcheckwho" [(ngModel)]='rwd.checkfromwho' (change)="getcheckwhat();">
+                                            <option value="Member" >Member</option>
+                                            <option value="Merchant" >Merchant</option>
+                                            <option value="Other" >Other</option>
+                                        </select>
+                                        <p class="validation">{{ valid['checkwho'] }}</p>
+                                    </div>
+                                </div>
+                                <div id="memberrwd" style="display:none" class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Field to Check *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" class="form-control" name="memberrwdcheckwhat" id="rwdmember" [(ngModel)]='rwd.checkwhat'>
+                                            <option value="birthdate" >Birth Date</option>
+                                            <option value="joindate" >Join Date</option>
+                                        </select>
+                                        <p class="validation">{{ valid['checkwhat'] }}</p>
+                                    </div>
+                                </div>
+                                <div id="merchantrwd" style="display:none" class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Field to Check *</label>
+                                    <div class="col-md-8">
+                                        <select id="rwdmerchant" style="background-color: #2c2c2c;" class="form-control" name="merchantrwdcheckwhat" [(ngModel)]='rwd.checkwhat'>
+                                            <option value="joindate" >Join Date</option>
+                                        </select>
+                                        <p class="validation">{{ valid['checkwhat'] }}</p>
+                                    </div>
+                                </div>
+                                <div id="specificrwd" style="display:none" class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" [(ngModel)]='rwd.specificdate'>
+                                        <p class="validation">{{ valid['spedate'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Reward *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="text" name="rwdreward" [(ngModel)]='rwd.reward' placeholder="666" maxlength="5">
+                                        <p class="validation">{{ valid['reward'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <label for="image-upload-button" class="col-md-3 col-form-label">Thumbnail *</label>
+                                    <div class="col-md-8">
+                                        <input class="upload" style="color: transparent;" type="file" accept="image/png, image/jpeg, image/jpg" name="file" id="fileimage" (change)="onselectFile($event)" />
+                                        <br>
+                                        <br>
+                                        <img src="{{ url }}" alt="" style="width: 50%; object-fit: cover;">
+                                        <p class="validation">{{ valid['thumbnail'] }}</p>
+                                    </div>
+                                </div>
+                                <!-- <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Start Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" name="rwdsdate" [(ngModel)]='rwd.sdate'>
+                                        <p class="validation">{{ valid['sdate'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">End Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" name="rwdedate" [(ngModel)]='rwd.edate'>
+                                        <p class="validation">{{ valid['edate'] }}</p>
+                                    </div>
+                                </div> -->
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <label>T&C *</label>
+                                        <p class="validation">{{ valid['termsandcondition'] }}</p>
+                                        <textarea class=" form-control" type="text" name="rwdtermsandcondition" [(ngModel)]='rwd.termsandcondition' style="margin-left: 1%;" placeholder="Here some rules for use the rewards..."></textarea>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Details *</label>
+                                        <p class="validation">{{ valid['detail'] }}</p>
+                                        <textarea class=" form-control" name="rwddetail" [(ngModel)]='rwd.detail' id="mymce1" placeholder="This reward is for the..."></textarea>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </form>
+                        <div class="abtn">
+                            <button type="button" class="sbtn" style="margin-right: 10px;" (click)='sendRwd();'>Save</button>
+                            <button type="button" class="sbtn" (click)="goBack()">Cancel</button>
+                        </div>
+                    </div>
+                    <!--=========================================================================================================================-->
+                    <div class="card-body" id="rewtypevoucher" style="display:none">
+                        <form class="form">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Reward Title *</label>
+                                    <div class="col-md-8">
+                                        <input maxlength="30" class=" form-control" type="text" name="rwdvchtitle" [(ngModel)]='rwdvoucher.title' placeholder="Happy Birthday">
+                                        <p class="validation">{{ valid['title'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Type *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" class="form-control" name="rwdvchtype" [(ngModel)]='rwdvoucher.type' (change)="checktype2();">
+                                            <option value="Daily" >Daily</option>
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Annually" >Annually</option>
+                                        </select>
+                                        <p class="validation">{{ valid['type'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Merchant *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" [(ngModel)]='rwdvoucher.merchantid' class="form-control" name="notireceiver" id="">
+                                            <option value="All">All</option>
+                                            <option *ngFor="let merch of merchArr" value="{{merch._id}}">
+                                                {{merch.companyname}}</option>
+                                        </select>
+                                        <p class="validation">{{ valid['merchant'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row" style="display:none" id="rwdcheckwhos2">
+                                    <label class="col-md-3 col-form-label"> Check From *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" class="form-control" name="rwdcheckwho2" [(ngModel)]='rwdvoucher.checkfromwho' (change)="getcheckwhat2();">
+                                            <option value="Member" >Member</option>
+                                            <option value="Merchant" >Merchant</option>
+                                            <option value="Other" >Other</option>
+                                        </select>
+                                        <p class="validation">{{ valid['checkwho22'] }}</p>
+                                    </div>
+                                </div>
+                                <div id="memberrwd2" style="display:none" class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Field to Check *</label>
+                                    <div class="col-md-8">
+                                        <select style="background-color: #2c2c2c;" class="form-control" name="memberrwdcheckwhat2" id="rwdmember" [(ngModel)]='rwdvoucher.checkwhat'>
+                                            <option value="birthdate" >Birth Date</option>
+                                            <option value="joindate" >Join Date</option>
+                                        </select>
+                                        <p class="validation">{{ valid['checkwhat22'] }}</p>
+                                    </div>
+                                </div>
+                                <div id="merchantrwd2" style="display:none" class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Field to Check *</label>
+                                    <div class="col-md-8">
+                                        <select id="rwdmerchant" style="background-color: #2c2c2c;" class="form-control" name="merchantrwdcheckwhat2" [(ngModel)]='rwdvoucher.checkwhat'>
+                                            <option value="joindate" >Join Date</option>
+                                        </select>
+                                        <p class="validation">{{ valid['checkwhat22'] }}</p>
+                                    </div>
+                                </div>
+                                <div id="specificrwd2" style="display:none" class=" form-group row">
+                                    <label class="col-md-3 col-form-label"> Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" [(ngModel)]='rwdvoucher.specificdate'>
+                                        <p class="validation">{{ valid['spedate22'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Voucher Type *</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" style="background-color: #2c2c2c;" name="vchtype" [(ngModel)]='rwdvoucher.vtype'>
+                                            <option value="FixAmount" >Discount (Fix Amount)</option>
+                                            <option value="Percentage" >Discount (Percentage Off)</option>
+                                          </select>
+                                        <p class="validation">{{ valid['vtype'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Discount *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="text" name="vchdiscount" [(ngModel)]='rwdvoucher.discount' maxlength="7" placeholder="20%">
+                                        <p class="validation">{{ valid['discount'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Expired in (Day)*</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="number" step="1" name="vchduration" [(ngModel)]='rwdvoucher.duration' maxlength="7" placeholder="20">
+                                        <p class="validation">{{ valid['duration'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Min Spend(RM) *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="text" name="vchminspend" [(ngModel)]='rwdvoucher.minspend' maxlength="7" placeholder="200">
+                                        <p class="validation">{{ valid['minspend'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <label for="image-upload-button" class="col-md-3 col-form-label">Thumbnail *</label>
+                                    <div class="col-md-8">
+                                        <input class="upload" style="color: white;" type="file" accept="image/png, image/jpeg, image/jpg" name="file" id="fileimage" [(ngModel)]='rwdvoucher.thumbnail' (change)="onselectFile($event)" />
+                                        <br>
+                                        <br>
+                                        <img src="{{ url }}" alt="" style="width: 50%; object-fit: cover;">
+                                        <p class="validation">{{ valid['thumbnail'] }}</p>
+                                    </div>
+                                </div>
+                                <!-- <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">Start Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" name="rwdsdate" [(ngModel)]='rwdvoucher.sdate'>
+                                        <p class="validation">{{ valid['sdate'] }}</p>
+                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                    <label class="col-md-3 col-form-label">End Date *</label>
+                                    <div class="col-md-8">
+                                        <input class=" form-control" type="date" name="rwdedate" [(ngModel)]='rwdvoucher.edate'>
+                                        <p class="validation">{{ valid['edate'] }}</p>
+                                    </div>
+                                </div> -->
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <label>T&C *</label>
+                                        <textarea class=" form-control" type="text" name="rwdvchtermsandcondition" [(ngModel)]='rwdvoucher.termsandcondition' style="margin-left: 1%;" placeholder="Here some rules for use the rewards..."></textarea>
+                                        <p class="validation">{{ valid['termsandcondition'] }}</p>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Details *</label>
+                                        <p class="validation">{{ valid['detail'] }}</p>
+                                        <textarea class=" form-control" name="rwdvchdetail" [(ngModel)]='rwdvoucher.detail' id="mymce2" placeholder="This reward is for the..."></textarea>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </form>
+                        <div class="abtn">
+                            <button type="button" class="sbtn" style="margin-right: 10px;" (click)='sendRwdvoucher();'>Save</button>
+                            <button type="button" class="sbtn" (click)="goBack()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

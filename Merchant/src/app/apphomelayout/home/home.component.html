@@ -1,0 +1,163 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<!-- Dashboard -->
+<app-headermenu class="container-fluid header"></app-headermenu>
+
+<div id="dropdownlist">
+    <div class="dropdown">
+        <button class="dropbtn"><i class="bi bi-filter" style="color: #dec074;float: right;"></i></button>
+        <div class="dropdown-content" style="background-color: #2c2c2c;">
+            <div *ngFor="let moutlet of showmoutletarr ">
+                <a (click)="Transfer(moutlet['_id'])">{{moutlet['shopname']}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="align-content: center;">
+    <div class="col second hero" style="box-shadow: 0px 2px 20px #dec074; padding: 0px;">
+        <div class="row">
+            <div class="col">
+
+                <img class="xclub" src="assets/img/icon.png" alt="" >
+            </div>
+        </div>
+        <img class="hero-profile-img" src="assets/img/card.jpg" alt="" ><br><br><br><br>
+        
+        <div class="row">
+            <div class="col align-self-center" style="position: absolute; bottom: 10px; color: #dec074; text-align: center;">
+                <h3 style="color: #dec074; font-size:28px;">{{doutlet['shopname']}}</h3>
+                <a name="{{month['id']}}" id="deletebtn_{{month['id']}}"
+                    (click)="Transferreview(month['id'])"> {{avgrating | number : '1.1-1'}}&nbsp;&nbsp;<i class="bi bi-star-fill"
+                    style="color: #dec074;"></i> </a>
+
+                <br>
+            <br>
+            <p style="font-weight: 500;">Operating hours: <br>{{doutlet['operatehrsstart']}} -
+                {{doutlet['operatehrsend']}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Booking management -->
+<div class="row" style="align-content: center; margin-left: 10px;margin-right: 10px;">
+    <div class="col">
+        <div class="card" style="background-color: #2c2c2c; border-radius: 20px;">
+            <div class="col-12" style=" align-items: center; border-radius: 20px">
+                <h2
+                    style="color: black;width: 100%; background-color: #dec074;text-align-last: center; background-image: linear-gradient(-20deg , #dec048,#dec064, #dec074); color: #2c2c2c; box-shadow: 2px 2px 20px rgb(222, 192, 116, 0.7); border-top-right-radius: 20px; border-top-left-radius: 20px;">
+                    Today's Activities</h2>
+                <div class="col" style="padding-left: 10px;">
+                    <h4 text-muted style="color: #dec074;" id="event" value="">You have {{todayeventArr['length']}} ongoing
+                        event<a class="text-muted" style="color: grey; float: right; padding-right: 10px;"
+                            name="{{month['id']}}" id="deletebtn_{{month['id']}}"
+                            (click)="Transferevent(month['id'])"><i class="bi bi-arrow-right"></i></a><br>You have
+                        {{venue['length']}} venue booking today
+                        <a class="text-muted" style="color: #2c2c2c; float: right; padding-right: 10px;"
+                            name="{{month['id']}}" id="deletebtn_{{month['id']}}"
+                            (click)="Transferbooking(month['id'])"><i class="bi bi-arrow-right"></i></a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- end -->
+
+        <div class="card"
+            style="background-color: transparent; box-shadow: 0px 2px 10px #dec074;width: auto; text-align-last: center; border-radius: 30px;">
+            <br>
+            <div class="row" style="text-align-last: center; align-self: center; ">
+                <br>
+                <div class="col-auto" style="float: left;">
+                    <h2 style="color: white;">Total Members</h2>
+                    <h1 style="color: #dec074; font-size: 50px; -webkit-text-emphasis-style: double-circle;">
+                        {{pointsgivenArray['length']}}</h1>
+                    <a class="btn btn-link btn-sm" style="color: grey;" name="{{month['id']}}"
+                        id="deletebtn_{{month['id']}}" (click)="Transfermember(month['id'])">See More</a>
+                </div>
+
+            </div>
+            <br>
+        </div>
+        <br>
+
+        <!--Headers-->
+        <div class="row mb-2">
+            <div class="col">
+                <h2 style="color: #dec074;">Voucher Redemption</h2>
+            </div>
+            <div class="col-auto px-0">
+                <a class="btn btn-link btn-sm" style="color: grey;" routerLink="/vredemp">See More</a>
+            </div>
+        </div>
+
+        <!--With Flex-->
+        <div class="card" style="background-color: transparent; box-shadow: 0px 2px 10px #dec074;">
+            <br>
+            <div class="row" style="text-align-last: center; align-self: center; ">
+                <br>
+                <div class="col-auto" style="float: left;">
+                    <h2 style="-webkit-text-emphasis-style: circle; color: white;">{{monthname}}</h2>
+                    <h1 style="color: #dec074; font-size: 50px; -webkit-text-emphasis-style: double-circle;">
+                        {{vmonthArr['length']}}</h1>
+                </div>
+
+                <div class="col" style="float: right; margin-left: 0px;">
+                    <div class="outer circle center-f-inside">
+                        <div class="inner circle center-f-inside">
+                            <div class="col" style="text-align: center;">
+                                <h3 style="color: white;">Today<br>
+                                    <h1 style="font-size: 50px; color: #dec074;">{{vtodayArr['length']}}</h1>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+
+        <!--Headers-->
+        <div class="row mb-2">
+            <div class="col">
+                <h2 style="color: #dec074;">Points Redemption</h2>
+            </div>
+            <div class="col-auto px-0">
+
+                <a class="btn btn-link btn-sm" style="color: grey;" name="{{month['id']}}"
+                    id="deletebtn_{{month['id']}}" (click)="Transfernow(month['id'])">See More</a>
+            </div>
+        </div>
+
+        <!--With Flex-->
+        <div class="card" style="background-color: transparent; box-shadow: 0px 2px 10px #dec074;">
+            <br>
+            <div class="row" style="text-align-last: center; align-self: center; ">
+                <br>
+                <div class="col-auto" style="float: left;">
+                    <h2 style="-webkit-text-emphasis-style: circle; color: white;">{{monthname}}</h2>
+                    <h1 style="color: #dec074; font-size: 50px; -webkit-text-emphasis-style: double-circle;">
+                        {{monthArr['length']}}</h1>
+                </div>
+
+                <div class="col" style="float: right; margin-left: 0px;">
+                    <div class="outer circle center-f-inside">
+                        <div class="inner circle center-f-inside">
+                            <div class="col" style="text-align: center;">
+                                <h3 style="color: white;">Today<br>
+                                    <h1 style="font-size: 50px; color: #dec074;"> {{todayArr['length']}}</h1>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>

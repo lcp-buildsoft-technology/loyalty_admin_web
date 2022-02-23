@@ -1,0 +1,113 @@
+<div class="closemenu text-muted" (click)="menuclose() ">Close Menu</div>
+<div class="sidebar">
+    <div class="row">
+        <div class="col-auto mx-auto text-center" (click)="pro()" (click)="menuclose()" *ngFor = "let reg of onregisterArr">
+            <figure class="avatar avatar-120 rounded-circle mx-auto mb-3">
+                <img src="data:{{ reg['thumbnailType'] }};base64,{{reg['thumbnail']}}" alt=""
+                style="object-fit: cover; height: 150px;">
+            </figure>
+            <h3 style="color: #dec074;">{{reg['name']}}</h3>
+            <p style="border-radius: 10px; border: solid #dec074; color: #dec074;">{{reg['tierlevel']}}</p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <ul class="nav nav-pills" style="color: #dec074;">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="/home" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-house-door"></i></div>
+                        <div class="col">Dashboard</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/notification" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-bell"></i></div>
+                        <div class="col">Notifications</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/locatestorehome" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-shop"></i></div>
+                        <div class="col">Store</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar-check"></i></div>
+                        <div class="col">Online Booking</div>
+                        <div class="arrow"><i class="bi bi-plus plus"></i> <i class="bi bi-dash minus"></i>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item nav-link" routerLink="/bookingvenuehome" routerLinkActive='active' (click)="menuclose()">
+                            <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar-event"></i></div>
+                            <div class="col">Booking Venue</div>
+                            <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                        </a></li>
+                        <li><a class="dropdown-item nav-link" routerLink="/bookingeventhome" routerLinkActive='active' (click)="menuclose()">
+                            <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar-event"></i></div>
+                            <div class="col">Booking Event</div>
+                            <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                        </a></li>                       
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/voucherlist" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-cash"></i></div>
+                        <div class="col">Vouchers</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/referralrewardshome" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-person-bounding-box"></i></div>
+                        <div class="col">Referral Rewards</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+                <li class="nav-item " (click) = "open()">
+                    <a class="nav-link" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-handbag"></i></div>
+                        <div class="col">Point Redemption Program</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+                <!-- <li class="nav-item ">
+                    <a class="nav-link" routerLink="/gamificationhome" routerLinkActive='active' (click)="menuclose()">            
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-controller"></i></div>
+                        <div class="col">Gamification Program</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li> -->
+
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/faqs" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-patch-question"></i></div>
+                        <div class="col">FAQ</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/aboutus" routerLinkActive='active' (click)="menuclose()">
+                        <div class="avatar avatar-40 rounded icon"><i class="bi bi-people-fill"></i></div>
+                        <div class="col">About Us</div>
+                        <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+                    </a>
+                </li>
+
+            </ul>
+            <p style="text-align: center;">Version 1.0.0</p>            
+        </div>
+    </div>
+</div>

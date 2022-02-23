@@ -1,0 +1,56 @@
+<div class="row" style="padding-right: 0;padding-left: 0;">
+    <div class="col-auto pr-0">
+        <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  
+        class="btn btn-link back-btn" routerLink="/home">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074;margin: 0px;"> Referral Reward </h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto pt-4 text-center d-grid gap-2 align-self-center">
+        <p style="font-size: 16px;color: grey;">
+            You and your friend will receive the credits as soon as 
+            the invitees download the app and enters your referral code.
+        </p>
+    </div>
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto pt-4 text-center d-grid gap-2 align-self-center">
+        <ngx-qrcode
+        [elementType]="elementType"
+        [errorCorrectionLevel]="correctionLevel"
+        [value]="value"
+        [width]=300
+        cssClass="coolQRCode"></ngx-qrcode>
+        <!-- <input [(ngModel)]="value" style="padding:10px;font-size:16px;width: 300px;text-align: center;"> -->
+    </div>
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto pt-4 text-center d-grid gap-2 align-self-center">
+        <h2 style="font-size: 25px; font-weight: normal; color: white;">Scan me !</h2>
+        <input [(ngModel)]="value" style="padding:10px;font-size:16px;width: 310px;text-align: center;">        
+    </div>
+        <!-- <figure class="mw-100 text-center mb-3">
+            <img src="assets/img/qr code.png" alt="" class="mw-100">
+        </figure> -->               
+
+    <!-- <div class="mybutton">
+        <button 
+        routerLink="/" 
+        type="submit"
+        style="background-color: transparent;
+        border: 2px solid #dec074; 
+        color: #dec074;"> XCLB 2021 
+    <span style="float: right;"><i class="bi bi-files"></i></span>    
+    </button>
+        <button routerLink="/referralrewardstatus" type="submit"> Invite Friends </button>
+    </div> -->
+</div>

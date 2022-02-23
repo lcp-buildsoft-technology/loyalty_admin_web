@@ -1,0 +1,86 @@
+<div class="lsh" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row">
+        <div class="col-auto pr-0">
+            <button type="button" class="btn btn-link back-btn" (click)="backnav()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074; padding-top: 10px;"> Store </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link">
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link " (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-12 position-relative py-4">        
+        <div class="row justify-content-center z-index-1 position-relative">
+            <div class = "search">    
+                <form style="width: 100%;">
+                    <select [(ngModel)]="selectedValue" name="city" (change)= "getOutlet(this.selectedValue);" 
+                    style="width: 100%;padding:10px;background-color: #2c2c2c;outline: none;color: #dec074;border: none;">
+                        <option *ngFor="let city of citys" [value]="city.viewValue" style="width: 60%;">
+                        {{city.viewValue}}
+                        </option>
+                    </select>
+                </form>
+            </div>
+                
+            <div class="row mb-2">
+                <div class="col">
+                    <h2 style="color: #dec074;"> Recommended Stores </h2>
+                </div>
+            </div>            
+
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-3" style="padding-left: 10px;padding-right: 10px;" *ngFor = "let onout of houtletArr">
+                    <div class="card mb-4" style="background-color: transparent;box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">                   
+                            <img src="data:{{ onout['thumbnailType'] }};base64,{{onout['thumbnail']}}" alt="" style="width: 100%; height: 150px;">
+                    <a (click) = "open(onout)" class="card-body" style="height:120px;">
+                        <div class="row">
+                            <div class="col-12" style="padding-left: 2px;">
+                                <div class="column2">
+                                    <div class="column-right" style="margin-right: -10px;">
+                                        <div class="fee">
+                                            <div class="rating small mx-2" style="float: right;">
+                                                <i class="bi bi-star-fill" style="color: #dec074;"></i> {{onout['avgrating'] |number : '1.1-1'}}
+                                            </div>          
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="column-left">
+                                        <div class = "title">
+                                            <p>{{onout['shopname']}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column2">                                                                       
+                                    <div class="column-left">
+                                        <div class = "subtitle">
+                                            <p style="margin-bottom: 0;">{{onout['operatehrsstart']}} - {{onout['operatehrsend']}} 
+                                            <br>
+                                            {{onout['operateday1']}} - {{onout['operateday2']}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </div>
+                    </a>                    
+                </div>
+                </div>              
+            </div>
+            
+            <div class="result">
+                <p>End of the result</p>
+            </div>
+        </div>                
+    </div>    
+    </div>    
+</div>

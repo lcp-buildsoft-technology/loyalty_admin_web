@@ -1,0 +1,172 @@
+.btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 40px;
+  margin: 4px 4px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.5s;
+  letter-spacing: 1.5px;
+}
+.btn:hover {
+background-color: #dec074;
+color: black;
+font-weight: bold;
+}
+.card{
+  background-color:transparent ;
+}
+
+.left {
+  width: 50%;
+  padding-right: 5px;
+}
+
+.right {
+  width: 50%;
+  padding-left: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// donut graph
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;  
+}
+
+.donut-chart {
+  position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+    border-radius: 100%
+ }
+
+.center {
+  background: black;
+  position: absolute;
+  text-align: center;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  width: 130px;
+  height: 130px;
+  margin: auto;
+  border-radius: 50%;
+  line-height: 35px;
+  padding: 15% 0 0;
+}
+    
+    
+.portion-block {
+    border-radius: 50%;
+    clip: rect(0px, 200px, 200px, 100px);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+.circle {
+    border-radius: 50%;
+    clip: rect(0px, 100px, 200px, 0px);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-align:left;
+
+  }
+    
+    
+#part1 {
+    transform: rotate(0deg);
+  }
+
+    #part1 .circle {
+        background-color: #dec074;
+        transform: rotate(76deg);
+        animation: first 1s 1 forwards;
+      }
+    
+    
+#part2 {
+    transform: rotate(100deg);
+  }
+#part2 .circle {
+    background-color: #dec074;
+    animation: second 1s 1 forwards 1s;
+  }
+#part3 {
+    transform: rotate(250deg);
+}
+    #part3 .circle {
+        background-color: #dec074;
+        animation: third 0.5s 1 forwards 2s;
+    }
+    
+    
+/* Animation */
+@keyframes first {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(100deg);}
+}
+    
+@keyframes second {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(150deg);}
+}
+    
+@keyframes third {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(111deg);}
+}
+
+
+  
+:host ::ng-deep .mat-tab-label-active {
+color:#dec074;    
+width:100%;
+display: flex;
+justify-content: space-evenly;
+}
+:host ::ng-deep .mat-tab-label {
+color:white;    
+width:100%;
+
+}
+
+::ng-deep .mat-tab-body-content
+{
+color: white;
+
+}
+
+::ng-deep .mat-tab-label, .mat-tab-link{
+color:white;
+width:100%;
+background-color:transparent !important;
+
+}
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+background-color:#dec074;
+}
+::ng-deep .mat-tab-body-content{
+background-color:transparent;
+
+}
+
+.row{
+  --bs-gutter-x: 0rem;
+}

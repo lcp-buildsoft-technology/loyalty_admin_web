@@ -1,0 +1,295 @@
+<style>
+    .row {
+        position: relative;
+        padding-right: 30px;
+    }
+    
+    body {
+        display: table;
+        margin: auto;
+    }
+    
+    .avatar {
+        width: 250px;
+        height: 250px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    
+    .card {
+        background-color: #2c2c2c;
+        margin: auto;
+    }
+    
+    .validation {
+        font-weight: 500;
+        font-size: 1em;
+        color: rgb(255, 0, 0) !important;
+    }
+    /* // ------------------------loader------------------------ */
+    
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+    
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+    
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+    
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(180deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        75% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+        25% {
+            height: 0%;
+        }
+        50% {
+            height: 100%;
+        }
+        75% {
+            height: 100%;
+        }
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class="content">
+        <div class="card" style="padding: 50px 50px 50px 50px;">
+            <div class=" card-header">
+                <h3 class=" card-title" style="color: #dec074; font-weight: bolder;font-size: 1.5em;margin-top: 3px;">
+                    About Us
+                </h3>
+            </div>
+            <div class="card-body">
+
+                <input *ngIf="thisedit" type="file" class="form-control" id="image-upload" (change)="onselectFile($event)" accept="image/png, image/jpeg" style="width: 50%; object-fit: cover; border: none;color:transparent" name="file">
+                <p class="validation">{{ valid['picture'] }}</p>
+                <br>
+                <img id="newimg" src="{{ url }}" />
+                <img id="ogimg" src="data:{{ imagetype }};base64,{{ image }}" />
+
+                <div class=" row">
+                    <div class=" col-md-12">
+                        <div class=" form-group">
+                            <br><br>
+                            <label style="color: #dec074; font-size: 140%;">Edit Description:</label>
+                            <p class="validation">{{ valid['description'] }}</p>
+                            <textarea class=" form-control" name="aboutusdesc" id="aboutusdesc" [(ngModel)]='editaboutus.description' cols="80" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class=" row">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <button type="button" class="ed" name="editclass" *ngIf="thisedit" (click)='updateAboutUs(editaboutus)'>Save</button>&nbsp;&nbsp;
+                        <button type="button" class="ed" *ngIf="thisedit" (click)='goBack()'>Cancel</button>
+                    </div>
+                </div>
+
+                <br><br>
+                <hr style="border: 0.1px solid #dec074"><br><br>
+
+                <!--------------------------------- Contact Info ---------------------------------->
+                <div class=" row">
+                    <div class=" col-md-12">
+                        <div class=" ">
+                            <div class=" ">
+                                <h3 class=" card-title" style="color: #dec074; font-weight: bolder;font-size: 1.5em;margin-top: 3px;">
+                                    Contact Information
+                                </h3>
+                                <!-- + New Info Button -->
+                                <div class="abtn">
+                                    <input type="button" name="addclass" *ngIf="thisadd" (click)="addEdit(add)" class="mbtn" value="+ New Info">
+                                </div>
+                            </div>
+
+                            <div class=" ">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class=" table tablesorter" id="contacttablee" style="top: 50%; left: 50%;">
+
+                                    <thead class=" text-primary">
+                                        <tr>
+                                            <th class="text-center" style="color: #dec074;">Action</th>
+                                            <th class="text-center" style="color: #dec074;">Label</th>
+                                            <th class="text-center" style="color: #dec074; max-width: 350px;">Content
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let info of contactinfo">
+                                            <td class="text-center">
+                                                <div ngbDropdown class="dropdown">
+                                                    <div class="button-secondary" ngbDropdownToggle><i class="tim-icons icon-bullet-list-67" style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                                    </div>
+                                                    <div ngbDropdownMenu aria-labelledby="" class="dropdown-content" style="padding: 0">
+                                                        <div (click)="openEdit(edit, info)" *ngIf="thisedit">
+                                                            <div class="dd" type="button" style="cursor: pointer; font-size: 12px;">
+                                                                <a href="javascript:void(0)" title="Edit">
+                                                                    <i class="tim-icons icon-pencil" style="font-size: 1.2em"></i>&nbsp;Edit
+                                                                </a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div (click)="openDelete(delete,info)" *ngIf="thisdelete">
+                                                            <button class="dd" ngbDropdownItem style="cursor: pointer;">
+                                                                <a href="javascript:void(0)" title="delete">
+                                                                    <i
+                                                                        class="tim-icons icon-trash-simple"></i>Delete</a>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center" style="color: #dec074 !important">{{info.label}}
+                                            </td>
+                                            <td style="max-width: 300px;">{{info.content}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <ng-template #add let-modal>
+        <div class="modal-header">
+            <div class="modal-title" id="modal-basic-title">Add New Info</div>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross Click')">
+                <span style="text-align: right;" aria-hidden="true" style="color: white">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+
+                <div class=" form-group">
+                    <label> New Label </label>
+                    <input [(ngModel)]='addContactInfo.label' name="label" class=" form-control" type="text" maxlength="20" autocomplete="off" />
+                    <p class="validation">{{ valid['label'] }}</p>
+
+
+                    <label> Content </label>
+                    <input [(ngModel)]='addContactInfo.content' name="content" class=" form-control" type="text" maxlength="130" autocomplete="off" />
+                    <p class="validation">{{ valid['content'] }}</p>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="ed" style="margin-left: 290px;" (click)="sendContactInfo(); modal.dismiss();">Save</button>&nbsp;&nbsp;
+            <button type="reset" class="ed" (click)='modal.dismiss()'>Cancel</button>
+        </div>
+    </ng-template>
+
+    <!-- Edit Popup -->
+    <ng-template #edit let-modal>
+        <div class="modal-header">
+            <div class="modal-title" id="modal-basic-title">Edit Contact Info</div>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross Click')">
+                <span style="text-align: right;" aria-hidden="true" style="color: white">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form method="post" action="/">
+                <div class="row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label> Label </label>
+                            <input [(ngModel)]='editcontactinfo.label' name="label" class=" form-control" type="text" autocomplete="off" />
+                            <p class="validation">{{ valid['label'] }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label> Content </label>
+                            <input [(ngModel)]='editcontactinfo.content' name="content" class=" form-control" type="text" autocomplete="off" />
+                            <p class="validation">{{ valid['content'] }}</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="ed" style="margin-left: 290px;" (click)="updateInfo(editcontactinfo); modal.dismiss();">Save</button>&nbsp;&nbsp;
+            <button type="button" class="ed" (click)='modal.dismiss()'>Cancel</button>
+        </div>
+    </ng-template>
+
+    <!-- Delete Popup -->
+    <ng-template #delete let-modal>
+        <div class="modal-header">
+            <div class="modal-title" id="modal-basic-title">Delete Contact Info</div>
+            <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <p style="color:#dec074">Label: <span style="color:white;"> {{ editcontactinfo.label }}</span></p>
+                    <p style="color:#dec074">Content: <span style="color:white;">{{ editcontactinfo.content }}</span>
+                    </p>
+                    <div style="color:red" class="dlt">Are you sure you want to delete ?</div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="ed" (click)="deleteInfo(editcontactinfo)">Yes</button>&nbsp;&nbsp;
+            <button type="button" class="ed" (click)='modal.dismiss()'>Cancel</button>
+        </div>
+    </ng-template>
+</body>

@@ -1,0 +1,79 @@
+p {
+    color: #dec074;
+}
+
+a>i {
+    color: #dec074;
+}
+
+ul {
+    padding: 0px 0px 0px 15px;
+    list-style-type: none;
+}
+
+ul>li>ul {
+    background-color: #1a1a1a;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: grey grey;
+}
+
+ul.nav {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px;
+}
+
+
+/* Works on Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+    width: 2px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(87, 87, 87);
+    border-radius: 20px;
+    border: 0px solid grey;
+}
+
+.icon-settings-gear-63 {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+}
+
+.icon-settings-gear-63.down {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.icon-molecule-40 {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+}
+
+.icon-molecule-40.down {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.icon-support-17 {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+}
+
+.icon-support-17.down {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

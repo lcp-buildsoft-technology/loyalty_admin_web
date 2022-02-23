@@ -1,0 +1,174 @@
+/*# sourceMappingURL=dashboard-free.css.map */
+
+.form-control {
+    border: 1px solid #dec074 !important;
+    width: 100%;
+    border-radius: 5%;
+    color: #dec074 !important;
+}
+
+.col-lg-1>i {
+    padding: 5px 0px;
+    font-size: 1.25em;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 34px;
+    margin-top: 10%;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #dec074;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #dec074;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(28px);
+    -ms-transform: translateX(28px);
+    transform: translateX(28px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/*ADD*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #dec074 !important;
+}
+
+.card-stats {
+    background-color: #2c2c2c;
+}
+
+.card-stats .card-body {
+    padding: 1.5rem 1.5rem;
+}
+
+.card-stats .card-body h5 {
+    font-size: 10px;
+}
+
+.card-stats .card-status-bullet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.icon-shape {
+    padding: 12px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+}
+
+.icon-shape .icon-lg i {
+    font-size: 1.625rem;
+}
+
+.icon-shape .icon-lg svg {
+    font-size: 1.625rem;
+}
+
+.icon-shape .icon-sm i {
+    font-size: 1.625rem;
+}
+
+.icon-shape .icon-sm svg {
+    font-size: 1.625rem;
+}
+
+.icon-shape i,
+.icon-shape svg {
+    font-size: 1.25rem;
+}
+
+.icon-shape svg {
+    width: 30px;
+    height: 30px;
+}
+
+.bg-info {
+    color: #dec074 !important;
+    background-color: #dec0741e !important;
+}
+
+.btn-group .btn.active {
+    color: #dec074 !important;
+    border-bottom: 2px solid #dec074 !important;
+    background-image: #dec074 !important;
+}
+
+.btn.btn-simple,
+.navbar .navbar-nav>a.btn.btn-simple {
+    background: transparent !important;
+}
+
+.h2 {
+    color: #dec074;
+}
+
+.card {
+    background-color: #2c2c2c;
+}
+
+.fa-ellipsis-v {
+    color: #dec074;
+}
+
+.card-title {
+    font-weight: 600;
+}

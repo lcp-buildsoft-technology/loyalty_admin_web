@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-auto pr-0">
+        <button type="button" class="btn btn-link back-btn" routerLink="/home" style="background-color: black;border: none;color: #dec072;">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="background-color: black;border: none;color: #dec072;">
+            <i class="bi bi-house"></i>
+        </a>
+        <a class="btn btn-link " (click) ="acc()" style="background-color: black;border: none;color: #dec072;">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 position-relative px-0 mb-4" >
+        <div class="row mb-4" style="height: 200px;margin-top: 0;">
+            <div class="col-12 py-4">
+                <div>
+                    <img src="data:{{ imagetypeArr }};base64,{{ image1arr}}" style="padding-top: 0; width: 100%;height: 30vh; object-fit: cover;"/>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        
+        <div class="container-fluid" style="height: 50vh">
+            <div style="border-bottom: 6px solid gray; width: 30%; margin: auto"></div>
+            <div class="col-12 mb-4">
+                <br>
+                <h2 style="color: black; font-size: 25px;margin-bottom: 0;">{{advertisement['title']}}</h2>
+                <br>
+                <small style="color: #636060;">Shopname: {{advertisement['merchant']}} </small>
+                <br>
+                <small style="color: #636060;">Valid from: {{advertisement['sdate']}} till {{advertisement['edate']}}</small>
+                <br> <br>
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h4><b>Description</b></h4>
+                        <p class="mb-1" style="margin-top: 15px;">{{advertisement['detail']}}</p>    
+                    </div>
+                </div>
+                <br> <br>
+                
+                <div class="row mb-4">
+                    <div class="col-15 d-grid">
+                        <a class="btn" style="font-size: 15px;" routerLink="/home">Close</a>
+                    </div>
+                </div>
+                        
+            </div>
+        </div>
+    </div>
+</div>
+

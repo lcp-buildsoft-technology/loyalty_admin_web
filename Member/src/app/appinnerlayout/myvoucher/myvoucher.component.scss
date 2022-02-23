@@ -1,0 +1,152 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}
+
+button[type = "button"]
+{
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    color: black;
+    font-size: 15px;
+}
+
+p .font
+{
+    color: white;
+}
+
+.cbtn {
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    width: 20vh;
+    padding: 10px;
+  }
+
+  .cbtn:hover {
+   background-color: #dec074;
+   color: black;
+  }
+
+  .history
+  {
+      float: right;
+  }
+
+  select
+{
+border: none;
+outline: none;
+color: #dec074;
+background-color: transparent;
+font-size: 20px;
+}
+
+option
+{
+background-color: #2c2c2c;
+color: #dec074;
+font-size: 16px;
+}
+
+.search
+{    
+  box-sizing: border-box;
+}
+form 
+{
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%; 
+  border-radius:20px;
+  border: none;
+  font-size: 25px;
+  background-color: #2c2c2c;
+  margin-bottom: 5px;
+  padding: 5px;    
+}
+
+.icon {
+  padding: 5px;
+  color: rgb(175, 168, 168);
+  min-width: 50px;
+  text-align: center;
+  font-size: 20px;    
+}
+
+.input-field {
+  width: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+}
+
+.input-field::placeholder
+{
+  color: rgb(175, 168, 168);
+}
+
+input[type = "text"]
+{
+    font-size: 18px;
+}
+
+::ng-deep .mat-card
+{
+    background-color: #2c2c2c;
+    color: white;
+}
+
+:host ::ng-deep .mat-tab-label-active {
+  color:#dec074;    
+  width:100%;
+}
+:host ::ng-deep .mat-tab-label {
+  color:white;    
+  width:100%;
+}
+
+::ng-deep .mat-tab-body-content
+{
+    color: white;
+}
+
+::ng-deep .mat-tab-label, .mat-tab-link{
+  color:white;
+  width:25%;
+  background-color:transparent !important;
+}
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color:#dec074;
+}
+::ng-deep .mat-tab-body-content{
+  background-color:transparent;
+}
+
+
+.Pending {
+  color:#ff0134;
+}
+
+.Redeemed{
+  color:#ADFF2F;
+}

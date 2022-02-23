@@ -1,0 +1,63 @@
+<div class="row  mb-4 top-20" >
+    <div class="col-12 text-center position-relative py-4" style="background-color:black; color: #dec704; font-weight: 800; width: 100%;">
+        <div class="coverimg position-absolute top-0 start-0 h-100 w-100 opacity-3" style="background-image: url('assets/img/logox.png')">
+            <img src="assets/img/user1.jpg" alt="">
+        </div>
+ 
+     <div class="row" >
+        <div class="col-12 position-relative py-4" style="align-items: center;">
+               <input style="display: none" type="file" (change)="onFileSelected($event)" #fileInput>
+               <button class="bt btn-upload" type="button" (click)="fileInput.click()"><i class="bi bi-upload" style="color:black; height: 50px; width: 50px;"></i></button>
+     </div>
+     <br>
+     <p>Upload Image</p>
+</div>
+</div>
+</div>
+ 
+<!-- profile information -->
+<div class="row mb-2">
+    <div class="col">
+        <h4 class="my-1">Basic Information</h4>
+    </div>
+</div>
+<div class="row h-100 mb-4">
+    <div class="col-12 col-md-6 col-lg-4" style="width: 100%;">
+        <div class="form-group form-floating  mb-3" style="box-shadow:0 4px 8px 0 rgba(222,199, 4, 0.3), 0 6px 20px 0 rgba(222,199, 4, 0.29)">
+            <input type="text" class="form-control" value="Ajinkya " placeholder="Name" id="names">
+            <label for="names">Name</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4"  style="width: 100%;">
+        <div class="form-group form-floating   mb-3" style="box-shadow:0 4px 8px 0 rgba(222,199, 4, 0.3), 0 6px 20px 0 rgba(222,199, 4, 0.29)">
+            <input type="text" class="form-control" value="McMohan" placeholder="Surname" id="surnames">
+            <label for="surnames">Surname</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" style="width: 100%;">
+        <div class="form-group form-floating  mb-3" style="box-shadow:0 4px 8px 0 rgba(222,199, 4, 0.3), 0 6px 20px 0 rgba(222,199, 4, 0.29)">
+            <input type="text" class="form-control" value="0123456789" placeholder="Phone Number"
+                id="phone">
+            <label for="phone">Phone Number </label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" style="width: 100%;">
+        <div class="form-group form-floating  mb-3" style="box-shadow:0 4px 8px 0 rgba(222,199, 4, 0.3), 0 6px 20px 0 rgba(222,199, 4, 0.29)">
+            <input type="text" class="form-control" value="info@maxartkiller.com" placeholder="Email"
+                id="email">
+            <label for="email">Email </label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" style="width: 100%;">
+        <div class="form-group form-floating  mb-3" style="box-shadow:0 4px 8px 0 rgba(222,199, 4, 0.3), 0 6px 20px 0 rgba(222,199, 4, 0.29)">
+            <input type="text" class="form-control" value="Write something about your shop" placeholder="Bio"
+                id="bio">
+            <label for="bio">Bio </label>
+        </div>
+    </div>
+</div>
+<div class="row h-100 mb-4">
+    <div class="col-12 d-grid" style="width: 100%;"><a routerLink="settings.html" target="_self" class="btn btn-default mt-3" style="background-color: #dec704; color: black;">Update</a></div>
+</div>
+ 
+<br>

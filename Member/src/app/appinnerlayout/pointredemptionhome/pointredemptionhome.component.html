@@ -1,0 +1,233 @@
+<div class="pdrhome" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  
+            class="btn btn-link back-btn" routerLink = "/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 
+                style="color: #dec074;margin: 0px;overflow: hidden;text-overflow: ellipsis;
+                display: -webkit-box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;"> 
+                Point Redemption Program 
+            </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-white position-relative py-4">        
+            <div class="row justify-content-center z-index-1 position-relative">
+                <div class = "search">    
+                    <form action="#">
+                        <div class="input-container">
+                            <i class="material-icons icon">search</i>
+                            <input [(ngModel)] = "searchRedemption" class="input-field" type="text" placeholder="Search Rewards" name="redemption" autocomplete="off">
+                        </div>
+                    </form>    
+                </div> 
+                <div class="col-12 col-md-6" id="Bronze" style="display: none;">
+                    <div class="card shadow-sm mb-4" style="
+                    /* background-image: url(/assets/img/card.jpg); */
+                    /* background-repeat: no-repeat;     */
+                    /* background-position: center; */
+                    border-radius: 20px;
+                    background: linear-gradient(to bottom, #202020 0%, #505050 100%);">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col" *ngFor="let profile of registerArr">
+                                    <figure class="avatar avatar-50">
+                                        <img src="assets/img/logox.png" alt="">
+                                    </figure>
+                                    <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto">
+                                        {{profile['name']}}</h3>
+                                    <button (click)="points()" type="button">Earn More Points</button><br><br>
+                                    <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                                    <p class="small" style="color: white; font-size: 14px;"><i>{{profile['createdat']}}</i></p>
+                                </div>
+                                <div class="col-auto align-self-center">
+                                    <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                        <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current |number : '1.0-0'}}
+                                            Points</div>
+                                        <round-progress [current]="current" [max]="max"
+                                            [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                            [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                            [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                            [animationDelay]="animationDelay"></round-progress>
+                                    </div>
+                                    <p style="color: #dec074;text-align: center;font-size: 16px;">Tier: Bronze</p>
+                                    <p class="small" style="color: white; padding-top: 10px;text-align: center;">{{remainingpoints}}
+                                        points to <i id="level"> </i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-12 col-md-6" id="Silver" style="display:none;">
+                    <div class="card shadow-sm mb-4" style="
+                    background-image: url(/assets/img/card.jpg);
+                    background-repeat: no-repeat;    
+                    background-position: center;
+                    border-radius: 20px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col" *ngFor="let profile of registerArr">
+                                    <figure class="avatar avatar-50">
+                                        <img src="assets/img/logox.png" alt="">
+                                    </figure>
+                                    <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto;">
+                                        {{profile['name']}}</h3>
+                                    <button (click)="points()" type="button">Earn More Points</button><br><br>
+                                    <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                                    <p class="small" style="color: white; font-size: 15px;"><i>{{profile['createdat']}}</i></p>
+                                </div>
+                                <div class="col-auto align-self-center">
+                                    <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                        <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current | number : '1.0-0'}}
+                                            Points</div>
+                                        <round-progress [current]="current" [max]="max"
+                                            [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                            [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                            [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                            [animation]="animation" [animationDelay]="animationDelay"></round-progress>
+                                    </div>
+                                    <p style="color: #dec074;text-align: center;font-size: 18px;">Tier: Silver</p>
+                                    <p class="small" style="color: white; padding-top: 10px;text-align: center;">{{remainingpoints}}
+                                        points to <i id="level2"> </i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-12 col-md-6" id="Gold" style="display: none;">
+                    <div class="card shadow-sm mb-4" style="
+                    background-image: url(/assets/img/card.jpg);
+                    background-repeat: no-repeat;    
+                    background-position: center;
+                    border-radius: 20px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col" *ngFor="let profile of registerArr">
+                                    <figure class="avatar avatar-50">
+                                        <img src="assets/img/logox.png" alt="">
+                                    </figure>
+                                    <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto;">
+                                        {{profile['name']}}</h3>
+                                    <button (click)="points()" type="button">Earn More Points</button><br><br>
+                                    <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                                    <p class="small" style="color: white; font-size: 15px;"><i>{{profile['createdat']}}</i></p>
+                                </div>
+                                <div class="col-auto align-self-center">
+                                    <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                        <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current |number : '1.0-0'}}
+                                            Points</div>
+                                        <round-progress [current]="current" [max]="max"
+                                            [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                            [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                            [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                            [animation]="animation" [animationDelay]="animationDelay"></round-progress>
+                                    </div>
+                                    <p style="color: #dec074;text-align: center;font-size: 18px;">Tier: Gold</p>
+                                    <p class="small"
+                                        style="color: white; padding-top: 10px;word-wrap: break-word;text-align: center;">You have
+                                        reached <br> the maximum level</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="width: 100%; margin: 0;margin-top: 5px;">
+                    <div class="col-12 mb-3 px-0">
+                        <mat-tab-group mat-align-tabs="start">
+                            <mat-tab label="Browse">
+                                <div class="row mt-3">
+                                    <div class="col-12" *ngFor = "let can of canonlinestoreArr | redemption:searchRedemption">
+                                        <div class="card mb-4" (click)="open(can)"
+                                        style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-top: 15px; padding-left: 15px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p style="font-size: 18px;color: #dec074;">{{can['name']}}<br><small style="color: white;">Price: RM {{can['price']}}</small></p>
+                                                            
+                                                        </div>
+                                                        <div class="col-auto text-end">
+                                                            <p>
+                                                                <small style="font-size: 18px;" class="text-success">{{can['redemp']}} Pts</small>
+                                                                <br><small style="color: white;">
+                                                                    <a style="text-decoration:none; color:white;">T&C</a></small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-12" *ngFor = "let past of pastonlinestoreArr | redemption:searchRedemption">
+                                        <div class="card mb-4" (click)="go(past)"
+                                        style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-top: 15px; padding-left: 15px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p style="font-size: 18px;color: #dec074;">{{past['name']}}<br><small style="color: white;">Price: RM {{past['price']}}</small></p>
+                                                            
+                                                        </div>
+                                                        <div class="col-auto text-end">
+                                                            <p>
+                                                                <small style="font-size: 18px;" class="text-success">{{past['redemp']}} Pts</small>
+                                                                <br><small style="color: white;">
+                                                                    <a style="text-decoration:none; color:white;">T&C</a></small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="History">
+                                <div class="row mt-3">
+                                    <div class="col-12" *ngFor = "let userproduct of onuserproductArr | redemption:searchRedemption">
+                                        <div class="card mb-4" (click) = "goto(userproduct)"
+                                        style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-top: 15px; padding-left: 15px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p style="font-size: 18px;color: #dec074;">{{userproduct['name']}}<br><small style="color: white;">Price: RM {{userproduct['price']}}</small></p>
+                                                            
+                                                        </div>
+                                                        <div class="col-auto text-end" >
+                                                            <p>
+                                                                <small style="font-size: 18px;" class="text-danger">-{{userproduct['redemp']}} Pts</small>
+                                                                <br><small style="font-size: 18px;" [ngClass] = "userproduct.status">{{userproduct['status']}}</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>                
+                </div>           
+            </div>       
+        </div>    
+    </div>  
+</div>

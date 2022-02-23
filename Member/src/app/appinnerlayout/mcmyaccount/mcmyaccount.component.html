@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="outer">        
+        <img src="data:{{ imagetypeArr }};base64,{{ image1arr}}" alt="">
+      <div class="inner"> 
+        <input class="inputfile" id="fileimage" type="file" name="file"/>     
+      </div>
+    </div>
+</div>
+<!-- profile information -->
+<div class="row" style="align-self: center; margin-inline-start: 10px; background-color: black;"></div>
+<div class="row">
+    <div class="col">
+        <h3 style="color: #dec074;">Basic Information</h3>
+    </div>
+</div>
+<div class="row h-100 mb-4">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group form-floating   mb-3">
+            <input type="text" class="form-control" disabled value ="{{merchant.companyname}}" name="username">
+            <label for="companyname">Company Name</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group form-floating   mb-3">
+            <input type="text" class="form-control" disabled value ="{{merchant.regno}}" name="username">
+            <label for="regno">Registration No</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group form-floating  mb-3">
+            <input type="text" class="form-control" disabled value ="{{merchant.email}}"
+                name="emailaddress">
+            <label for="emailaddress">Email Address</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group form-floating  mb-3">
+            <input type="text" class="form-control" disabled value ="{{merchant.contact}}"
+                name="phonenumber">
+            <label for="phone">Phone Number</label>
+        </div>
+    </div>
+</div>
+
+<!-- add edit address form -->
+<div class="row mb-2">
+    <div class="col">
+        <h3 style="color: #dec074;">Address Change</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="address1"
+                disabled value ="{{merchant.address}}">
+            <label class="form-control-label" for="address1">Address Line 1</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="address2" disabled value ="{{merchant.fb}}">
+            <label class="form-control-label" for="address3">Facebook</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="address3" disabled value ="{{merchant.ig}}">
+            <label class="form-control-label" for="address3">Instagram</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="twitter" disabled value ="{{merchant.twitter}}">
+            <label class="form-control-label" for="twitter">Twitter</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="linkedin" disabled value ="{{merchant.linkedin}}">
+            <label class="form-control-label" for="linkedin">LinkedIn</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="tiktok" disabled value ="{{merchant.tiktok}}">
+            <label class="form-control-label" for="tiktok">Tiktok</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="bankacc" disabled value ="{{merchant.bankacc}}">
+            <label class="form-control-label" for="bankacc">Bank Account Number</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="bankname" disabled value ="{{merchant.bankname}}">
+            <label class="form-control-label" for="bankname">Bank Name</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" name="swiftcode" disabled value ="{{merchant.swiftcode}}">
+            <label class="form-control-label" for="swiftcode">Swift Code</label>
+        </div>
+    </div>
+</div>
+
+
+<div class="row h-100 mb-4">
+    <div class="col-12 d-grid"><a (click)="go()" target="_self" class="btn btn-default mt-3">Update Profile</a></div>
+</div>

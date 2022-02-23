@@ -1,0 +1,78 @@
+#upload {
+    color: white!important;
+    font-size: 13px;
+}
+
+.content {
+    background-color: #181818 !important;
+    /* added */
+    overflow: hidden;
+    opacity: 1.0;
+}
+
+.card {
+    background-color: #2c2c2c !important;
+    /* added */
+}
+
+.sbtn {
+    background-color: #dec074;
+    color: black;
+    border: 3px solid #dec074;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+    line-height: 0.3em;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.sbtn:active {
+    transform: translateY(4px);
+}
+
+.sbtn:hover {
+    background-color: black;
+    color: white;
+    border: 3px solid black;
+}
+
+.form-control {
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-radius: 0%;
+    border-color: #dec074;
+}
+
+.card-title {
+    color: #dec074!important;
+    font-weight: 500!important;
+}
+
+.form-control-file {
+    color: #dec074;
+}
+
+label {
+    color: #dec074;
+    font-size: 1em;
+}
+
+.abtn {
+    margin-left: 69%;
+}
+
+.validation {
+    font-weight: 500;
+    font-size: 1em;
+    color: rgb(255, 0, 0) !important;
+  }
+  
+  option{
+    color:black;
+}

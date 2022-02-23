@@ -1,0 +1,53 @@
+.sbtn {
+    background-color: #dec074 ;
+    color:#2c2c2c ;
+    border: 2px solid #dec074 ;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 35px;
+    line-height: 1em;
+    border-radius: 1rem;
+    cursor:pointer;
+    margin-left: 80%;
+  }
+
+  .sbtn:active {
+    transform: translateY(4px);
+  }
+
+  .content {
+    background-color: #181818 !important;
+    overflow: hidden;
+    opacity: 1.0;
+  }
+
+  .card {
+    background-color: #2c2c2c !important;
+    width: 90%;
+  }
+
+  h2, label{
+    color:#dec074!important;
+  }
+
+  .form-control{
+    border-top:transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-radius: 0%;
+    border-color: #dec074;
+  }
+
+.modal-title{
+  color:#dec074!important;
+  font-size:20px!important;
+}
+
+
+  .validation {
+    font-weight: 500;
+    font-size: 1em;
+    color: rgb(255, 0, 0) !important;
+  }

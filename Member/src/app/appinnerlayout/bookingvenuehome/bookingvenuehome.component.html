@@ -1,0 +1,103 @@
+<div class="bvh" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row" style="padding-top: -10px;margin-top: -10px;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" routerLink ="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-12 position-relative py-4">        
+            <div class="row justify-content-center z-index-1 position-relative">
+                <div class="row mb-4">            
+                    <h2 style="text-align: center; color: #dec074;">Choose an ideal location, <br> your venue booking</h2>
+                </div>
+                <div class="row">
+                    <div class="col-12 d-grid">
+                        <form>
+                            <div class="container">
+                                    <label for="location">Location</label>
+                                    <div class="input-container" style="border-bottom:1px solid white;">          
+                                        <select [(ngModel)]="selectedValue" name="city" (change)= "getHoutlet();" 
+                                            style="width: 100%;padding:10px;background-color: #2c2c2c;outline: none;color: white;border: none;">
+                                            <option *ngFor="let city of citys" [value]="city.viewValue" style="width: 60%;">
+                                                {{city.viewValue}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                <button (click)=result() type="submit"> Search Venue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <br>
+                             
+                <div class="row">
+                    <h2 style="color: #dec074;padding-top: 10px;">Popular Venues</h2>
+                    <div class="container px-0">
+                        <swiper class="swipertrending" [slidesPerView]="1.8" [spaceBetween]="15" [pagination]="false">
+                            <ng-template swiperSlide *ngFor="let hout of houtletArr">
+                                <div class="card mb-4" style="
+                                background-color: transparent;height: 300px;
+                        box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <img src="data:{{ hout['thumbnailType'] }};base64,{{hout['thumbnail']}}" alt=""
+                                                style="height: 150px;width: 100%; object-fit: fill;">
+                                   
+                                    <a (click)="detail(hout)" class="card-body">
+                                        <div class="row">
+                                            <div class="col-12" style="padding-left: 2px;">
+                                                <div class="column2">
+                                                    <div class="column-right" style="margin-right: -10px;">
+                                                        <div class="fee">
+                                                            <div class="rating small mx-2" style="float: right;">
+                                                                <i class="bi bi-star-fill" style="color: #dec074;"></i> {{hout['avgrating'] |number : '1.1-1'}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                    <div class="column-left">
+                                                        <div class="title">
+                                                            <p>{{hout['shopname']}} </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="column2">
+                                                    <div class="column-left">
+                                                        <div class="subtitle align-self-center">
+                                                            <p>
+                                                                <i class="bi bi-clock"></i>
+                                                                {{hout['operatehrsstart']}} - {{hout['operatehrsend']}}
+                                                                <br>
+                                                                {{hout['operateday1']}} - {{hout['operateday2']}}
+                                                                <i class="bi bi-three-dots"
+                                                                    style="color: #dec074;float: right; font-size: 20px;"></i>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </ng-template>
+                        </swiper>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

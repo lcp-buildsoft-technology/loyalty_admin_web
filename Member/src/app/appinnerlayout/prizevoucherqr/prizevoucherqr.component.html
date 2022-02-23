@@ -1,0 +1,35 @@
+<div class="pvqr" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  class="btn btn-link back-btn" (click)="backnav()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> Gamification </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-12 align-self-center text-center">
+            <h2 style="font-size: 25px; font-weight: normal; color: white;">Congratulations! You have won</h2>
+            <br>
+            <qr-code [value]="dataToString" [size]="300"></qr-code>
+            <br><br>
+            <h2 style="font-size: 25px; font-weight: normal; color: white;">{{gamevoucher['title']}}</h2>   
+            <p style="color: grey;">Valid from : {{gamevoucher['sdate']}} till {{gamevoucher['edate']}}</p>     
+        </div>
+
+        <div class="mybutton">        
+            <button (click) = "close()"> Close </button>
+        </div>
+    </div>
+</div>

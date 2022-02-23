@@ -1,0 +1,117 @@
+.form{
+  background-color: transparent;
+  color: #dec074;
+  box-shadow: 2px 2px 10px #dec074;
+}
+
+//upload button
+.bt {
+  background-color: #dec074;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  padding: 12px 16px;
+  margin: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+/* Darker background on mouse-over */
+.bt:hover {
+  background-color: dimgrey;
+  opacity: 0.3;
+}
+
+.input{
+  background-color: transparent;
+  box-shadow: 0px 2px 10px #dec074;
+  color: white;
+  
+}
+
+.input:label{
+  color: #dec074;
+}
+
+//profile image
+
+.container {
+width: 200px;
+height: 200px;
+display: block;
+margin: 0 auto;
+}
+
+.outer {
+width: 100% !important;
+height: 100% !important;
+max-width: 150px !important; /* any size */
+max-height: 150px !important; /* any size */
+margin: auto;
+background-color: #2c2c2c;
+border-radius: 100%;
+position: relative;
+}
+
+.outer img{
+width: 100% !important;
+height: 100% !important;
+max-width: 150px !important; /* any size */
+max-height: 150px !important; /* any size */
+margin: auto;
+background-color: #2c2c2c;
+border-radius: 100%;
+position: relative;
+}
+
+.inputfile {
+opacity: 0;
+overflow: hidden;
+position: absolute;
+cursor: pointer;
+z-index: 1;
+width: 50px;
+height: 50px;
+}
+
+.inputfile + label {
+font-size: 1.25rem;
+text-overflow: ellipsis;
+white-space: nowrap;
+display: inline-block;
+overflow: hidden;
+width: 50px;
+height: 50px;
+pointer-events: none;
+cursor: pointer;
+line-height: 50px;
+text-align: center;
+
+}
+
+.inputfile + label svg {
+fill: #fff;
+}
+
+label {
+color: #dec074;
+}
+
+.btn {
+width: 100%;
+height: 38px;
+outline: none;
+background-color: #dec074;
+color: black;
+font-size: 20px;
+letter-spacing: 1px;
+border-radius: 5px;
+margin-top: 18px;
+cursor: pointer;
+transition: 0.5s;
+}
+
+.row{
+  --bs-gutter-x: 0rem;
+}

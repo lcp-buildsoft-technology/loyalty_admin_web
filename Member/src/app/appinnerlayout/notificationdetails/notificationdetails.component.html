@@ -1,0 +1,53 @@
+<div class="row" >
+    <div class="col-auto pr-0">
+        <button type="button" style="background-color: transparent;outline: none;border: none;color: #dec074;" 
+        class="btn btn-link back-btn" routerLink="/notification">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074; padding-top: 10px;"> Notifications </h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 position-relative px-0 mb-4" >
+        <div class="row mb-4">
+            <div class="col-12">
+                <div>
+                    <img src="data:{{ imagetypeArr }};base64,{{ image1arr}}" style="width: 100%;height: 250px; object-fit: fill;"/>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="height: 50vh">  
+            <div style="border-bottom: 6px solid gray; width: 30%; margin: auto"></div>          
+            <div class="col-12 mb-4" style="padding-left:15px;padding-right: 15px;">
+                <br>
+                <h2 style="color: black; font-size: 25px;margin-bottom: 0;">{{news['title']}}</h2>
+                <small style="color: #636060;">Posted on: {{news['date']}} at {{news['time']}} </small>
+                <br><br>
+                <small style="color: #636060;margin-top: 10px;font-size: 16px;font-weight: bold;">{{news['caption']}} </small>
+                
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <p class="mb-1" style="margin-top: 15px;" [innerHTML]="news['description']">{{news['description']}}</p>    
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-15 d-grid">
+                        <a class="btn" style="font-size: 15px;" routerLink="/notification">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

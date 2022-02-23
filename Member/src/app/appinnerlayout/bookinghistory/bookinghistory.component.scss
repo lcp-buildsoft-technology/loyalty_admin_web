@@ -1,0 +1,130 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}
+
+::ng-deep .fc .fc-toolbar.fc-header-toolbar
+{
+    background-color: #2c2c2c;
+}
+
+::ng-deep .fc .fc-toolbar-title
+{
+    color: #dec074;
+}
+
+:host ::ng-deep .card
+{
+    border:none;
+    background-color: black;
+    color: #dec074;
+    box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);
+    width: auto;
+}
+
+:host ::ng-deep .fc .fc-non-business
+{
+    color: #dec074;
+    background: hsla(0,0%,0%,.3);
+}
+
+::ng-deep .fc .fc-toolbar.fc-header-toolbar .fc-button
+{
+    background-color: #dec074;
+    border-color: black;
+    color: black;
+}
+
+::ng-deep .fc.fc-theme-standard table th
+{
+    background-color: #dec074;  
+}
+
+::ng-deep .fc.fc-theme-standard table th a.fc-col-header-cell-cushion
+{
+    color: black;
+}
+
+::ng-deep .fc.fc-theme-standard table table td
+{
+    border: none;
+}
+
+:host ::ng-deep .fc .fc-daygrid-day.fc-day-today
+{
+    background-color:hsl(43, 62%, 66%, 0.5);
+    color: white;
+}
+
+::ng-deep .fc.fc-theme-standard table table td .fc-daygrid-more-link
+{
+    background-color: white;
+    left: -10px;
+}
+
+:host ::ng-deep .fc .fc-daygrid-day-bottom
+{
+    padding: 6px 43px 0;
+}
+
+  ::ng-deep .mat-card
+  {
+      background-color: #2c2c2c;
+      color: white;
+  }  
+  :host ::ng-deep .mat-tab-label-active {
+    color:#dec074;    
+    width:40%;
+  }
+  :host ::ng-deep .mat-tab-label {
+    color:white;    
+    width:40%;
+  }
+
+  ::ng-deep .mat-tab-body-content
+  {
+      color: white;
+  }
+
+::ng-deep .mat-tab-label, .mat-tab-link{
+    color:white;
+    width:40%;
+    background-color:transparent !important;
+}
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color:#dec074;
+}
+::ng-deep .mat-tab-body-content{
+    background-color:transparent;
+}
+
+.Cancelled, .cancelled
+{
+    color:#ff0134;
+}
+
+.Booked
+{
+    color:#ADFF2F;
+}
+
+::ng-deep .example-custom-date-class {
+    background: orange;
+    border-radius: 100%;
+  }
+
+::ng-deep.special-date {
+    background-color: red;
+ }
+
+ ::ng-deep .fc .fc-daygrid-day-number
+ {
+     position: absolute;
+     right: 15px;
+ }

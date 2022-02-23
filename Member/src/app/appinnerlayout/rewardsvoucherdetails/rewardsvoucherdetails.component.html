@@ -1,0 +1,91 @@
+<div class="rvqr" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  class="btn btn-link back-btn" (click)="backnav()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> {{publishedrewardvoucher['title']}} </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 position-relative px-0 mb-4" >
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div>
+                        <img src="data:{{ imagetypeArr }};base64,{{ image1arr}}" style="width: 100%;height: 250px; object-fit: fill;"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container-fluid" style="height: 65%">
+                <div style="border-bottom: 6px solid gray; width: 30%; margin: auto"></div>
+                <div class="col-12 mb-4" style="padding-left:15px;padding-right: 15px;">
+                    <br>
+                    <h2 style="color: #dec074; font-size: 25px;margin-bottom: 0;">{{publishedrewardvoucher['title']}}</h2>
+                                    
+                    <br>
+                    <small style="color: white;">Voucher type: {{publishedrewardvoucher['vtype']}}</small>
+                    <span style="color: white;float: right;">
+                        Min spend: RM {{publishedrewardvoucher['minspend']}}
+                    </span>
+                    <br>
+                    <small style="color: white;">Valid till: {{publishedrewardvoucher['expireddate']}} </small>
+                    <small>
+                        <span style="color: white;float: right;">
+                            Discount: {{publishedrewardvoucher['discount']}}
+                        </span>
+                    </small>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 style="color: #dec074;"><b>Description</b></h4>
+                            <p style="color: white;" [innerHTML]="publishedrewardvoucher['detail']"></p>    
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 style="color: #dec074;"><b>Terms & Conditions</b></h4>
+                            <p style="color: white;" [innerHTML]="publishedrewardvoucher['termsandcondition']"></p>    
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div class="row mb-4">
+                        <div class="col-auto">
+                            <button class="btn" style="font-size: 15px;width: 250px;">Pending</button>                                
+                        </div>
+                        <div class="col text-end" data-bs-toggle="modal" data-bs-target="#taskmodalsuccess" (click)="editrewardvoucher(publishedrewardvoucher)">                                
+                            <i class="fa fa-qrcode" style="font-size:36px;color: #dec074;"></i>                                
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" data-bs-dismiss="modal" aria-label="Close" id="taskmodalsuccess" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" style="width: 50%;margin-right: 10px;margin-left: 10px;">
+            <div class="modal-content border-0" data-bs-dismiss="modal" aria-label="Close"
+            style="background-color: transparent; height: auto !important;">
+                <div class="modal-body">                
+                    <qr-code [value]="dataToString" [size]="300"></qr-code>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+

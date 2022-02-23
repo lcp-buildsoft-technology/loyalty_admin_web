@@ -1,0 +1,101 @@
+<div class="row" style="padding-top: -10px;margin-top: -10px;">
+    <div class="col-auto pr-0">
+        <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" (click)="backnav()">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074;margin: 0px;"> {{outlet['shopname']}} </h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+</div>
+<br>
+<br>
+
+<!-- Cafe Images and titles -->
+<div class="row">
+    <div class="col-12 position-relative px-0 mb-4">
+        <div class="col-12">
+            <figure class="card-img-top overflow-hidden mb-0">
+                 <img src="data:{{imagetypeArr}};base64,{{ image1arr}}" style="height: 250px; width: 100%;object-fit: fill;">
+
+             </figure> 
+         </div>
+        
+        <div class="container-fluid" style="height: 65%;">
+            <div style="border-bottom: 6px solid gray; width: 30%; margin: auto"></div>
+            <div class="col-12 mb-4">
+                <br>
+                <h2 style="color: black; font-size: 25px;margin-left: 10px;margin-right: 10px;">{{outlet['shopname']}}</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="padding: 0px; background-color: transparent;margin-left: 10px;margin-right: 10px;">
+                        <div class="row">
+                        
+                            <h3 style="color: black;">Write a review</h3>
+
+                        </div>
+                    </li>
+                    <li class="list-group-item" style="border-bottom: none; padding: 0px; padding-right: 15px;background-color: transparent;align-self: center;">
+                            <form class="rating">
+                                <label>
+                                  <input type="radio" name="stars" value="1" [(ngModel)]='storeObj.ratings'/>
+                                  <span class="icon">★</span>
+                                </label>
+                                <label>
+                                  <input type="radio" name="stars" value="2" [(ngModel)]='storeObj.ratings'/>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                </label>
+                                <label>
+                                  <input type="radio" name="stars" value="3" [(ngModel)]='storeObj.ratings'/>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>   
+                                </label>
+                                <label>
+                                  <input type="radio" name="stars" value="4" [(ngModel)]='storeObj.ratings'/>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                </label>
+                                <label>
+                                  <input type="radio" name="stars" value="5" [(ngModel)]='storeObj.ratings'/>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                  <span class="icon">★</span>
+                                </label>
+                              </form>
+                       
+                    </li>
+                    <br>
+                    <li class="list-group-item" style="padding: 0px; background-color: transparent;margin-left: 10px;margin-right: 10px;">
+                        <div class="row">
+                            <div class="col-auto align-self-center">
+                                <form action='/storereview' method="post" style="margin-left: 10px;margin-right: 10px;">
+                                    <label for="w3review">Share your review</label><br>
+                                    <textarea id="storereview" name="storereview" [(ngModel)]='storeObj.storereview' rows="4" cols="120" style="max-width: 100%"></textarea>
+                                    <br><br>
+                                    <div class="row mb-4">
+                                        <div class="col-15 d-grid">
+                                            <a (click)='storeReview(storeObj)' class="btn" style="font-size: 15px;">Submit Review</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </ul>  
+            </div>
+        </div>
+    </div>
+</div>

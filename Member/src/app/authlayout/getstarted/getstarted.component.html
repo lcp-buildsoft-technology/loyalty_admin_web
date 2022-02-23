@@ -1,0 +1,46 @@
+<div class="row h-50">
+    <div class="col-12" style="margin-top: 100px;">
+        <swiper class="swiperprojects" [slidesPerView]="1.0" [spaceBetween]="15" [pagination]="false">
+            <ng-template swiperSlide>
+                <div>
+                    <figure class="card-img-top overflow-hidden mb-0 coverimg" style="background-image: url('assets/img/step 1.png');"></figure>
+                    <h2>Visit your nearby merchants</h2>
+                    <p>Go to your nearby stores and grab exciting deals</p>
+                    <!-- The dots/circles -->
+                    <!-- <div style="text-align:center">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div> -->
+                </div>
+            </ng-template>
+            <ng-template swiperSlide>
+                <div>
+                    <figure class="card-img-top overflow-hidden mb-0 coverimg" style="background-image: url('assets/img/step 2.png')"></figure>
+                    <h2>Scan your QR code or enter the code</h2>
+                    <p>Scan your personal QR code at the store counter to earn loyalty points</p>
+                    <!-- The dots/circles -->
+                    <!-- <div style="text-align:center">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div> -->
+                </div>
+            </ng-template>
+            <ng-template swiperSlide>
+                <div>
+                    <figure class="card-img-top overflow-hidden mb-0 coverimg" style="background-image: url('assets/img/step 3.png')"></figure>
+                    <h2>Earn loyalty points</h2>
+                    <p>Through X Club Membership apps you can earn points and getting amazing prices</p>
+                    <!-- The dots/circles -->
+                    <!-- <div style="text-align:center">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div> -->
+                </div>
+                <a routerLink="/login" target="_self" class="btn">Get Started</a>
+            </ng-template>            
+        </swiper>
+    </div>
+</div>

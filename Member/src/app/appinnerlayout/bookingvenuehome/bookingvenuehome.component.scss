@@ -1,0 +1,149 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}
+
+.image-box__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  .title
+  {
+    color: #dec074;
+    font-size: 14px;
+  }
+
+  .subtitle
+    {
+      color: rgb(175, 168, 168);
+      font-size: 14px;
+      font-size: 12px;
+    }
+    
+  .rating
+    {
+      color: #dec074;
+      border-radius: 30px;
+      font-size: small;
+      font-weight: bold;
+      padding: 4px;    
+    }
+  
+  form 
+  {
+      background-color: #2c2c2c;
+      border-radius: 10px;
+      color: white;
+      padding-top: 10px;
+      font-size: 15px;      
+  }
+  
+  .input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    margin: 0px;
+    border:none;
+    padding: top 2px;
+  }
+  
+  .icon {
+    padding: 10px;
+    padding-left:0;
+    color: grey;
+    min-width: 20px;
+    text-align: left;
+    border-bottom: 2px solid grey;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    padding-left:0;
+    outline: white;
+    border:none;
+    background: transparent;
+    border-bottom: 2px solid grey;
+  }
+  
+  .input-field:focus {
+    border-bottom: 2px solid #dec074 ;
+  }
+  
+  .date
+  {
+      color:grey;
+      border-bottom: 2px solid grey;
+  }
+  
+  input
+  {
+      color: white;
+  }
+  
+  .column {
+    float: left;
+    width: 165px;
+  }
+  
+  /* Clear floats after the columns */
+  .row2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  input[type="time"]::-webkit-calendar-picker-indicator{
+    filter: invert(57%) sepia(4%) saturate(15%) hue-rotate(343deg) brightness(88%) contrast(84%);
+    font-size: 20px;    
+  }
+
+  button[type = "submit"] {
+    background-color: transparent;
+    color: #dec074;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #dec074;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .details {
+    color:white;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 18px;
+  }
+  
+  figure
+  {
+  border-radius: 15px;
+  height: 30vh;
+  }
+
+  .row
+{
+    --bs-gutter-x:0rem;
+}

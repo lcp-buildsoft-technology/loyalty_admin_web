@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-auto pr-0">
+        <button type="button" class="btn btn-link menu-btn" (click)="menuopen() ">
+            <i class="bi bi-list" style="font-size: 20px;"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <div class="form-group search-header">
+            <input class="form-control border-0" placeholder="Search">
+            <button type="button" class="btn btn-link tooltip-btn">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/notification" class="btn btn-link">
+            <i class="bi bi-bell" style="font-size: 20px;"></i>
+        </a>
+        <a (click) = "open()" class="btn btn-link" *ngFor = "let reg of onregisterArr">
+            <figure class="avatar avatar-36 rounded-circle">
+                <img src="data:{{ reg['thumbnailType'] }};base64,{{reg['thumbnail']}}" alt=""
+                style="object-fit: cover; height: 50px;">
+            </figure>
+        </a>
+    </div>
+</div>

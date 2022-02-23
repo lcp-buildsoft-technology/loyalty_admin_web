@@ -1,0 +1,115 @@
+<style>
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    input:disabled {
+        background-color: #18181860;
+        color: white;
+    }
+    
+    .form-group input[type=file] {
+        opacity: 1;
+    }
+</style>
+<script src="https://cdn.tiny.cloud/1/7sgdemiqg542gd8kn5gznm1gr9i20rbzn638xseq048n0lmq/tinymce/5/tinymce.min.js"></script>
+
+<script>
+</script>
+<div class=" content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class=" card-header">
+                    <h2 class=" title">Edit Announcement</h2>
+                </div>
+                <div class="card-body">
+                    <form class="form" style="color:#dec074">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Title *</label>
+                            <div class="col-md-8">
+                                <input maxlength="30" placeholder="1212 Promotion" name="notititle" [(ngModel)]='editNews.title' class=" form-control" type="text" />
+                                <p class="validation">{{ validErr['title'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Caption *</label>
+                            <div class="col-md-8">
+                                <input maxlength="30" placeholder="1212 Promotion" name="noticaption" [(ngModel)]='editNews.caption' class=" form-control" type="text" />
+                                <p class="validation">{{ validErr['caption'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Publish Date/Time *</label>
+                            <div class="col-md-4">
+                                <input [(ngModel)]='editNews.date' value="" name="notidate" class=" form-control" type="date" />
+                                <p class="validation">{{ validErr['date'] }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <input [(ngModel)]='editNews.time' value="" name="notitime" class=" form-control" type="time">
+                                <p class="validation">{{ validErr['time'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Receiver *</label>
+                            <div class="col-md-8">
+                                <select style="background-color: #2c2c2c;" class="form-control" id='dropdown_news' name="notireceiver" [(ngModel)]='editNews.receiver'>
+                                    <option value="All">All</option>
+                                    <option value="Member">Member</option>
+                                    <option value="Merchant">Merchant</option>
+                                </select>
+                                <p class="validation">{{ validErr['receiver'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Thumbnail *</label>
+                            <div class="col-md-8">
+                                <input style="color: transparent;" name="file" (change)="onselectFile($event)" type="file" accept="image/png, image/jpeg" />
+                                <br>
+                                <br>
+                                <img id="newimg" src="{{ url }}" />
+                                <img id="ogimg" src="data:{{ imagetype }};base64,{{ image }}" />
+                                <p class="validation">{{ validErr['thumbnail'] }}</p>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-12">
+                                <div class=" form-group">
+
+                                    <label> Description *</label>
+                                    <p class="validation">{{ validErr['description'] }}</p>
+                                    <textarea name="notidescription" id="newsdesc" [(ngModel)]='editNews.description' class=" form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button type="button" class="ed" (click)='uploadNews(editNews)'>Save</button>
+                                <button type="button" class="ed" style="margin-left: 10px;" (click)='goBack()'>Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>

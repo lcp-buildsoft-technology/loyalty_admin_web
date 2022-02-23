@@ -1,0 +1,28 @@
+<div class="row h-100" style="background-color: black; align-content: center;">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px " >
+        <img src="assets/img/xclublogo.png" class="base" style="width:100%; height:auto; max-width:150px; margin-bottom: 10px; "/>
+   
+        <h2 class="mb-1">Register to continue</h2>
+        <form action="/signup" method="POST" class="d-grid gap-2">
+            <div class="form-group form-floating is-valid">
+                <div class="phoneCode" style="display: flex;">
+                    <input type="text" class="form-control-sm" placeholder="Phone Number" id="phonenumber" style="width: auto;">
+                    <button type="submit" class="submitCode" style="margin-left: -45px">Send Verification Code</button>
+                </div>
+            </div>
+          
+            <div class="form-floating is-valid">
+                <input type="email" class="form-control-sm" placeholder="Email" id="emailaddress" name="name" value=""  [(ngModel)]="mregister.email">
+            </div>
+            <div class="form-floating is-valid">
+                <input type="password" class="form-control-sm" placeholder="Password" id="password" name="name"  value="" [(ngModel)]="mregister.password">
+            </div>
+            <div class="form-floating is-invalid">
+                <input type="password" class="form-control-sm" placeholder="Confirm Password" id="confirmpassword" name="name" value=""  [(ngModel)]="mregister.cpassword">
+            </div>
+            <a routerLink="/thankyou" target="_self" class="btn"  (click)='sendData()' >Register</a>
+        </form>
+        
+        <p style="margin-top:40px;">Already have account?<a routerLink="../signup"> LOGIN HERE</a></p>
+    </div>
+</div>

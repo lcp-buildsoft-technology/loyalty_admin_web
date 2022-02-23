@@ -1,0 +1,10 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}

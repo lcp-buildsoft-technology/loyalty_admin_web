@@ -1,0 +1,383 @@
+<div class="row">
+    <div class="col-12 text-white position-relative py-4">        
+        <div class="row justify-content-center z-index-1 position-relative">
+            <div class = "search">    
+                <form action="#">
+                    <div class="input-container">
+                        <i class="material-icons icon">search</i>
+                        <input class="input-field" type="text" placeholder="Search Rewards" name="menu">
+                    </div>
+                </form>    
+            </div> 
+            <div class="row">
+                <div class="col-12 mb-3 px-0">
+                    <swiper class="swipertrending" [slidesPerView]="3" [spaceBetween]="5" [pagination]="false">
+                        <ng-template swiperSlide class="text-center">
+                            <div id="myBtnContainer">
+                                <button 
+                                (click) ="showDiv.All = !showDiv.All;
+                                showDiv.Today = false;
+                                showDiv.Yesterday = false;"
+                                class="cbtn"> All </button>
+                              </div>                            
+                        </ng-template>
+
+                        <ng-template swiperSlide class="text-center">
+                            <div id="myBtnContainer" >
+                                <button 
+                                (click) ="showDiv.Today = !showDiv.Today;
+                                showDiv.All = false;
+                                showDiv.Yesterday = false;"
+                                class="cbtn"> Today </button>                               
+                            </div>
+                        </ng-template>
+
+                        <ng-template swiperSlide class="text-center">
+                            <div id="myBtnContainer" >
+                                <button 
+                                (click) ="showDiv.Yesterday = !showDiv.Yesterday;
+                                showDiv.All = false;
+                                showDiv.Today = false;"
+                                class="cbtn"> Yesterday </button>                                
+                            </div>
+                        </ng-template>
+                    </swiper>
+                </div>
+            </div>
+        </div>       
+    </div>    
+</div>
+
+<div class="row" *ngIf = "showDiv.All">
+    <div class="col-12">
+        <div>
+            <div>
+                <form class="history">
+                    <select name="history" id="history">
+                      <option value="Newest">4/11 - 8/11</option>
+                      <option value="Oldest">10/11 - 15/11</option>
+                    </select>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card" style="background-color: transparent;">
+            <div class="card-header">
+                <h1 style="font-size: 20px; color: #dec074;"> Today, November 5, 2021</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card" style="background-color: transparent;">
+            <div class="card-header">
+                <h1 style="font-size: 20px;color: #dec074;"> Yesterday, November 4, 2021</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf = "showDiv.Today">
+    <div class="col-12">
+        <div>
+            <div>
+                <form class="history">
+                    <select name="history" id="history">
+                      <option value="Newest">4/11 - 8/11</option>
+                      <option value="Oldest">10/11 - 15/11</option>
+                    </select>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf = "showDiv.Yesterday">
+    <div class="col-12">
+        <div>
+            <div>
+                <form class="history">
+                    <select name="history" id="history">
+                      <option value="Newest">4/11 - 8/11</option>
+                      <option value="Oldest">10/11 - 15/11</option>
+                    </select>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                    <div class="row">
+                        <div class="col-auto align-self-center">
+                            <img src="assets/img/starbucks.jpg" alt="" width="100vh" height="120vh">
+                        </div>
+                        <div class="col px-0 align-self-center">
+                            <p style="font-size: 18px;color: #dec074;">Extra Deluxe Gayo Coffee Packages<br>
+                                <figure class="avatar avatar-36 rounded-circle">
+                                    <img src="assets/img/user2.jpg" alt="">
+                                </figure>
+                                <span>
+                                    <small style="color: #dec074;">&nbsp;&nbsp;Alicia</small>
+                                </span><br><small style="color: white;">June 18, 2021 | 4.00 AM</small>
+                            </p>
+                        </div>
+                        <div class="col-auto text-end align-self-center">
+                            <p>
+                                <small style="font-size: 20px; color: rgb(255, 0, 0);" class="text-success">+250</small>                                
+                                <br><small style="color: white;">Pts</small>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+

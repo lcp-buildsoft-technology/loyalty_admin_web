@@ -1,0 +1,296 @@
+<!-- Top tasks -->
+<div class="row">
+    <div class="col-6 col-md-4 col-lg-3">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="mb-3 text-danger"><i class="bi bi-alarm"></i><span class="d-none">text</span></h2>
+                <p class="small text-muted text-uppercase mb-1">ToDo</p>
+                <h6 class="mb-3">Buy now<br>MobileUX</h6>
+                <p class="btn btn-sm btn-rounded bg-danger-light text-danger">Today's Top</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="mb-3 text-primary"><i class="bi bi-clock"></i><span class="d-none">text</span></h2>
+                <p class="small text-muted text-uppercase mb-1">Trip</p>
+                <h6 class="mb-3">Run at NewRome </h6>
+                <p class="btn btn-sm btn-rounded bg-primary-light text-primary">Saturday</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Task Priority -->
+<div class="row  mb-4">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm mb-3 border-primary border-left-5">
+            <div class="card-body">
+                <h6 class="mb-1">General Tasks</h6>
+                <p class="small text-muted">8 Tasks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm mb-3 border-danger border-left-5">
+            <div class="card-body">
+                <h6 class="mb-1">Meetings</h6>
+                <p class="small text-muted">5 Tasks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm border-warning border-left-5">
+            <div class="card-body">
+                <h6 class="mb-1">ToDo</h6>
+                <p class="small text-muted">11 Tasks</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Todays Top Task  -->
+<div class="row mb-3">
+    <div class="col ">
+        <h6 class=" my-1">Today's Top Tasks</h6>
+    </div>
+    <div class="col-auto">
+        <div class="btn-group">
+            <a routerLink="/taskcalendar" class="btn btn-sm btn-outline-primary"><i class="bi bi-calendar"></i></a>
+            <a routerLink="/todaystask" class="btn btn-sm btn-outline-primary"><i class="bi bi-view-list"></i></a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm mb-4">
+            <div class="list-group list-group-flush">
+                <label class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" checked disabled>
+                    <s class="text-muted">Take back Nisha from school</s>
+                </label>
+                <label class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" checked disabled>
+                    <s class="text-muted">2 packets Milk powder</s>
+                </label>
+                <label class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" checked>
+                    Lunch Order
+                </label>
+                <label class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="">
+                    Complete home work for presentation
+                </label>
+                <label class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="">
+                    Outdoor meeting with Alicia
+                </label>
+                <div class="list-group-item d-grid">
+                    <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#taskmodal"><i class="bi bi-plus"></i>
+                        Add New Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Top Events  -->
+<div class="row mb-3">
+    <div class="col ">
+        <h6 class=" my-1">Events</h6>
+    </div>
+    <div class="col-auto">
+        <a routerLink="/events" class="small">View All</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <div class="row gx-3">
+                    <div class="col-auto">
+                        <div class="avatar avatar-30 rounded-circle text-danger bg-danger-light">
+                            <i class="bi bi-bell"></i>
+                        </div>
+                    </div>
+                    <div class="col align-self-center">
+                        <h6 class="my-1">Reminder</h6>
+                    </div>
+                    <div class="col align-self-center text-end">
+                        <button class="btn btn-sm btn-link">Join Event</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h6 class="text-primary ">Great Gatsby Event</h6>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consec tetur
+                    dipisicing elit, sed eiusmod exercitation ullamco.</p>
+                <div class="row mt-4">
+                    <div class="col-auto">
+                        <figure class="avatar avatar-50 rounded-circle">
+                            <img src="assets/img/user1.jpg" alt="Generic placeholder image">
+                        </figure>
+                        <figure class="avatar avatar-50 rounded-circle">
+                            <img src="assets/img/user2.jpg" alt="Generic placeholder image">
+                        </figure>
+                        <figure class="avatar avatar-50 rounded-circle">
+                            <img src="assets/img/user3.jpg" alt="Generic placeholder image">
+                        </figure>
+                    </div>
+                    <div class="col align-self-center">
+                        <h6 class="my-0">6 Friends</h6>
+                        <p class="small text-muted">2546 Others</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col">
+                        <div class="row gx-3">
+                            <div class="col-auto align-self-center">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="mb-1 text-primary">Location</h6>
+                                <p class="text-muted small">UXSO NY, US</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col text-right">
+                        <div class="row gx-3">
+                            <div class="col-auto align-self-center">
+                                <i class="bi bi-calendar"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="mb-1 text-primary">Date</h6>
+                                <p class="text-muted mb-0 small">October 17, 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="card mb-4 shadow-sm overflow-hidden bg-dark text-white">
+            <figure class="position-absolute coverimg start-0 top-0 w-100 h-100 opacity-4 blur" style="background-image: url('assets/img/banner1.jpg')">
+                <img src="assets/img/banner1.jpg" alt="">
+            </figure>
+            <div class="card-header border-0">
+                <div class="row gx-3">
+                    <div class="col-auto">
+                        <div class="avatar avatar-30 rounded-circle text-danger bg-danger-light">
+                            <i class="bi bi-bell"></i>
+                        </div>
+                    </div>
+                    <div class="col align-self-center">
+                        <h6 class="my-1">Reminder</h6>
+                    </div>
+                    <div class="col align-self-center text-end">
+                        <button class="btn btn-sm btn-link">Join Event</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body z-index-1">
+                <h6 class="">Great Gatsby Event</h6>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consec tetur
+                    dipisicing elit, sed eiusmod exercitation ullamco..</p>
+                <div class="row mt-4">
+                    <div class="col-auto">
+                        <div class="avatar-group">
+                            <figure class="avatar avatar-50 rounded-circle">
+                                <img src="assets/img/user1.jpg" alt="Generic placeholder image">
+                            </figure>
+                            <figure class="avatar avatar-50 rounded-circle">
+                                <img src="assets/img/user2.jpg" alt="Generic placeholder image">
+                            </figure>
+                            <figure class="avatar avatar-50 rounded-circle">
+                                <img src="assets/img/user3.jpg" alt="Generic placeholder image">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col align-self-center">
+                        <h6 class="my-0">6 Friends</h6>
+                        <p class="small text-muted">2546 Others</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer z-index-1  border-0">
+                <div class="row">
+                    <div class="col">
+                        <div class="row gx-3">
+                            <div class="col-auto align-self-center">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="mb-1 text-primary">Location</h6>
+                                <p class="text-muted small">UXSO NY, US</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col text-right">
+                        <div class="row gx-3">
+                            <div class="col-auto align-self-center">
+                                <i class="bi bi-calendar"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="mb-1 text-primary">Date</h6>
+                                <p class="text-muted mb-0 small">October 17, 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Task modal -->
+<div class="modal fade" id="taskmodal" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content bg-lights border-0">
+            <div class="modal-header">
+                <h6 class="modal-title" id="taskmodalLabel">Create new task</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="taskname" placeholder="Task Name">
+                    <label for="taskname">Task Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="taskdate">
+                    <label for="taskdate">Date</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="time" class="form-control" id="tasktime">
+                    <label for="tasktime">Time</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="taskdetails" placeholder="Details" rows="3"></textarea>
+                    <label for="taskdetails">Details</label>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="radio" name="taglist" class="btn-check me-1" id="tag1">
+                        <label class="btn btn-sm btn-outline-primary me-1" for="tag1">General</label>
+
+                        <input type="radio" name="taglist" class="btn-check me-1" id="tag2">
+                        <label class="btn btn-sm btn-outline-primary me-1" for="tag2">Meeting</label>
+
+                        <input type="radio" name="taglist" class="btn-check me-1" id="tag3">
+                        <label class="btn btn-sm btn-outline-primary me-1" for="tag3">Home</label>
+
+                        <input type="radio" name="taglist" class="btn-check me-1" id="tag4">
+                        <label class="btn btn-sm btn-outline-primary me-1" for="tag4">Office</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary d-block w-100">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Task modal ends -->

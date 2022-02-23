@@ -1,0 +1,84 @@
+<div class="osh" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row">
+        <div class="col-auto pr-0">
+            <button type="button" style="background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" (click)="backnav()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074; padding-top: 10px;"> Menu </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-white position-relative py-4">        
+            <div class="row justify-content-center z-index-1 position-relative">
+                <div class = "search">    
+                    <form action="#">
+                        <div class="input-container">
+                            <i class="material-icons icon">search</i>
+                            <input class="input-field" type="text" placeholder="Search Menu" name="menu" autocomplete="off">
+                        </div>
+                    </form>    
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col">
+                        <h2 style="color: #dec074;"> Menus by Merchants </h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 mb-3 px-0" id="myDIV">
+                        <swiper class="swipercategory" [slidesPerView]="'auto'" [spaceBetween]="0" [pagination]="false" [observeParents]="true" observer='true'>
+                            <ng-template swiperSlide class="text-center">
+                                <div id="myBtnContainer">
+                                    <button [class.active]="isActive"
+                                name="cincai" id="cincai" (click)="Transferall()"
+                            class="cbtn active">All  </button>
+                                </div>                            
+                            </ng-template>
+                            
+                            <ng-template swiperSlide class="text-center" *ngFor= "let category of categoryArr">
+                                <div id="myBtnContainer">
+                                    <button
+                                    name="{{category['id']}}" id="categorybtn{{category['_id']}}" (click)="Transfercategory(category['category'])"
+                                    class="cbtn" >{{category['category']}} </button>
+                                </div>                            
+                            </ng-template>
+                        </swiper>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-md-4 col-lg-3" style="padding-right: 10px;padding-left: 10px;" *ngFor= "let prodcat of productcatArr">
+                        <div class="card mb-4" style="background-color: transparent;box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">
+                            <figure class="card-img-top overflow-hidden mb-0" style="height: 150px;">
+                                <img src="data:{{ prodcat['thumbnailType']}};base64,{{ prodcat['thumbnail'] }}" alt="" style="height: 150px;width: 100%;">
+                            </figure>
+                            <a (click) = "open(prodcat)" class="card-body" style="height: 110px;">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="mb-2" style="color: white;">Price: RM {{prodcat['price']}}</p>
+                                        <h4 class="mb-1" style="color: #dec074;">{{prodcat['name']}}
+                                            <span style="float: right;">
+                                            </span>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>                  
+                </div> 
+            </div>       
+        </div>    
+    </div>    
+</div>

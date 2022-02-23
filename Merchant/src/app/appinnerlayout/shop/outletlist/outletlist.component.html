@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row" >
+    <div class="col-auto pr-0">
+        <button type="button" style="background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" (click)="backnav()">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074; padding-top: 10px;">Outlets List</h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a routerLink="/profile" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+  </div>
+
+            <div class="searchbar mb-3">
+                <form role="search" id="form">
+                    <input type="search" id="query" name="searchInput" [(ngModel)]="searchInput" placeholder="Search the outlet"
+                    autocomplete="off" aria-label="Search through site content" style="all: unset;
+                    font: 16px system-ui;
+                    color: #fff;
+                    height: 100%;
+                    width: 100%;
+                    padding: 6px 10px;">
+              
+              <button style="background-color: transparent;outline: none;border: none;">
+                <svg viewBox="0 0 1024 1024">
+                  <path class="path1"
+                    d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z">
+                  </path>
+                </svg>
+              </button>
+                </form>
+              </div>
+              
+            <div class="row mb-2">
+                <div class="col">
+                    <h2 style="margin-inline-start: 20px; font-size: 20px; color: #dec074;  font-style: normal;"> Outlets </h2>
+                </div>
+            </div>
+
+            
+            <ng-container *ngFor= "let moutlet of moutletArr | filteroutlet : searchInput"  >
+            <div class="row" id="western" >
+                <div class="container d-flex justify-content-center">
+                        <ul class="list-group text-white justify-content-center " style="color: #dec074;">
+
+                            <li class="list-group-item d-flex justify-content-between align-content-center " style="border-radius: 10px; box-shadow: 0px 0px 5px #dec074;">
+                                <div class="d-flex flex-row " > 
+                                    <div class="ml-2">
+                                      <button class="btn btn-link caret-none dropdown-toggle px-0" type="button" id="moredd1"
+                                      data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="fa fa-ellipsis-v" style="font-size:24px"></i>
+                                  </button>
+                                  <ul class="dropdown-menu" aria-labelledby="moredd1">
+                                    <li><a class="dropdown-item" (click)=detail(moutlet)>Details</a></li>
+                                      <li><a class="dropdown-item"(click)=edit(moutlet)>Edit</a></li>
+                                      <li><a class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#taskmodal" name="{{moutlet['_id']}}" id="deletebtn_{{moutlet['_id']}}" (click)="Transfer(moutlet['_id'])">Delete</a></li>
+                                  </ul>
+                                        <h6 style="font-size:16px">{{moutlet['shopname']}}<br><br><small style="color: white;">{{moutlet['address']}}</small></h6>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                           
+                    </ul>
+                    </div>
+                    </div>
+                    </ng-container>
+
+
+<div class="modal fade" id="taskmodal" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true"
+style="width:90%;margin-left:5%;margin-top:-3%; text-align: center;">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content  border-0">
+      
+        <div class="modal-body">
+          <h2>Are you sure want to delete?</h2>
+          <input type="text" value=""[(ngModel)]="moutlet.shopname" id="moutlet_name" hidden>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <a type="button" class="btn btn-primary " data-bs-dismiss="modal" id="yes" (click)="goto()" >Yes</a>
+            <a type="button" class="btn btn-primary" data-bs-dismiss="modal" id="no" >No</a>
+        </div>
+    </div>
+    </div>
+    </div>
+    

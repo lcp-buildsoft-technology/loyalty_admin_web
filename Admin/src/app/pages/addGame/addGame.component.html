@@ -1,0 +1,67 @@
+<body>
+  <div class=" content">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h2 class=" card-title">Add Game</h2>
+          </div>
+          <div class="card-body">
+            <form class="form">
+              <form action="" method="post" enctype="multipart/form-data">
+                <div class=" form-group row">
+                  <label class="col-md-3 col-form-label">Name</label>
+                  <div class="col-md-8">
+                    <input class=" form-control" type="text" name="gameName" [(ngModel)]='game.name' maxlength="30">
+                    <p class="validation">{{ valid['name'] }}</p>
+                  </div>
+                </div>
+                <div class=" form-group row">
+                  <label class="col-md-3 col-form-label">Play Times</label>
+                  <div class="col-md-8">
+                    <input class=" form-control" type="number" name="gameR1" [(ngModel)]='game.playtimes'
+                      maxlength="10">
+                    <p class="validation">{{ valid['playtimes'] }}</p>
+                  </div>
+                </div>
+                <div class=" form-group row">
+                  <label class="col-md-3 col-form-label">Start Date</label>
+                  <div class="col-md-8">
+                    <input class=" form-control" type="date" name="gameR2" [(ngModel)]='game.sdate'>
+                    <p class="validation">{{ valid['sdate'] }}</p>
+                  </div>
+                </div>
+                <div class=" form-group row">
+                  <label class="col-md-3 col-form-label">End Date</label>
+                  <div class="col-md-8">
+                    <input class=" form-control" type="date" name="gameR3" [(ngModel)]='game.edate'>
+                    <p class="validation">{{ valid['edate'] }}</p>
+                  </div>
+                </div>
+                <div class=" form-group row">
+                  <label class="col-md-3 col-form-label">Status</label>
+                  <div class="col-md-8">
+                    <select class="form-control" name="gameStatus" [(ngModel)]='game.status'>
+                      <option value="Active">Active</option>
+                    </select>
+                    <p class="validation">{{ valid['status'] }}</p>
+                  </div>
+                </div>
+              </form>
+            </form>
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4">
+                <input type="button" href="#/gamification" type="submit" class="sbtn" style="margin-left: 10px;"
+                  value="Save" (click)='sendGame()' />
+                <a href="#/gamification"><input type="button" type="reset" class="sbtn" value="Cancel"
+                    style="margin-left: 10px;" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

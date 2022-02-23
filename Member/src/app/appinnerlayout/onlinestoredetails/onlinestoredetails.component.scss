@@ -1,0 +1,105 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    color: #636060;
+}
+
+.btn {
+    outline: none;
+    background-color: #dec074;
+    border: 1px solid #dec074;
+    color: black;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.container-fluid {
+    background-color: transparent;
+    padding-top: 20px;
+    height: 55%;
+}
+
+h3
+{
+    font-size: 18px;
+    color: black;
+}
+
+.call
+{
+    color: black;
+    background-color: greenyellow;    
+    width: 100px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+button[type="button"]
+{
+    color: black;
+    background-color: #dec074;
+}
+.bi
+{
+    color: #dec074;
+}
+
+h2 {
+    color: #dec074;
+}
+
+  .bookmarkRibbon {
+    width: 80px;
+    height: 0;
+    border-bottom: 25px solid rgb(238, 90, 90);
+    border-top: 25px solid rgb(238, 90, 90);
+    border-right: 15px solid transparent;
+    float: left;
+    margin-bottom: 20px;
+    font-size: 20px;
+    position: absolute;
+    left: 0px;
+    top: 20px;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    color: #636060;
+}  
+
+h3
+{
+    font-size: 18px;
+    color: black;
+}
+
+.button {
+    outline: none;
+    background-color: #dec074;
+    border: 1px solid #dec074;
+    color: black;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+}

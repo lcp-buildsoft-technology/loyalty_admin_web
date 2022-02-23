@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-12">
+
+        <div class="row justify-content-center z-index-1 position-relative">
+            <div class = "search">    
+                <form action="#">
+                  <div class="input-container">
+                    <i class="material-icons icon">place</i>
+                    <input class="input-field" type="text" placeholder="Search Store" name="usrnm" [(ngModel)] = "searchStore">
+                  </div>
+                </form>    
+            </div>
+              
+            <div class="row mb-2">
+                <div class="col">
+                    <h2> Store </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-3" *ngFor="let outlet of outletArr | store:searchStore" >
+                    <div class="card mb-4" 
+                    style="
+                    background-color: transparent;
+              box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">           
+                        <figure class="card-img-top overflow-hidden mb-0 coverimg" 
+                        style="
+                            height: 150px;
+                            background-image:url('assets/img/project1.jpg')">
+                            <img src="assets/img/project1.jpg" alt="project images">
+                        </figure>
+                        <a (click)='open(outlet)' class="card-body" style="height: 100px;">
+                            <div class="row">
+                                <div class="col-12" style="padding-left: 5px;">                        
+                                    <h4 class="mb-1" style="color: #dec074;">{{outlet['shopname']}}</h4>
+                                      <div class="column-left" style="padding-left: 5px;">
+                                        <div class = "subtitle">
+                                          <p>
+                                            <i class="bi bi-calendar"> {{outlet['operateday1']}}-{{outlet['operateday2']}}</i>
+                                            <br>
+                                            <i class="bi bi-clock">{{outlet['operatehrsstart']}}-{{outlet['operatehrsend']}}</i>
+                                          </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result">
+            <p>End of the result</p>
+        </div>        
+    </div>    

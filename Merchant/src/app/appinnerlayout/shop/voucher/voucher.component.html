@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+
+
+<!-- Top Navigation Menu -->
+<body >
+
+<div class="tab " style="text-align:center;">
+    <button class="tablinks" routerLink="/voucher">All</button>
+    <button class="tablinks" routerLink="/vouchertoday">Today</button>
+    <button class="tablinks" routerLink="/voucherespired">Expired</button>
+    <button class="tablinks" routerLink="/voucherupcoming">Upcoming</button>
+  </div>
+ 
+  <!-- Tab content -->
+  <div id="London" class="tabcontent">
+    <p>London is the capital city of England.</p>
+  </div>
+  
+  <div id="Paris" class="tabcontent">
+    <h3>Paris</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+  
+  <div id="Tokyo" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+<div class="title">
+ <h1> Today</h1>
+</div>
+
+<div class="row" style="overflow:hidden;padding-left:10px;padding-right:10px;padding-bottom:10px;" id="tab1"> 
+  
+
+
+    <div class="table-responsive col-md-6 " style="max-width: 100%; width: 100%; " >
+      
+      <div class="container-fluid " style="width:100%; padding:0;overflow:hidden">
+        <div class="row g-2">
+                
+          <div class="col-md-6">
+            <div class="card" style="padding-bottom:0px;">
+                <div class="img-container">
+                    <div class="d-flex justify-content-between align-items-center p-2 first">  </div> <img src="https://i.imgur.com/gGyOciQ.jpg" class="img-fluid"  style="padding:0">
+                </div>
+                <div class="product-detail-container"style="padding-left:5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="mb-1">Gift Voucher</div> 
+                    </div>
+                            <div class="row">
+                        <div class="ratings mb-4"> <small><span>Valid until : 21 October 2021</span></small>  
+                         
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ratings" id="last"> <span><small>Spend minimum Rm 30000</small><strong> Left : 5</strong></span> 
+                         
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="col-md-6">
+                <div class="card" style="padding-bottom:0px;">
+                    <div class="img-container">
+                        <div class="d-flex justify-content-between align-items-center p-2 first">  </div> <img src="https://i.imgur.com/gGyOciQ.jpg" class="img-fluid"  style="padding:0">
+                    </div>
+                    <div class="product-detail-container"style="padding-left:5">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mb-1">Gift Voucher</div> 
+                        </div>
+                                <div class="row">
+                            <div class="ratings mb-4"> <small><span>Valid until : 21 October 2021</span></small>  
+                             
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="ratings" id="last"> <span><small>Spend minimum Rm 30000</small><strong> Left : 5</strong></span> 
+                             
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="card" style="padding-bottom:0px;">
+                  <div class="img-container">
+                      <div class="d-flex justify-content-between align-items-center p-2 first">  </div> <img src="https://i.imgur.com/gGyOciQ.jpg" class="img-fluid"  style="padding:0">
+                  </div>
+                  <div class="product-detail-container"style="padding-left:5">
+                      <div class="d-flex justify-content-between align-items-center">
+                          <div class="mb-1">Gift Voucher</div> 
+                      </div>
+                              <div class="row">
+                          <div class="ratings mb-4"> <small><span>Valid until : 21 October 2021</span></small>  
+                           
+
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="ratings" id="last"> <span><small>Spend minimum Rm 30000</small><strong> Left : 5</strong></span> 
+                           
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+           
+        
+        </div>
+    </div>
+    </div>   
+    
+
+    </div>
+    <div class="title mb-3">
+       <h2> Expired</h2>
+    </div>
+    <div class="img-container" id="image1">
+        <div class="d-flex justify-content-between align-items-center p-2 first">  </div> <img src="https://i.imgur.com/gGyOciQ.jpg" class="img-fluid"  style="padding:0">
+    </div>
+    
+    <div class="img-container" id="image1">
+        <div class="d-flex justify-content-between align-items-center p-2 first">  </div> <img src="https://i.imgur.com/gGyOciQ.jpg" class="img-fluid"  style="padding:0">
+    </div>
+
+    <div class="title mb-3">
+       <h2>Scheduled</h2> 
+    </div>
+    <div class="img-container " id="image2" style="padding-left:10px;padding-right:10px;">
+        <div class="d-flex justify-content-between align-items-center p-2 first">  </div> <img src="https://i.imgur.com/gGyOciQ.jpg" class="img-fluid"  style="padding:0">
+        <div class="text-block">
+            
+            <p>11 November 2021</p>
+          </div>
+    </div>
+
+
+    <div class="small">
+    <small style="text-align:center;">Add more voucher to attract customers</small></div>
+   
+    
+    <a routerLink="/addaddresses" class="float">
+        <i class="fa fa-plus my-float"></i>
+        </a>
+
+<!-- Tabs navs -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<div class="reg" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row h-100 mt-3">
+        <div class="col-12 align-items-center text-center mt-3">
+            <img src="assets/img/logox.png" style="width:100%; height:auto; max-width:150px;"/>
+            
+            <h2 style="padding-top: 10px;">Register to continue</h2>
+            <form class="d-grid gap-2">
+                <div class="form-group form-floating is-valid">
+                            <!-- <div class="phoneCode">
+                                <input type="text" 
+                                class="form-control-sm" placeholder="Phone Number" 
+                                name="phonenumber" [(ngModel)]='registerObj.phonenumber' [pattern]="numPattern" #phonenumber="ngModel"
+                                style="width: 170px;">
+                            </div>
+                            <div *ngIf="phonenumber.errors?.pattern" style="color:red;">
+                                *Enter a valid phonenumber.
+                            </div> -->
+
+                            <div class="phoneCode">
+                                <input type="email" 
+                                class="form-control-sm" placeholder="Email" 
+                                name="email" [(ngModel)]='registerObj.email' [pattern]="emailPattern" #email="ngModel" autocomplete="off"
+                                style="width: 100%;">                               
+                            </div>
+                            <div *ngIf="email.errors?.pattern" style="color:red;">
+                                *Enter a valid email.
+                            </div>
+                            <p class="validation">{{ validErr['email'] }}</p> 
+
+                            <div class="form-group form-floating is-valid">
+                                <button type="submit" class="submitCode" (click)='openotpform(registerObj)' style="width: 100%; border: 2px solid  #dec074;">Send Verification Code</button>
+                            </div>
+                        
+                </div> 
+                                
+
+                <div class="form-floating is-valid">
+                    <input type="text" 
+                    class="form-control-sm" placeholder="Phone Number" name="phonenumber" 
+                    [(ngModel)]='registerObj.phonenumber' [pattern]="numPattern" #phonenumber="ngModel" autocomplete="off">
+                    <div *ngIf="phonenumber.errors?.pattern" style="color:red;text-align: left;">
+                        *Enter a valid phonenumber.
+                    </div>
+                    <p class="validation">{{ validErr['phonenumber'] }}</p>
+                </div>
+
+                <div class="form-floating is-valid">
+                    <input type="password" class="form-control-sm" placeholder="Password" name="password" autocomplete="off" 
+                    [(ngModel)]='registerObj.password' [pattern]="pwdPattern" #password="ngModel">
+                    <div *ngIf="password.errors?.pattern" style="color:red;text-align: left;">
+                        *Enter a valid password.
+                    </div>
+                    <p class="validation">{{ validErr['password'] }}</p>
+                </div>
+                <div class="form-floating is-invalid">
+                    <input type="password" class="form-control-sm" placeholder="Confirm Password" autocomplete="off"
+                    name="confirmpassword" [(ngModel)]='registerObj.confirmpwd'>
+                    <p class="validation">{{ validErr['confirmpwd'] }}</p>
+                </div>
+                <div class="form-floating is-valid">
+                    <input type="text" class="form-control-sm" placeholder="Verification Code" 
+                    name="verificationcode" [(ngModel)]='registerObj.verificationcode'
+                    [pattern]="codePattern" #verificationcode="ngModel">
+                    <div *ngIf="verificationcode.errors?.pattern" style="color:red;text-align: left;">
+                        *Enter a valid verification code.
+                    </div>
+                    <p class="validation">{{ validErr['verificationcode'] }}</p>
+                </div>
+                <a target="_self" (click)='register()' class="btn">Register</a>
+            </form>
+            
+            <p style="margin-top:40px;">Already have account?<a routerLink="../login"> LOGIN HERE</a></p>
+        </div>
+    </div>
+</div>

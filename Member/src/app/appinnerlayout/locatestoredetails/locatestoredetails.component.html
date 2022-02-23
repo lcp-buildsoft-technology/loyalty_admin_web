@@ -1,0 +1,78 @@
+<div class="lsd" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" (click)="backnav()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074; margin: 0px;"> {{outlet['shopname']}} </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-12 position-relative px-0 mb-4">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <figure class="card-img-top overflow-hidden mb-0">
+                        <img src="data:{{imagetypeArr}};base64,{{ image1arr}}" style="width: 100%;height:250px;object-fit: fill;">
+                    </figure> 
+                </div>
+            </div> 
+
+            <div class="container-fluid" style="position: absolute;height: 55vh; top: 95%;">
+                <div style="border-bottom: 6px solid gray; width: 30%; border-radius: 30px; margin: auto"></div>
+                <div class="col-12 mb-4" style="padding-left:15px;padding-right: 15px;">
+                    <br>
+                    <h2 style="color: #dec074; font-size: 25px;">{{outlet['shopname']}}</h2>
+                    <h4 style="color: white;">{{outlet['address']}}                   
+                    </h4>
+                    <br>
+                    <p class="small mb-2" style="color: white;">
+                            {{storereview['length']}} Reviews
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="small">                        
+                            <i class="bi bi-star-fill" style="color: #dec074;"></i> {{outlet['avgrating'] |number : '1.1-1'}}
+                        </span>
+
+                        <button mat-button (click)="openDialog()"
+                        style="float: right;outline: none;border: none;background-color: transparent;color: white;">
+                            <span style="float: right;">
+                                <i class="bi bi-geo-alt" style="color: white;"></i>
+                                <span style="color: white;">&nbsp;&nbsp;Take me there</span>
+                            </span>
+                        </button>
+                        <br>
+                        <span class="small" style="color: #dec074;">
+                            <a style="text-decoration:none; color:#dec074;" (click)='open(outlet)'>See details
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </span>
+                    </p>
+                    <br>
+                    <h3 style="color: #dec074;">Description</h3>                
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <p style="color: white;">{{outlet['description']}} </p>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-15 d-grid">
+                            <a (click) = "go(outlet)" class="btn" style="font-size: 15px;"> View Menu</a>                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,133 @@
+<div class="myacc" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row">
+        <div class="col-auto pr-0">
+            <button type="button" style="background-color: transparent; color: #dec074;" class="btn btn-link back-btn" routerLink="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="outer">        
+            <img src="data:{{onregister['thumbnailType']  }};base64,{{ onregister['thumbnail']}}" alt="">
+        <div class="inner"> 
+            <input class="inputfile" id="fileimage" type="file" name="file"/>     
+        </div>
+        </div>
+    </div>
+    <!-- profile information -->
+    <div class="row" style="align-self: center; margin-inline-start: 10px; background-color: black;"></div>
+    <div class="row">
+        <div class="col">
+            <h3 style="color: #dec074;">Basic Information</h3>
+        </div>
+    </div>
+    <div class="row h-100 mb-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="text" class="form-control" disabled name="names" value ="{{onregister['name']}}">
+                <label for="names">Name</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating   mb-3">
+                <input type="text" class="form-control" disabled value ="{{onregister['username']}}" name="username">
+                <label for="Usernames">Username</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="text" class="form-control" disabled value ="{{onregister['email']}}"
+                    name="emailaddress">
+                <label for="emailaddress">Email Address</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="text" class="form-control" disabled value ="{{onregister['phonenumber']}}"
+                    name="phonenumber">
+                <label for="phone">Phone Number</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="text" class="form-control" disabled value="{{onregister['birthdate']}}" name="birthdate">
+                <label for="bday">Birthdate</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- add edit address form -->
+    <div class="row mb-2">
+        <div class="col">
+            <h3 style="color: #dec074;">Address Change</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="address1"
+                    disabled value ="{{onregister['address1']}}">
+                <label class="form-control-label" for="address1">Address Line 1</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="address2" disabled value ="{{onregister['address2']}}">
+                <label class="form-control-label" for="address3">Address Line 2</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="address3" disabled value ="{{onregister['address3']}}">
+                <label class="form-control-label" for="address3">Address Line 3</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" list="datalistStates" class="form-control" name="state"
+                disabled value ="{{onregister['state']}}">
+                <label class="form-control-label" for="state">State</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="city" disabled value ="{{onregister['city']}}">
+                <label class="form-control-label" for="city">City</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="postcode" disabled value ="{{onregister['postcode']}}">
+                <label class="form-control-label" for="postcode">Postcode</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- change password -->
+    <!-- <div class="row mb-2">
+        <div class="col">
+            <h3 style="color: #dec074;">Change Password</h3>
+        </div>
+    </div> -->
+    <!-- <div class="row h-100 mb-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-floating  mb-3">
+                <input type="password" class="form-control" disabled value ="{{onregister['password']}}" name="password">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-floating ">
+                <input type="password" class="form-control" disabled value ="{{onregister['confirmpwd']}}" name="confirmpwd">
+                <label for="confirmpassword">Confirm Password</label>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row h-100 mb-4">
+        <div class="col-12 d-grid"><a (click) = "goto()" target="_self" class="btn btn-default mt-3">Update Profile</a></div>
+    </div>
+    <br>
+    <br>    
+</div>

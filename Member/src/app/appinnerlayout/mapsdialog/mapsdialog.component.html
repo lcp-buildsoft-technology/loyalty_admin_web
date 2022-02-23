@@ -1,0 +1,29 @@
+<h1 mat-dialog-title style="color: white;">Cafe Subang</h1>
+<div mat-dialog-content>
+  <button style="width: 100%;padding: 5px;outline: none;border: 2px solid #dec074;
+  background-color: transparent;">
+    <div class="row">
+      <div class="col-auto align-self-center">
+          <img src="assets/img/waze.png" alt="" height="30vh">
+      </div>
+      <div class="col px-0" style="padding-top: 10px;text-align: left;">
+          <p style="font-size: 18px; color: #dec074;">Waze</p>
+      </div>
+    </div>
+  </button>
+  <button style="width: 100%;margin-top: 10px; padding: 5px;outline: none;border: 2px solid #dec074;
+  background-color: transparent;">
+    <div class="row" (click)="open()">
+      <div class="col-auto align-self-center">
+          <img src="assets/img/googlemaps.png" alt="" height="30vh">
+      </div>
+      <div class="col px-0" style="padding-top: 10px;text-align: left;">
+          <p style="font-size: 18px; color: #dec074;">Google Maps</p>
+          <p style="font-size: 18px; color: #dec074;">Google Maps</p>
+      </div>
+    </div>
+  </button>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close style="outline: none;border: none; width: 100%; background-color: #dec074;padding: 10px;">Close</button>
+</div>

@@ -1,0 +1,354 @@
+<div class="myr" style="margin-right:10px;margin-left:10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  
+            class="btn btn-link back-btn" routerLink="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6" id="Bronze" style="display: none;">
+            <div class="card shadow-sm mb-4" style="
+            /* background-image: url(/assets/img/card.jpg); */
+            /* background-repeat: no-repeat;     */
+            /* background-position: center; */
+            border-radius: 20px;
+            background: linear-gradient(to bottom, #202020 0%, #505050 100%);">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col" *ngFor="let profile of registerArr">
+                            <figure class="avatar avatar-50">
+                                <img src="assets/img/logox.png" alt="">
+                            </figure>
+                            <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto">
+                                {{profile['name']}}</h3>
+                            <button type="button">Earn More Points</button><br><br>
+                            <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                            <p class="small" style="color: white; font-size: 14px;"><i>{{profile['createdat']}}</i></p>
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current |number : '1.0-0'}}
+                                    Points</div>
+                                <round-progress [current]="current" [max]="max"
+                                    [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                    [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                    [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                    [animationDelay]="animationDelay"></round-progress>
+                            </div>
+                            <p style="color: #dec074;text-align: center;font-size: 16px;">Tier: Bronze</p>
+                            <p class="small" style="color: white; padding-top: 10px;text-align: center;">{{remainingpoints}}
+                                points to <i id="level"> </i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6" id="Silver" style="display:none;">
+            <div class="card shadow-sm mb-4" style="
+            background-image: url(/assets/img/card.jpg);
+            background-repeat: no-repeat;    
+            background-position: center;
+            border-radius: 20px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col" *ngFor="let profile of registerArr">
+                            <figure class="avatar avatar-50">
+                                <img src="assets/img/logox.png" alt="">
+                            </figure>
+                            <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto;">
+                                {{profile['name']}}</h3>
+                            <button type="button">Earn More Points</button><br><br>
+                            <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                            <p class="small" style="color: white; font-size: 15px;"><i>{{profile['createdat']}}</i></p>
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current | number : '1.0-0'}}
+                                    Points</div>
+                                <round-progress [current]="current" [max]="max"
+                                    [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                    [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                    [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                    [animation]="animation" [animationDelay]="animationDelay"></round-progress>
+                            </div>
+                            <p style="color: #dec074;text-align: center;font-size: 18px;">Tier: Silver</p>
+                            <p class="small" style="color: white; padding-top: 10px;text-align: center;">{{remainingpoints}}
+                                points to <i id="level2"> </i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6" id="Gold" style="display: none;">
+            <div class="card shadow-sm mb-4" style="
+            background-image: url(/assets/img/card.jpg);
+            background-repeat: no-repeat;    
+            background-position: center;
+            border-radius: 20px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col" *ngFor="let profile of registerArr">
+                            <figure class="avatar avatar-50">
+                                <img src="assets/img/logox.png" alt="">
+                            </figure>
+                            <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto;">
+                                {{profile['name']}}</h3>
+                            <button type="button">Earn More Points</button><br><br>
+                            <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                            <p class="small" style="color: white; font-size: 15px;"><i>{{profile['createdat']}}</i></p>
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current |number : '1.0-0'}}
+                                    Points</div>
+                                <round-progress [current]="current" [max]="max"
+                                    [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                    [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                    [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                    [animation]="animation" [animationDelay]="animationDelay"></round-progress>
+                            </div>
+                            <p style="color: #dec074;text-align: center;font-size: 18px;">Tier: Gold</p>
+                            <p class="small"
+                                style="color: white; padding-top: 10px;word-wrap: break-word;text-align: center;">You have
+                                reached <br> the maximum level</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col">
+            <h2 class="my-1" style="color: #dec074;">My Rewards</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-md-4 col-lg-3" style ="padding-left: 10px;padding-right: 10px;" *ngFor = "let onr of onpublishedrewardArr">
+            <div class="card mb-4" (click)="open(onr)"
+            style="
+            background-color: transparent;
+    box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">           
+                <figure class="card-img-top overflow-hidden mb-0" style="height: 140px;">
+                    <img src="data:{{ onr['thumbnailType'] }};base64,{{onr['thumbnail']}}" alt="" style="width: 100%; height: 140px;object-fit: fill;">
+                </figure>
+                <a class="card-body" style="height:110px;padding: 10px;">
+                    <div class="row">
+                        <div class="col-12">                        
+                            <h4 class="mb-1" style="color: #dec074;">{{onr['title']}}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-auto align-self-center">
+                                        <small style="color: grey;">Valid till: {{onr['expireddate']}}
+                                            <span>&nbsp;&nbsp;
+                                                <a style="color: grey; text-decoration: none;">T&C</a>
+                                            </span>
+                                        </small>
+                                    </div>
+                                </div>                            
+                            </div>                        
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3" style ="padding-left: 10px;padding-right: 10px;" *ngFor = "let onrv of onpublishedrewardvoucherArr">
+            <div class="card mb-4" (click) = "go(onrv)"
+            style="
+            background-color: transparent;
+    box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">           
+                <figure class="card-img-top overflow-hidden mb-0">
+                    <img src="data:{{ onrv['thumbnailType'] }};base64,{{onrv['thumbnail']}}" alt="" style="width: 100%; height: 140px;">
+                </figure>
+                <a class="card-body" style="height:110px;padding: 10px;">
+                    <div class="row">
+                        <div class="col-12">                        
+                            <h4 class="mb-1" style="color: #dec074;">{{onrv['title']}}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-auto align-self-center">
+                                        <small style="color: grey;">Valid till: {{onrv['expireddate']}}
+                                            <span>&nbsp;&nbsp;
+                                                <a style="color: grey; text-decoration: none;">T&C</a>
+                                            </span>
+                                        </small>
+                                    </div>
+                                </div>                            
+                            </div>                        
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3" style ="padding-left: 10px;padding-right: 10px;" *ngFor = "let hisr of hispublishedrewardArr">
+            <div class="card mb-4" (click)="open(hisr)"
+            style="
+            background-color: transparent;
+    box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">           
+                <figure class="card-img-top overflow-hidden mb-0 opacity-4">
+                    <img src="data:{{ hisr['thumbnailType'] }};base64,{{hisr['thumbnail']}}" alt="" style="width: 100%; height: 140px;">
+                </figure>
+                <a class="card-body" style="height:110px;padding: 10px;">
+                    <div class="row">
+                        <div class="col-12">                        
+                            <h4 class="mb-1" style="color: #dec074;">{{hisr['title']}}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-auto align-self-center">
+                                        <small style="color: grey;">Valid till: {{hisr['expireddate']}}
+                                            <span>&nbsp;&nbsp;
+                                                <a style="color: grey; text-decoration: none;">T&C</a>
+                                            </span>
+                                        </small>
+                                    </div>
+                                    <div class="bookmarkRibbonclaimed">
+                                        <span 
+                                            style="color:black;
+                                            position: relative;
+                                            top: -11px;
+                                            text-align: center;
+                                            right: -10px;">Claimed
+                                        </span>
+                                    </div>
+                                </div>                            
+                            </div>                        
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3" style ="padding-left: 10px;padding-right: 10px;" *ngFor = "let hisrv of hispublishedrewardvoucherArr">
+            <div class="card mb-4" (click)="go(hisrv)"
+            style="
+            background-color: transparent;
+    box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">           
+                <figure class="card-img-top overflow-hidden mb-0 opacity-4">
+                    <img src="data:{{ hisrv['thumbnailType'] }};base64,{{hisrv['thumbnail']}}" alt="" style="width: 100%; height: 140px;">
+                </figure>
+                <a class="card-body" style="height:110px;padding: 10px;">
+                    <div class="row">
+                        <div class="col-12">                        
+                            <h4 class="mb-1" style="color: #dec074;">{{hisrv['title']}}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-auto align-self-center">
+                                        <small style="color: grey;">Valid till: {{hisrv['expireddate']}}
+                                            <span>&nbsp;&nbsp;
+                                                <a style="color: grey; text-decoration: none;">T&C</a>
+                                            </span>
+                                        </small>
+                                    </div>
+                                    <div class="bookmarkRibbonclaimed">
+                                        <span 
+                                            style="color:black;
+                                            position: relative;
+                                            top: -11px;
+                                            text-align: center;
+                                            right: -10px;">Claimed
+                                        </span>
+                                    </div>
+                                </div>                            
+                            </div>                        
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3" style ="padding-left: 10px;padding-right: 10px;" *ngFor = "let exr of expublishedrewardArr">
+            <div class="card mb-4" 
+            style="
+            background-color: transparent;
+    box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">           
+                <figure class="card-img-top overflow-hidden mb-0 opacity-4">
+                    <img src="data:{{ exr['thumbnailType'] }};base64,{{exr['thumbnail']}}" alt="" style="width: 100%; height: 140px;">
+                </figure>
+                <div class="bookmarkRibbonavailable">
+                    <span 
+                        style="color:black;
+                        position: relative;
+                        top: -11px;
+                        text-align: center;
+                        right: -10px;">Expired
+                    </span>
+                </div>
+                <a class="card-body" style="height:110px;padding: 10px;">
+                    <div class="row opacity-4">
+                        <div class="col-12">                        
+                            <h4 class="mb-1" style="color: #dec074;">{{exr['title']}}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-auto align-self-center">
+                                        <small style="color: grey;">Valid till: {{exr['expireddate']}}
+                                            <span>&nbsp;&nbsp;
+                                                <a style="color: grey; text-decoration: none;">T&C</a>
+                                            </span>
+                                        </small>
+                                    </div>                                
+                                </div>                            
+                            </div>                        
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3" style ="padding-left: 10px;padding-right: 10px;" *ngFor = "let exrv of expublishedrewardvoucherArr">
+            <div class="card mb-4" 
+            style="
+            background-color: transparent;
+    box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">           
+                <figure class="card-img-top overflow-hidden mb-0 opacity-4">
+                    <img src="data:{{ exrv['thumbnailType'] }};base64,{{exrv['thumbnail']}}" alt="" style="width: 100%; height: 140px;">
+                </figure>
+                <div class="bookmarkRibbonavailable">
+                    <span 
+                        style="color:black;
+                        position: relative;
+                        top: -11px;
+                        text-align: center;
+                        right: -10px;">Expired
+                    </span>
+                </div>
+                <a class="card-body" style="height:110px;padding: 10px;">
+                    <div class="row opacity-4">
+                        <div class="col-12">                        
+                            <h4 class="mb-1" style="color: #dec074;">{{exrv['title']}}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-auto align-self-center">
+                                        <small style="color: grey;">Valid till: {{exrv['expireddate']}}
+                                            <span>&nbsp;&nbsp;
+                                                <a style="color: grey; text-decoration: none;">T&C</a>
+                                            </span>
+                                        </small>
+                                    </div>
+                                    
+                                </div>                            
+                            </div>                        
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

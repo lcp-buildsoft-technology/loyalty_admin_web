@@ -1,0 +1,89 @@
+<style>
+  .ed {
+      background-color: #dec074;
+      color: #2c2c2c;
+      border: 1px solid #dec074;
+      display: inline-block;
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      padding: 11px 15px;
+      line-height: 1em;
+      border-radius: 1rem;
+      cursor: pointer;
+      margin-left: 15px;
+      margin-top: 20px;
+  }
+
+  .ed:active {
+      transform: translateY(4px);
+  }
+
+  input:disabled {
+      background-color: #18181860;
+      color: white;
+  }
+
+  .form-group input[type=file] {
+      opacity: 1;
+  }
+  .abtn{
+      margin-left: 71%;
+  }
+</style>
+
+<div class=" content">
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <div class="card">
+              <div class=" card-header">
+                  <h2 class=" title">Edit Admin Profile</h2>
+              </div>
+              <div class="card-body">
+                  <form class="form" style="color:#dec074">
+                      <form action="" method="post" enctype="multipart/form-data">
+                          <div class="form-group row">
+                              <label class="col-md-3 col-form-label"> Contact Number *</label>
+                              <div class="col-md-8">
+                                  <input name="rwdtitle" [(ngModel)]='editadminuser.contact' class=" form-control" id="chg"
+                                      type="text" style="color:white;" />
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 col-form-label">Email * </label>
+                              <div class="col-md-8">
+                                  <input class=" form-control" id="chg" type="text" name="rwdreward"
+                                      [(ngModel)]='editadminuser.email' style="color:white;" maxlength="12" />
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <label class="col-md-3 col-form-label">Password *</label>
+                              <div class="col-md-8">
+                                  <input style="color:rgb(131, 131, 131) !important;" class=" form-control" id="chg"
+                                   type="password" [(ngModel)]='editadminuser.pwd' name="password" />
+
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <label class="col-md-3 col-form-label">Confirm Password *</label>
+                              <div class="col-md-8">
+                                  <input style="color:rgb(131, 131, 131) !important;" class=" form-control" id="chg"
+                                      type="text" [(ngModel)]='editadminuser.cfmpwd' name="confrimPassword" />
+
+                              </div>
+                          </div>
+                         
+
+                          <div class="abtn">
+                              <button type="button" class="ed" (click)="updateAdmin(editadminuser)">Save</button>
+                              <button type="button" class="ed" (click)='goBack()'>Cancel</button>
+                          </div>
+                      </form>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-2"></div>
+  </div>

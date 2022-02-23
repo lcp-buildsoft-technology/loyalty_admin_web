@@ -1,0 +1,87 @@
+<body>
+    <div class=" content">
+        <div class=" row">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <h2 class=" title" style="font-size: 1.5em;font-weight: bolder;">Admin Profile</h2>
+                        <!-- <div class="col-md-1" style="margin-left: 81%;">
+              <a href="#/editProfile"><input type="button" class="mbtn" value="Edit Profile" /></a>
+            </div> -->
+                    </div>
+                    <div class=" card-body">
+                        <form>
+                            <!-- <div class=" form-group row" hidden>
+                <label class="col-md-3 col-form-label"> Username </label>
+                <div class="col-md-8">
+                  <input class=" form-control" disabled type="text" [(ngModel)]='editadminuser.username'
+                    name="username" />
+                </div>
+              </div> -->
+
+                            <div class=" form-group row">
+                                <label class="col-md-3 col-form-label"> Name </label>
+                                <div class="col-md-8">
+                                    <input class=" form-control" type="text" [(ngModel)]='editadminuser.name' name="name" style="color:white;" />
+                                    <p class="validation">{{ valid['name'] }}</p>
+                                </div>
+                            </div>
+
+
+                            <!-- <div class=" form-group row" hidden>
+                <label class="col-md-3 col-form-label"> Gender </label>
+                <div class="col-md-8">
+                  <select class="form-control" id='gender' name="gender" [(ngModel)]='editadminuser.gender'>
+                    <option value="Male" style="color: black">Male</option>
+                    <option value="Female" style="color: black">Female</option>
+                    <option value="Prefer Not To Say" style="color: black">Prefer Not To Say</option>
+                  </select>
+                </div>
+              </div> -->
+
+                            <div class=" form-group row">
+                                <label class="col-md-3 col-form-label"> Contact Number </label>
+                                <div class="col-md-8">
+                                    <input class=" form-control" type="text" [(ngModel)]='editadminuser.contact' name="contact" [pattern]="contactPattern" #contact="ngModel" style="color:white;" />
+                                    <div *ngIf="contact.errors?.pattern" style="color:red;">
+                                        *Invalid contact number.
+                                    </div>
+                                    <p class="validation">{{ valid['contact'] }}</p>
+                                </div>
+                            </div>
+                            <div class=" form-group row">
+                                <label class="col-md-3 col-form-label"> Email </label>
+                                <div class="col-md-8">
+                                    <input class=" form-control" type="text" [(ngModel)]='editadminuser.email' name="email" disabled style="background-color: transparent;color:white;" />
+                                </div>
+                            </div>
+                            <div class="form-group row" hidden>
+                                <label class="col-md-3 col-form-label">Password *</label>
+                                <div class="col-md-8">
+                                    <input style="color:white;" class=" form-control" id="pwd" type="password" [(ngModel)]='editadminuser.pwd' name="pwd" [pattern]="pwdPattern" #pwd="ngModel" />
+                                    <div *ngIf="pwd.errors?.pattern" style="color:red;">
+                                        *Password must be at least 8 characters and maximum 15 characters.<br>
+                                        *Password must contain at least one number and at least one letter.
+                                    </div>
+                                    <p class="validation">{{ valid['pwd'] }}</p>
+
+                                </div>
+                            </div>
+                            <div class="form-group row" hidden>
+                                <label class="col-md-3 col-form-label">Confirm Password *</label>
+                                <div class="col-md-8">
+                                    <input style="color:white;" class=" form-control" id="cfmpwd" type="password" [(ngModel)]='editadminuser.cfmpwd' name="confrimPassword" />
+                                    <p class="validation">{{ valid['cfmpwd'] }}</p>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class=" card-footer">
+                        <button class="sbtn" type="submit" (click)='updateAdmin(editadminuser)'>Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

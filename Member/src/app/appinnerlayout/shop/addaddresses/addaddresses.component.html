@@ -1,0 +1,66 @@
+<!-- add edit address form -->
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" value="Maxartkiller" id="address1" placeholder="Your Name">
+            <label class="form-control-label" for="address1">Your Name</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" value="265B, Arohhi Appartment" id="address2" placeholder="Address Line 1">
+            <label class="form-control-label" for="address2">Address Line 1</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" value="Bhuvandi Baug" id="address3" placeholder="Address Line 2">
+            <label class="form-control-label" for="address3">Address Line 2</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" list="datalistOptions" class="form-control" value="" id="address4" placeholder="Select Country">
+            <datalist id="datalistOptions">
+                <option value="United Kingdom">
+                <option value="United States" selected>
+                <option value="Australia">
+                <option value="India">
+                <option value="Russia">
+            </datalist>
+            <label class="form-control-label" for="address4">Country</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" list="datalistStates" class="form-control" value="" id="address5" placeholder="Select State">
+            <datalist id="datalistStates">
+                <option value="California">
+                <option value="Texas" selected>
+                <option value="Florida">
+                <option value="Georgia">
+                <option value="Virginia">
+            </datalist>
+            <label class="form-control-label" for="address5">State</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" value="Raipur" id="address6" placeholder="City">
+            <label class="form-control-label" for="address6">City</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="form-group form-floating">
+            <input type="text" class="form-control" value="68541-44" id="address7" placeholder="Pincode">
+            <label class="form-control-label" for="address7">Pincode</label>
+        </div>
+    </div>
+</div>
+
+<!-- Button-->
+<div class="row mb-4">
+    <div class="col-12 col-md-6 col-lg-4 mx-auto d-grid">
+        <a routerLink="/cart" class="btn btn-primary shadow">Add Address</a>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row h-100">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px ">
+        <img src="assets/img/logox.png" style="width:100%; height:auto; max-width:150px;" />
+
+        <h1 style="padding-top: 20px;">Login to continue</h1>
+        <form action="/login" method="post" class="d-grid gap-2">
+            <div class="form-group form-floating is-valid">
+                <input type="text" class="form-control-sm" name="phonenumber" placeholder="0123456789"
+                    [(ngModel)]='memberlogin.phonenumber' [pattern]="numPattern" #phonenumber="ngModel" autocomplete="off">
+                <div *ngIf="phonenumber.errors?.pattern" style="color:red;">
+                    *Enter a valid phonenumber.
+                </div>
+                <p class="validation">{{ validErr['phonenumber'] }}</p>
+            </div>
+
+            <div class="form-floating is-valid">
+                <input type="password" class="form-control-sm" name="password" placeholder="Password"
+                    [(ngModel)]='memberlogin.password'>
+                <p class="validation">{{ validErr['password'] }}</p>
+            </div>
+            <div target="_self" (click)="sendData()" class="btn">Login</div>
+            <p class="mb-0"><a routerLink="/forgetpassword">Forgot Password?</a></p>
+        </form>
+
+        <div class="col">
+            <h4>OR</h4>
+            <p style="margin-top: 15px;">Login with</p>
+            <a routerLink="/">
+                <figure class="apple avatar avatar-40">
+                    <img src="assets/img/applelogo.png">
+                </figure>
+            </a>
+            <a routerLink="/">
+                <figure class="fb avatar avatar-30">
+                    <img src="assets/img/facebooklogo.png">
+                </figure>
+            </a>
+            <!-- <a (click)="loginWithGoogle()"><figure class="google avatar avatar-30">
+                <img src="assets/img/googlelogo.png">
+            </figure></a> -->
+            <a>
+                <figure class="google avatar avatar-30">
+                    <img src="assets/img/googlelogo.png">
+                </figure>
+            </a>
+        </div>
+        <p style="margin-top:10px;">New user?<a routerLink="../register"> REGISTER HERE</a></p>
+    </div>
+</div>

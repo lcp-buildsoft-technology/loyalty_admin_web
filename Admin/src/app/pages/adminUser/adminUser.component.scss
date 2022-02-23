@@ -1,0 +1,51 @@
+
+  .show {
+    display: inline-block;
+  }
+
+.form-control {
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-radius: 0%;
+    border-color: #dec074;
+}
+
+.mbtn {
+    background-color: #dec074;
+    color: black;
+    border: 3px solid #dec074;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 15px;
+    line-height: 1em;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.mbtn:active {
+    transform: translateY(4px);
+}
+
+.modal-title {
+    color: #dec074!important;
+    font-size: 25px!important;
+}
+
+.search {
+    margin-top: 1.7%;
+}
+
+.fas:active {
+    transform: translateY(4px);
+}
+
+.validation {
+    font-weight: 500;
+    font-size: 1em;
+    color: rgb(255, 0, 0) !important;
+}

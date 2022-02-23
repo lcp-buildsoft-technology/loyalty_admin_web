@@ -1,0 +1,376 @@
+<div class="home" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row"  style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto align-self-center pr-0">
+            <button type="button" class="btn btn-link menu-btn" (click)="menuopen()" style="margin: 0;color: #dec074;width: 0;">
+                <i class="bi bi-list" style="font-size: 20px;" style="color: #dec074;"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="margin: 0;color: #dec074;">Home</h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/notification" class="btn btn-link">
+                <i class="bi bi-bell" style="font-size: 20px;color: #dec074;"></i>
+            </a>
+            <a (click) = "acc()" class="btn btn-link" *ngFor = "let reg of onregisterArr">
+                <figure class="avatar avatar-36 rounded-circle">
+                    <img src="data:{{ reg['thumbnailType'] }};base64,{{reg['thumbnail']}}" alt=""
+                    style="object-fit: fill; height: 50px;color: #dec074;">
+                </figure>
+            </a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-md-6" id="Bronze" style="display: none;">
+            <div class="card shadow-sm mb-4" style="
+            /* background-image: url(/assets/img/card.jpg); */
+            /* background-repeat: no-repeat;     */
+            /* background-position: center; */
+            border-radius: 20px;
+            background: linear-gradient(to bottom, #202020 0%, #505050 100%);">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col" *ngFor="let profile of registerArr">
+                            <figure class="avatar avatar-50">
+                                <img src="assets/img/logox.png" alt="">
+                            </figure>
+                            <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto">
+                                {{profile['name']}}</h3>
+                            <button (click)="points()" type="button">Earn More Points</button><br><br>
+                            <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                            <p class="small" style="color: white; font-size: 14px;"><i>{{profile['createdat']}}</i></p>
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current |number : '1.0-0'}}
+                                    Points</div>
+                                <round-progress [current]="current" [max]="max"
+                                    [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                    [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                    [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                    [animationDelay]="animationDelay"></round-progress>
+                            </div>
+                            <p style="color: #dec074;text-align: center;font-size: 16px;">Tier: Bronze</p>
+                            <p class="small" style="color: white; padding-top: 10px;text-align: center;">{{remainingpoints}}
+                                points to <i id="level"> </i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12 col-md-6" id="Silver" style="display:none;">
+            <div class="card shadow-sm mb-4" style="
+            background-image: url(/assets/img/card.jpg);
+            background-repeat: no-repeat;    
+            background-position: center;
+            border-radius: 20px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col" *ngFor="let profile of registerArr">
+                            <figure class="avatar avatar-50">
+                                <img src="assets/img/logox.png" alt="">
+                            </figure>
+                            <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto;">
+                                {{profile['name']}}</h3>
+                            <button (click)="points()" type="button">Earn More Points</button><br><br>
+                            <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                            <p class="small" style="color: white; font-size: 15px;"><i>{{profile['createdat']}}</i></p>
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current | number : '1.0-0'}}
+                                    Points</div>
+                                <round-progress [current]="current" [max]="max"
+                                    [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                    [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                    [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                    [animation]="animation" [animationDelay]="animationDelay"></round-progress>
+                            </div>
+                            <p style="color: #dec074;text-align: center;font-size: 18px;">Tier: Silver</p>
+                            <p class="small" style="color: white; padding-top: 10px;text-align: center;">{{remainingpoints}}
+                                points to <i id="level2"> </i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12 col-md-6" id="Gold" style="display: none;">
+            <div class="card shadow-sm mb-4" style="
+            background-image: url(/assets/img/card.jpg);
+            background-repeat: no-repeat;    
+            background-position: center;
+            border-radius: 20px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col" *ngFor="let profile of registerArr">
+                            <figure class="avatar avatar-50">
+                                <img src="assets/img/logox.png" alt="">
+                            </figure>
+                            <h3 style="color: white; padding-top: 15px;letter-spacing: 2px;font-size: auto;">
+                                {{profile['name']}}</h3>
+                            <button (click)="points()" type="button">Earn More Points</button><br><br>
+                            <p class="small" style="color: white;padding-top: 10px;">Joined on: </p>
+                            <p class="small" style="color: white; font-size: 15px;"><i>{{profile['createdat']}}</i></p>
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <div class="progress-wrapper" *ngFor="let profile of registerArr">
+                                <div class="current" style="text-align: center;" [ngStyle]="getOverlayStyle()">{{current |number : '1.0-0'}}
+                                    Points</div>
+                                <round-progress [current]="current" [max]="max"
+                                    [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                                    [radius]="radius" [stroke]="stroke" [semicircle]="semicircle" [rounded]="rounded"
+                                    [clockwise]="clockwise" [responsive]="responsive" [duration]="duration"
+                                    [animation]="animation" [animationDelay]="animationDelay"></round-progress>
+                            </div>
+                            <p style="color: #dec074;text-align: center;font-size: 18px;">Tier: Gold</p>
+                            <p class="small"
+                                style="color: white; padding-top: 10px;word-wrap: break-word;text-align: center;">You have
+                                reached <br> the maximum level</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Headers-->
+    <div class="row mb-2">
+        <div class="col">
+            <h2 style="color: #dec074;text-indent: 5px;"> Top Outlets </h2>
+        </div>
+        <div class="col-auto px-0">
+            <a class="btn btn-link btn-sm" style="color: grey;" routerLink="/locatestorehome">See More</a>
+        </div>
+    </div>
+    
+    <!-- category carousel -->
+    <div class="row">
+        <div class="col-12 mb-4 px-0">
+            <swiper class="swipercategory" [slidesPerView]="'auto'" [spaceBetween]="0" [pagination]="false">
+                <ng-template swiperSlide class="text-center" *ngFor="let hout of houtletArr">
+                    <div>
+                        <div>
+                            <div class="col-auto">
+                                <figure class="avatar avatar-80 rounded-circle" (click)="oout(hout)">
+                                    <img src="data:{{ hout['thumbnailType'] }};base64,{{hout['thumbnail']}}" alt=""
+                                        style="object-fit: cover; height: 120px;">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+    </div>
+    
+    <!-- Advertisement carousel -->
+    <div class="row">
+        <div class="col-12 mb-2 px-0">
+            <swiper class="swiperprojects" [slidesPerView]="1" [spaceBetween]="10" [pagination]="false"
+                [autoplay]="{delay: 2500, disableOnInteraction: false}">
+                <ng-template swiperSlide *ngFor="let adv of onadvertisementArr">
+                    <div class="row mb-2" style="height: 110px;">
+                        <div class="col-12 py-4" (click)="go(adv)">
+                            <div class="position-absolute top-0 start-0 w-100">
+                                <img src="data:{{ adv['thumbnailType'] }};base64,{{adv['thumbnail']}}"
+                                    style="padding-top: 0; width: 100%;height: 110px; object-fit: cover;" />
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+    </div>
+    
+    <!--Booking history-->
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card mb-4" style="background-color: #2c2c2c; border-radius: 20px;">
+                <div class="row" (click)="history()">
+                    <div class="col">
+                        <h2
+                            style="color: black;width: 100%; background-color: #dec074;text-align-last: center; background-image: linear-gradient(-20deg , #dec048,#dec064, #dec074); color: #2c2c2c; box-shadow: 2px 2px 20px rgb(222, 192, 116, 0.7); border-top-right-radius: 20px; border-top-left-radius: 20px;">
+                            Today's Bookings</h2>
+                    </div>
+                </div>
+                <div class="row" (click)="history()">
+                    <div class="col" style="padding-left: 25px;">
+                        <h4 text-muted style="color: #dec074;" id="event" value="">You have {{bookingevent['length']}} event
+                            booking today<a class="text-muted" style="color: grey; float: right; padding-right: 10px;"><i
+                                    class="bi bi-arrow-right" style="color: white;"></i></a><br>You have
+                            {{bookingvenue['length']}} venue booking today
+                            <a class="text-muted" style="color: #2c2c2c; float: right; padding-right: 10px;"><i
+                                    class="bi bi-arrow-right" style="color: white;"></i></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Headers-->
+    <div class="row mb-2">
+        <div class="col">
+            <h2 style="color: #dec074;text-indent: 5px;"> Latest Deals</h2>
+        </div>
+        <div class="col-auto px-0">
+            <a class="btn btn-link btn-sm" style="color: grey;" routerLink="/voucherlist">See More</a>
+        </div>
+    </div>
+    
+    <!--Hot Deals-->
+    <div class="row">
+        <div class="container px-0">
+            <swiper class="swipertrending" [slidesPerView]="1.8" [spaceBetween]="15" [pagination]="false">
+                <ng-template swiperSlide *ngFor="let hv of hvoucherArr">
+                    <div class="card mb-4"
+                        style="background-color: transparent;box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">
+                            <img src="data:{{ hv['thumbnailType'] }};base64,{{hv['thumbnail']}}" alt=""
+                            style="height: 150px;width: 100%; object-fit: fill;">
+                        <a (click)="open(hv)" class="card-body">
+                            <div class="row">
+                                <div class="col-12" style="padding-left: 2px;">
+                                    <h4 class="mb-1" style="color: #dec074;">{{hv['title']}}</h4>
+                                    <div class="row">
+                                        <small style="color: grey;">Valid till {{hv['edate']}}
+                                            <span style="float: right;">
+                                                <a (click)="open(hv)"
+                                                    style="color: grey; text-decoration: none;float: right;">T&C</a>
+                                            </span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+    </div>
+    
+    <!--Headers-->
+    <div class="row mb-2">
+        <div class="col">
+            <h2 style="color: #dec074;text-indent: 5px;"> Explore Venues </h2>
+        </div>
+        <div class="col-auto px-0">
+            <a class="btn btn-link btn-sm" style="color: grey;" routerLink="/bookingvenuehome">See More</a>
+        </div>
+    </div>
+    
+    <!-- Trending Venues-->
+    <div class="row">
+        <div class="container px-0">
+            <swiper class="swipertrending" [slidesPerView]="1.8" [spaceBetween]="15" [pagination]="false">
+                <ng-template swiperSlide *ngFor="let hout of houtletArr">
+                    <div class="card mb-4" style=" height: 280px;
+                    background-color: transparent;
+              box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">
+                            <img src="data:{{ hout['thumbnailType'] }};base64,{{hout['thumbnail']}}" alt=""
+                                 style="height: 150px;width: 100%; object-fit: fill;">
+                        <a (click)="detail(hout)" class="card-body">
+                            <div class="row">
+                                <div class="col-12" style="padding-left: 2px;">
+                                    <div class="column2">
+                                        <div class="column-right" style="margin-right: -10px;">
+                                            <div class="fee">
+                                                <div class="rating small mx-2" style="float: right;">
+                                                    <i class="bi bi-star-fill" style="color: #dec074;"></i> {{hout['avgrating']|number : '1.1-1'}}
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="column-left">
+                                            <div class="title">
+                                                <p>{{hout['shopname']}} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column2">
+                                        <div class="column-left">
+                                            <div class="subtitle">
+                                                <p>
+                                                    <i class="material-icons place">access_time</i>
+                                                    {{hout['operatehrsstart']}} - {{hout['operatehrsend']}}
+                                                    <br>
+                                                    {{hout['operateday1']}} - {{hout['operateday2']}}
+                                                    <i class="bi bi-three-dots"
+                                                        style="color: #dec074;float: right; font-size: 20px;"></i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+    </div>
+    
+    <!--Headers-->
+    <div class="row mb-2">
+        <div class="col">
+            <h2 style="color: #dec074;text-indent: 5px;"> Upcoming Events </h2>
+        </div>
+        <div class="col-auto px-0">
+            <a class="btn btn-link btn-sm" style="color: grey;" routerLink="/bookingeventhome">See More</a>
+        </div>
+    </div>
+    
+    <!--Events Carousel-->
+    <div class="row">
+        <div class="container px-0">
+            <swiper class="swipertrending" [slidesPerView]="1.8" [spaceBetween]="15" [pagination]="false">
+                <ng-template swiperSlide *ngFor="let heve of heventArr">
+                    <div class="card mb-4" style=" height: 280px;
+                    background-color: transparent;
+              box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">
+                                <img src="data:{{ heve['thumbnailType'] }};base64,{{heve['thumbnail']}}" alt=""
+                                    style="height: 150px;width: 100%;object-fit: fill;">
+                        <a (click)="goto(heve)" class="card-body">
+                            <div class="row">
+                                <div class="col-12" style="padding-left: 2px;">
+                                    <div class="column2">
+                                        <div class="column-left">
+                                            <div class="title">
+                                                <p>{{heve['eventname']}} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column2">
+                                        <div class="column-right">
+                                            <div class="fee">
+                                                <div class="subdetails">
+                                                    <p>
+                                                        <i class="bi bi-clock"></i>
+                                                        <span style="color: grey;"> &nbsp; {{heve['stime']}}</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="column-left">
+                                            <div class="subtitle">
+                                                <p>
+                                                    <i class="bi bi-calendar"></i>
+                                                    <span> &nbsp; {{heve['sdate']}}</span>                                                
+                                                </p>
+                                                <small style="color: grey;">Fee: RM {{heve['amount']}}</small>
+                                                <i class="bi bi-three-dots" style="color: #dec074;float: right; font-size: 20px;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+    </div>
+</div>

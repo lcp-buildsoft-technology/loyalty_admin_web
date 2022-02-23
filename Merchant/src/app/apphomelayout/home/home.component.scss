@@ -1,0 +1,780 @@
+.main-container{
+  background-color: black;
+}
+ 
+ 
+button[type = "button"]
+{
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    color: black;
+    font-size: 15px;
+}
+ a{
+   color:#dec074 !important;
+   text-decoration: none !important;
+   
+ }
+p .font
+{
+    color: white;
+}
+ 
+.mb-0 h6
+{
+    font-size: 15px;
+}
+ 
+.date-list
+{
+    background-color: #2c2c2c;
+    color: white;
+}
+ 
+.date-list .date .active
+{
+    background-color: #dec074;
+}
+  .title
+  {
+    color: #dec074;
+    font-size: 14px;
+  }
+ 
+  .subtitle
+    {
+      color: rgb(175, 168, 168);
+      font-size: 14px;
+      font-size: 12px;
+    }
+ 
+    .rating
+    {
+      color: #dec074;
+      border-radius: 30px;
+      font-size: small;
+      font-weight: bold;
+      padding: 4px;    
+    }
+ 
+    .subdetails p
+    {
+        color:#dec074;
+        text-align: right;
+        font-size: 10px;
+    }
+ 
+    .place
+    {
+      font-size: 12px;
+    }
+ 
+    .placedetails
+    {
+      color: grey;
+      font-size: 12px;
+      text-align: left;
+    }
+ 
+    .column2 {
+        padding: 0px;
+      }
+     
+      .column-right
+      {
+        float: right;
+      }
+ 
+      .bi
+{
+    color: white;
+}
+ 
+.break
+{
+    background-color: white;
+}
+ 
+.row span
+{
+    font-size: 12px;
+}
+ 
+button[type = "submit"] {
+    background-color: #dec074;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 5px;
+    float: right;
+  }
+ 
+  button:hover {
+    opacity: 0.8;
+  }
+ 
+  .details {
+    color:white;
+    left: 5px;
+  }
+
+
+
+body {
+  margin: 0;
+  background-color: #eee;
+  min-height: 100vh;
+}
+.btn i:before {
+  width: 14px;
+  height: 14px;
+  position: fixed;
+  color: #fff;
+  background: #0077B5;
+  padding: 10px;
+  border-radius: 50%;
+  top:5px;
+  right:5px;
+}
+
+
+// voucher
+
+.mat-expansion-panel-header-title
+{
+  text-align: center;
+  margin: 15px;
+  background-color: transparent;
+}
+.mat-expansion-panel-header-description {
+flex-basis: 0;
+text-align: center;
+justify-content: space-between;
+align-items: center;
+padding: auto;
+}
+.mat-expansion-panel-header-description {
+justify-content: space-between;
+align-items: center;
+background-color: transparent;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  border: solid;
+  border-collapse: collapse;
+  border-color: #dec074;
+  border-right: 2px;
+  border-width: medium;
+  background-color: #2c2c2c;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+// circle
+
+
+.outer {
+  background-color: #dec074;
+  height: 150px;
+  width: 150px;
+}
+
+.inner {
+  background-color: black;
+  height: 130px;
+  width: 130px;
+}
+
+/* Special circle class to enhance html readability */
+.circle {
+  border-radius: 50%;
+  float: right;
+}
+
+/* Add this to the outer circle - Flex */ 
+/* Added to the inner circle to center text */
+.center-f-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #dec074;
+}
+
+.main-container{
+  background-color: black;
+}
+
+
+button[type = "button"]
+{
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    color: black;
+    font-size: 15px;
+}
+
+p .font
+{
+    color: white;
+}
+
+.mb-0 h6
+{
+    font-size: 15px;
+}
+
+.date-list
+{
+    background-color: #2c2c2c;
+    color: white;
+}
+
+.date-list .date .active
+{
+    background-color: #dec074;
+}
+  .title
+  {
+    color: #dec074;
+    font-size: 14px;
+  }
+
+  .subtitle
+    {
+      color: rgb(175, 168, 168);
+      font-size: 14px;
+      font-size: 12px;
+    }
+  
+    .rating
+    {
+      color: #dec074;
+      border-radius: 30px;
+      font-size: small;
+      font-weight: bold;
+      padding: 4px;    
+    }
+
+    .subdetails p
+    {
+        color:#dec074;
+        text-align: right;
+        font-size: 10px;
+    }
+  
+    .place
+    {
+      font-size: 12px;
+    }
+  
+    .placedetails
+    {
+      color: grey;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .column2 {
+        padding: 0px;
+      }
+      
+      .column-right
+      {
+        float: right;
+      }
+
+      .bi 
+{
+    color: white;
+}
+
+.break
+{
+    background-color: white;
+}
+
+.row span
+{
+    font-size: 12px;
+}
+
+button[type = "submit"] {
+    background-color: #dec074;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 5px;
+    float: right;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .details {
+    color:white;
+    left: 5px;
+  }.main-container{
+  background-color: black;
+}
+ 
+ 
+button[type = "button"]
+{
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    color: black;
+    font-size: 15px;
+}
+ 
+p .font
+{
+    color: white;
+}
+ 
+.mb-0 h6
+{
+    font-size: 15px;
+}
+ 
+.date-list
+{
+    background-color: #2c2c2c;
+    color: white;
+}
+ 
+.date-list .date .active
+{
+    background-color: #dec074;
+}
+  .title
+  {
+    color: #dec074;
+    font-size: 14px;
+  }
+ 
+  .subtitle
+    {
+      color: rgb(175, 168, 168);
+      font-size: 14px;
+      font-size: 12px;
+    }
+ 
+    .rating
+    {
+      color: #dec074;
+      border-radius: 30px;
+      font-size: small;
+      font-weight: bold;
+      padding: 4px;    
+    }
+ 
+    .subdetails p
+    {
+        color:#dec074;
+        text-align: right;
+        font-size: 10px;
+    }
+ 
+    .place
+    {
+      font-size: 12px;
+    }
+ 
+    .placedetails
+    {
+      color: grey;
+      font-size: 12px;
+      text-align: left;
+    }
+ 
+    .column2 {
+        padding: 0px;
+      }
+     
+      .column-right
+      {
+        float: right;
+      }
+ 
+      .bi
+{
+    color: white;
+}
+ 
+.break
+{
+    background-color: white;
+}
+ 
+.row span
+{
+    font-size: 12px;
+}
+ 
+button[type = "submit"] {
+    background-color: #dec074;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 5px;
+    float: right;
+  }
+ 
+  button:hover {
+    opacity: 0.8;
+  }
+ 
+  .details {
+    color:white;
+    left: 5px;
+  }
+
+
+/* BEGIN CARD DESIGN */
+.hero {
+  display: inline-block;
+  position: relative;
+  // width: 10vh;
+  min-width: auto;
+  height: 200px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+}
+
+.hero-profile-img {
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+  object-fit: fill;
+}
+
+.hero-description-bk {
+  border-radius: 30px;
+  position: absolute;
+  top: 45%;
+  left: -2px;
+  height: 70%;
+  width: 108%;
+  transform: skew(19deg, -9deg);
+  box-shadow: 2px 2px 20px rgb(0,0,0, 0.7);
+}
+
+// .second .hero-description-bk {
+//   background-image: linear-gradient(-18deg ,black, #2c2c2c, #444343)
+// }
+
+// .hero-logo {
+//   height: 80px;
+//   width: 80px;
+//   position: absolute;
+//   // bottom: 25%;
+//   // left: 35px;
+//   overflow:hidden;
+//   justify-items: center;
+// }
+
+.xclub {
+  height: 40px;
+  position: absolute;
+  bottom: 75%;
+  left: 80%;
+  justify-items: center;
+}
+
+.hero-description {
+  position: absolute;
+  color: #dec074;
+  font-weight: bold;
+  bottom: 10px;
+  text-align: center;
+
+}
+
+
+.hero-date {
+  position: absolute;
+  color: #fff;
+  left: 30px;
+  bottom: 10%;
+}
+/* END CARD DESIGN */
+
+body {
+  margin: 0;
+  background-color: #eee;
+  min-height: 100vh;
+}
+.btn i:before {
+  width: 14px;
+  height: 14px;
+  position: fixed;
+  color: #fff;
+  background: #0077B5;
+  padding: 10px;
+  border-radius: 50%;
+  top:5px;
+  right:5px;
+}
+
+
+// voucher
+
+.mat-expansion-panel-header-title
+{
+  text-align: center;
+  margin: 15px;
+  background-color: transparent;
+}
+.mat-expansion-panel-header-description {
+flex-basis: 0;
+text-align: center;
+justify-content: space-between;
+align-items: center;
+padding: auto;
+}
+.mat-expansion-panel-header-description {
+justify-content: space-between;
+align-items: center;
+background-color: transparent;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  border: solid;
+  border-collapse: collapse;
+  border-color: #dec074;
+  border-right: 2px;
+  border-width: medium;
+  background-color: #2c2c2c;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+// circle
+
+.outer {
+  background-color: #dec074;
+  height: 150px;
+  width: 150px;
+}
+
+.inner {
+  background-color: black;
+  height: 130px;
+  width: 130px;
+}
+
+/* Special circle class to enhance html readability */
+.circle {
+  border-radius: 50%;
+  float: right;
+}
+
+/* Add this to the outer circle - Flex */ 
+/* Added to the inner circle to center text */
+.center-f-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #dec074;
+}
+
+///////////////
+.main-container{
+  background-color: black;
+}
+
+
+button[type = "button"]
+{
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    color: black;
+    font-size: 15px;
+}
+
+p .font
+{
+    color: white;
+}
+
+.mb-0 h6
+{
+    font-size: 15px;
+}
+
+.date-list
+{
+    background-color: #2c2c2c;
+    color: white;
+}
+
+.date-list .date .active
+{
+    background-color: #dec074;
+}
+  .title
+  {
+    color: #dec074;
+    font-size: 14px;
+  }
+
+  .subtitle
+    {
+      color: rgb(175, 168, 168);
+      font-size: 14px;
+      font-size: 12px;
+    }
+  
+    .rating
+    {
+      color: #dec074;
+      border-radius: 30px;
+      font-size: small;
+      font-weight: bold;
+      padding: 4px;    
+    }
+
+    .subdetails p
+    {
+        color:#dec074;
+        text-align: right;
+        font-size: 10px;
+    }
+  
+    .place
+    {
+      font-size: 12px;
+    }
+  
+    .placedetails
+    {
+      color: grey;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .column2 {
+        padding: 0px;
+      }
+      
+      .column-right
+      {
+        float: right;
+      }
+
+      .bi 
+{
+    color: white;
+}
+
+.break
+{
+    background-color: white;
+}
+
+.row span
+{
+    font-size: 12px;
+}
+
+button[type = "submit"] {
+    background-color: #dec074;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 5px;
+    float: right;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .details {
+    color:white;
+    left: 5px;
+  }
+  // dropdown search outlet
+  .dropbtn {
+    background-color:transparent;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 3%;
+    margin-top: -20%;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+  
+    background-color:black;
+    min-width: 130px;
+    box-shadow: 0px 8px 8px 0px #dec074 0.2;
+    z-index: 1;
+    margin-left: 6%;
+    margin-top: -20%;
+  }
+  
+  .dropdown-content a {
+    color: #dec074;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: black;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: transparent;}
+
+  .row{
+    --bs-gutter-x: 0rem;
+  }
+  

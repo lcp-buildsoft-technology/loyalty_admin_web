@@ -1,0 +1,22 @@
+<div class="row h-50">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center">
+        <div class="covering position-absolute start-0" style="opacity: 10%;top: 20%;height: 70%">
+            <img src="assets/img/logo x.png" 
+            style="height: 80%; width: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;">
+        </div>
+        <h2 class="mb-1">OTP Verification</h2>
+        <p class="mb-4">We have sent 6-digit OTP<br>to your email</p>
+        <div class="form-floating is-valid">
+            <div class="user-input">
+                <input type="text" [(ngModel)]="inputotp1">
+                <input type="text" [(ngModel)]="inputotp2">
+                <input type="text" [(ngModel)]="inputotp3">
+                <input type="text" [(ngModel)]="inputotp4">
+                <input type="text" [(ngModel)]="inputotp5">
+                <input type="text" [(ngModel)]="inputotp6">
+            </div>
+            <a (click)="cmpotp()" class="btn">Confirm Code</a>
+            <p class="text-center" style="margin-top:40px;">Didn't received?<a style="color: #dec074;" (click)="cmpotp()"> RESEND OTP</a></p>
+        </div>        
+    </div>
+</div>

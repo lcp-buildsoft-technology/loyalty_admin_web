@@ -1,0 +1,222 @@
+<style>
+    input {
+        color: white !important;
+    }
+
+    /* // ------------------------loader------------------------ */
+
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(180deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        75% {
+            transform: rotate(360deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+
+        25% {
+            height: 0%;
+        }
+
+        50% {
+            height: 100%;
+        }
+
+        75% {
+            height: 100%;
+        }
+
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+<!-------------------------------------------Edit Function--------------------------------------------------------->
+<ng-template #editgame let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">Update Details</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true" style="color: white">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form class="form" style="color:#dec074">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class=" form-group">
+
+                    <label> Name *</label>
+                    <input class=" form-control" type="text" name="gameName" [(ngModel)]='editGame.name' /><br>
+                    <p class="validation">{{ valid['name'] }}</p>
+
+                    <label> Play Times Per User Per Day*</label>
+                    <input class=" form-control" type="number" name="playtimes" [(ngModel)]='editGame.playtimes' /><br>
+                    <p class="validation">{{ valid['playtimes'] }}</p>
+
+                    <label>Status *</label>
+
+                    <select class="form-control" name="gameStatus" [(ngModel)]='editGame.status'
+                        style="color:white;"><br>
+                        <option value="Active" style="color:black;">Active</option>
+                        <option value="Inactive" style="color:black;">Inactive</option>
+                    </select>
+                    <p class="validation">{{ valid['status'] }}</p>
+
+                    <label> Start Date *</label>
+                    <input class=" form-control" type="date" name="sdate" [(ngModel)]='editGame.sdate' /><br>
+                    <p class="validation">{{ valid['sdate'] }}</p>
+
+                    <label> End Date *</label>
+                    <input class=" form-control" type="date" name="edate" [(ngModel)]='editGame.edate' />
+                    <p class="validation">{{ valid['edate'] }}</p>
+                </div>
+            </form>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="ed" style="margin-right: 10px;" (click)="uploadGame(editGame)">Save</button>
+        <button type="button" class="ed" (click)="modal.dismiss('')">Cancel</button>
+    </div>
+</ng-template>
+
+<!---------------------------------------------------------------------------------------->
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class=" content">
+        <div class=" row">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class=" card-title font-weight-bold text-muted mb-0">Gamification Management</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-md-10">
+                            </div>
+                            <div name="addclass" class=" col-md-2" *ngIf="thisadd" style="padding-top: 2.6%;" hidden>
+                                <a routerLink="/addGame"><input type="button" class="mbtn" value="+ New Game"
+                                        style="color: black !important;" /></a>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class=" card-body">
+                        <div class="row">
+                            <div class="col-md-10"></div>
+                            <div name="exportclass" *ngIf="thisexport" class="col-md-2"><button (click)="exportexcel()">
+                                    <i class="fas fa-download"></i>
+                                    &nbsp;Export to
+                                    Excel</button></div>
+                        </div>
+                        <br>
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class=" table tablesorter"
+                            id="gametable">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Play Times Per User Per Day</th>
+                                    <th class="text-center">Start Date</th>
+                                    <th class="text-center">End Date</th>
+                                    <th class="text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let game of gameArr">
+                                    <td class="text-center">
+                                        <div ngbDropdown class="dropdown">
+                                            <div class="button-secondary" id="edit" ngbDropdownToggle>
+                                                <i class="tim-icons icon-bullet-list-67"
+                                                    style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                            </div>
+                                            <div ngbDropdownMenu aria-labelledby="" class="dropdown-content"
+                                                style="padding: 0">
+                                                <a routerLink="/gameSetting">
+                                                    <div *ngIf="thisedit" class="dd" type="button"
+                                                        style="cursor: pointer; font-size: 12px;">
+                                                        <a title="View" style="color:#2c2c2c; cursor: pointer;"><i
+                                                                class="fas fa-eye">&nbsp;</i>View
+                                                        </a>
+                                                    </div>
+                                                </a>
+
+                                                <div (click)="open(editgame, game)" *ngIf="thisedit">
+                                                    <button class="dd" ngbDropdownItem style="cursor: pointer;">
+                                                        <a href="javascript:void(0)" title="Edit"
+                                                            style="color:#2c2c2c;"><i class="tim-icons icon-pencil"
+                                                                style="color:black!important"></i>Edit</a>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center"> {{ game.name }} </td>
+                                    <td class="text-center"> {{ game.playtimes }} </td>
+                                    <td class="text-center"> {{ game.sdate }} </td>
+                                    <td class="text-center"> {{ game.edate }} </td>
+                                    <td class="text-center"> {{ game.status }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

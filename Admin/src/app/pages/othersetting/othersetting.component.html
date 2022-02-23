@@ -1,0 +1,445 @@
+<style>
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .ed:active {
+        transform: translateY(4px);
+    }
+
+    .mbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+    .mbtn:active {
+        transform: translateY(4px);
+    }
+
+    .content {
+        background-color: #181818 !important;
+        overflow: hidden;
+        opacity: 1.0;
+    }
+
+    .card {
+        background-color: #2c2c2c !important;
+    }
+
+    .form-control {
+        border-top: transparent;
+        border-right: transparent;
+        border-left: transparent;
+        border-radius: 0%;
+        border-color: #dec074;
+    }
+
+    option {
+        color: black;
+    }
+
+    label {
+        color: #dec074;
+        font-size: 13px;
+    }
+
+    .validation {
+        font-weight: 500;
+        font-size: 1em;
+        color: rgb(255, 0, 0) !important;
+    }
+
+    /* // ------------------------loader------------------------ */
+
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(180deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        75% {
+            transform: rotate(360deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+
+        25% {
+            height: 0%;
+        }
+
+        50% {
+            height: 100%;
+        }
+
+        75% {
+            height: 100%;
+        }
+
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+
+<ng-template #add let-modal>
+    <div class="modal-header">
+        <div style="color: #dec074;font-size: 1.2em; text-decoration:bold !important" class="modal-title"
+            id="modal-basic-title">{{ addtitle }}</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true" style="color:white">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <input class="form-control" type="text" [(ngModel)]="merchanttype.type" [pattern]="inputPattern"
+                    #input="ngModel" placeholder="">
+                <div *ngIf="input.errors?.pattern" style="color:red;">
+                    *Invalid Input!
+                </div>
+                <p class="validation">{{ amvalid['type'] }}</p>
+                <p class="validation">{{ apvalid['type'] }}</p>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="ed" (click)="addmerchanttype(addtitle); modal.dismiss();">Save</button>&nbsp;&nbsp;
+        <button type="button" class="ed" (click)="modal.close()">Cancel</button>
+    </div>
+</ng-template>
+
+<ng-template #edit let-modal>
+    <div class="modal-header">
+        <div style="color: #dec074;font-size: 1.2em; text-decoration:bold !important" class="modal-title"
+            id="modal-basic-title">{{ edittitle }}</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true" style="color:white">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <input class="form-control" type="text" [(ngModel)]="edittype.type" [pattern]="inputPattern"
+                    #input="ngModel">
+                <div *ngIf="input.errors?.pattern" style="color:red;">
+                    *Invalid Input!
+                </div>
+                <p class="validation">{{ emvalid['type'] }}</p>
+                <p class="validation">{{ epvalid['type'] }}</p>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="ed" (click)="editmerchanttype(edittitle); modal.dismiss();">Save</button>&nbsp;&nbsp;
+        <button type="button" class="ed" (click)="modal.dismiss()">Cancel</button>
+    </div>
+</ng-template>
+
+<ng-template #delete let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">{{ deletetitle }}</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true" style="color: white">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <p style="color: #dec074">{{ deletecap}} <span style="color:white;">{{ edittype.type }}</span></p>
+                <div style="color: red" class="dlt">Are you sure you want to delete ?</div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="ed" (click)="deletemerchanttype(edittype.id, deletetitle)">Yes</button>&nbsp;&nbsp;
+        <button type="button" class="ed" (click)="modal.dismiss()">Cancel</button>
+    </div>
+</ng-template>
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- <h3 class=" card-title"
+                            style="color: #dec074; font-weight: bolder;font-size: 1.5em;margin-top: 3px;">
+                            Other Settings
+                        </h3> -->
+
+                        <!-- Point Conversion -->
+                        <h3>Point Conversion *</h3>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Bronze *</label>
+                            <input [(ngModel)]='editpoint.Bronze' class=" form-control" type="number" step="0.01"
+                                id="pts" style="max-width: 15%;color: white !important">
+                                <p class="validation">{{ pcvalid['Bronze'] }}</p>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Silver *</label>
+                            <input [(ngModel)]='editpoint.Silver' class=" form-control" type="number" step="0.01"
+                                id="pts" style="max-width: 15%;color: white !important">
+                                <p class="validation">{{ pcvalid['Silver'] }}</p>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Gold *</label>
+                            <input [(ngModel)]='editpoint.Gold' class=" form-control" type="number" step="0.01" id="pts"
+                                style="max-width: 15%;color: white !important">
+                                <p class="validation">{{ pcvalid['Gold'] }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5"></div>
+                            <button type="button" name="editclass" *ngIf="thisedit" class="ed"
+                                (click)="savepoint();">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!-- Point Conversion -->
+                        <h3>Tier Level (Points Get) *</h3>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Silver *</label>
+                            <input [(ngModel)]='edittier.Silver' class=" form-control" type="number" step="10" id="pts"
+                                style="max-width: 15%;color: white !important">
+                        </div>
+                        <p class="validation">{{ pgvalid['Silver'] }}</p>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Gold *</label>
+                            <input [(ngModel)]='edittier.Gold' class=" form-control" type="number" step="10" id="pts"
+                                style="max-width: 15%;color: white !important">
+                        </div>
+                        <p class="validation">{{ pgvalid['Gold'] }}</p>
+
+                        <div class="row">
+                            <div class="col-md-5"></div>
+                            <button type="button" name="editclass" *ngIf="thisedit" class="ed"
+                                (click)="saveTier();">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Point Expiry</h3>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Point Expiry (month) *</label>
+                            <input [(ngModel)]='editpexpiry.month' class=" form-control" type="number" step="1"
+                                id="ptsexp" style="max-width: 15%;color: white !important">
+                        </div>
+                        <p class="validation">{{ pevalid['month'] }}</p>
+                        <div class="row">
+                            <div class="col-md-5"></div>
+                            <button type="button" name="editclass" *ngIf="thisedit" class="ed"
+                                (click)="editpointex();">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h3>Merchant Type</h3>
+                        <div class="row">
+                            <div class="col-md-10"></div>
+                            <div name="addclass" *ngIf="thisadd" class="col-md-2"><button type="button"
+                                    (click)="openAdd(add, 'type')" class="mbtn">+ New Type</button></div>
+                        </div>
+                        <br>
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1" class=" table tablesorter"
+                            id="merchtypetable" style="top: 50%; left: 50%;">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Merchant Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let mtype of merchtype">
+                                    <td>
+                                        <div ngbDropdown class="dropdown">
+                                            <div class="button-secondary" id="edit" ngbDropdownToggle><i
+                                                    class="tim-icons icon-bullet-list-67"
+                                                    style="font-size:18px; color:gold; cursor: pointer;"></i>
+
+                                            </div>
+                                            <div ngbDropdownMenu aria-labelledby="" class="dropdown-content"
+                                                style="padding: 0">
+                                                <div (click)="openEdit(edit, mtype, 'type')">
+                                                    <div *ngIf="thisedit" class="dd" type="button"
+                                                        style="cursor: pointer; font-size: 12px;">
+                                                        <a href="javascript:void(0)" title="edit"><i
+                                                                style="font-size: 1.2em"
+                                                                class="tim-icons icon-pencil"></i>&nbsp; Edit</a>
+                                                    </div>
+                                                </div>
+
+                                                <div (click)="openDelete(delete, mtype, 'type')">
+                                                    <div type="button" *ngIf="thisdelete" name="deleteclass" class="dd"
+                                                        ngbDropdownItem style="cursor: pointer;">
+                                                        <a href="javascript:void(0)" id="editnewss" title="edit"><i
+                                                                class="tim-icons icon-trash-simple"></i>
+                                                            Delete</a> &nbsp;&nbsp;
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ mtype.type }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h3>Product Category</h3>
+                        <div class="row">
+                            <div class="col-md-10"></div>
+                            <div name="addclass" *ngIf="thisadd" class="col-md-2"><button type="button"
+                                    (click)="openAdd(add, 'category')" class="mbtn">+ New Category</button></div>
+                        </div>
+                        <br>
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2" class=" table tablesorter"
+                            id="prodcategorytable" style="top: 50%; left: 50%;">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Product Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cat of productcategory">
+                                    <td>
+                                        <div ngbDropdown class="dropdown">
+                                            <div class="button-secondary" id="edit" ngbDropdownToggle><i
+                                                    class="tim-icons icon-bullet-list-67"
+                                                    style="font-size:18px; color:gold; cursor: pointer;"></i>
+
+                                            </div>
+                                            <div ngbDropdownMenu aria-labelledby="" class="dropdown-content"
+                                                style="padding: 0">
+                                                <div (click)="openEdit(edit, cat, 'category')">
+                                                    <div type="button" *ngIf="thisedit" class="dd"
+                                                        style="cursor: pointer; font-size: 12px;">
+                                                        <a href="javascript:void(0)" title="Edit"><i
+                                                                style="font-size: 1.2em"
+                                                                class="tim-icons icon-pencil"></i>&nbsp; Edit</a>
+                                                    </div>
+                                                </div>
+
+                                                <div (click)="openDelete(delete, cat, 'category')">
+                                                    <div type="button" *ngIf="thisdelete" class="dd" name="deleteclass"
+                                                        ngbDropdownItem>
+
+                                                        <a href="javascript:void(0)" id="editnewss" title="edit"><i
+                                                                class="tim-icons icon-trash-simple"></i>
+                                                            Delete</a> &nbsp;&nbsp;
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ cat.category }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

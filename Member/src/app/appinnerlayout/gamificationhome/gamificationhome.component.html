@@ -1,0 +1,50 @@
+<div class="gwh" style="margin-right:10px;margin-left:10px;">
+    <div class="row" style="padding-top: -10px;margin-top: -10px;">
+    <div class="col-auto pr-0">
+        <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" routerLink ="/home">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074;margin: 0px;"> Spin the Wheel </h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a class="btn btn-link" (click)="go()" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"><i class="bi bi-trophy-fill"></i></a>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="content">
+    <div class="row">
+      <div>
+          <ngx-wheel id="weee" #wheel1 [width]='340' [height]='380' [spinDuration]='8' [disableSpinOnClick]='false'
+              [items]='items' [innerRadius]='20' [spinAmount]='10' pointerStrokeColor='#181818' pointerFillColor='#dec074'
+              [idToLandOn]='idToLandOn' (onSpinStart)='before()' (onSpinComplete)='after()'>
+            </ngx-wheel>
+      </div>
+    </div>
+
+    <div class="col-12 position-relative px-0 text-center" style="margin-top: 15px;">
+      <div class="container-fluid">
+
+          <div class="row align-self-center">
+              <div class="col-15 d-grid">
+                <p style="font-size: 18px;">You have remaining {{counter}} spins</p>
+                  <!-- <a
+                  data-bs-toggle="modal" data-bs-target="#pointmodal" class="btn" style="font-size: large;">Play Again</a> -->
+                  <!-- <a
+                  class="spin"  class="btn" style="font-size: large;">Play Again</a> -->
+              </div>
+              <p class="small" style="color: black;">
+                  *Terms and Conditions applied.
+              </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-staticfooter class="footer"></app-staticfooter>

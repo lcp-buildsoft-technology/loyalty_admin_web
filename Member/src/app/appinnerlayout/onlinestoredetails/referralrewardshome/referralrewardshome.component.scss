@@ -1,0 +1,39 @@
+
+button[type = "submit"] {
+  background-color: #dec074;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.mybutton
+{
+    padding-top: 50px;
+    font-size: 18px;
+}
+
+.container {
+  text-align: center;
+  input {
+     width: 200px;
+     padding: 10px;
+     font-size: 15px;
+  }
+  .coolQRCode {
+     filter: drop-shadow(3px 3px 3px #999);
+     img {
+        width: 500px;
+        height: 600px;
+     }
+  }
+}

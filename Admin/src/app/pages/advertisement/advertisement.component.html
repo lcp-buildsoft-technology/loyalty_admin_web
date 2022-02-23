@@ -1,0 +1,596 @@
+<style>
+    img {
+        object-fit: cover;
+    }
+
+    .dropbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 30px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+    .dropbtn:active {
+        transform: translateY(4px);
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #dec074;
+        color: #2c2c2c !important;
+        min-width: 120px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+    }
+
+    .dd {
+        color: #2c2c2c !important;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+        font-weight: 600;
+    }
+
+    .dd[_ngcontent-fom-c82] {
+        color: #2c2c2c !important;
+        padding: 10px;
+        font-weight: 600;
+        padding-top: 5px;
+    }
+
+    .dd a {
+        color: #2c2c2c !important;
+    }
+
+    .dd:hover {
+        background-color: lightgrey;
+    }
+
+    .show {
+        display: inline-block;
+    }
+
+    .ddContent {
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 170px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+        height: 200px;
+    }
+
+    .form-control {
+        border-top: transparent;
+        border-right: transparent;
+        border-left: transparent;
+        border-radius: 0%;
+        border-color: #dec074;
+    }
+
+    .ctd {
+        color: #2c2c2c;
+        text-decoration: none;
+    }
+
+    .mbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+        text-decoration: none;
+    }
+
+    .mbtn:active {
+        transform: translateY(4px);
+    }
+
+    .modal-title {
+        color: #dec074 !important;
+        font-size: 20px !important;
+    }
+
+    /*     .search {
+        margin-top: 44px;
+        margin-left: 15px; 
+    }
+        */
+
+    .search {
+        margin-top: 2.6%;
+    }
+
+    .fas:active {
+        transform: translateY(4px);
+    }
+
+    input:focus {
+        background-color: rgb(221, 221, 221);
+        color: black
+    }
+
+    .image-upload:focus {
+        background-color: transparent;
+        color: black
+    }
+
+    #thumb:disabled {
+        color: white
+    }
+
+    textarea:focus {
+        background-color: rgb(221, 221, 221);
+        color: black
+    }
+
+    textarea {
+        color: white;
+    }
+
+    input {
+        color: white;
+    }
+
+    label {
+        color: #dec074;
+    }
+
+    .dropdown-menu {
+        padding: 0rem 0;
+    }
+
+    input:disabled {
+        background-color: transparent;
+        color: white;
+    }
+
+    textarea:disabled {
+        background-color: transparent;
+        color: white;
+    }
+
+    ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+
+    .card-title {
+        font-weight: 700;
+        font-size: 1.5em;
+        margin-top: 4px;
+    }
+
+    .close {
+        color: white !important;
+    }
+
+    .btn-danger {
+        background-color: #2c2c2c !important;
+    }
+
+    /* // ------------------------loader------------------------ */
+
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(180deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        75% {
+            transform: rotate(360deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+
+        25% {
+            height: 0%;
+        }
+
+        50% {
+            height: 100%;
+        }
+
+        75% {
+            height: 100%;
+        }
+
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+<ng-template #openimage let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">View
+            Thumbnails
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span style="text-align: right; color: white;" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" style="margin-left: 5%;">
+        <img style="height:100%;width:100%; object-fit: cover;"
+            src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" />
+
+    </div>
+</ng-template>
+<!-- <ng-template #edit let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">Edit Advertisement</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form action="" method="post" enctype="multipart/form-data">
+
+            <div class=" row">
+                <div class=" col-md-12 pr-md-1">
+                    <div class=" form-group">
+                        <label>Title *</label>
+                        <input maxlength="80" placeholder="1212 Promotion" name="notititle" [(ngModel)]='editads.title' class=" form-control" type="text" />
+                        <p class="validation">{{ validErr['title'] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-md-5 pr-md-1">
+                    <div class=" form-group">
+                        <label> Start Date *</label>
+                        <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.sdate' class=" form-control" type="date" name="notisdate" />
+                        <p class="validation">{{ validErr['sdate'] }}</p>
+                    </div>
+                </div>
+                <div class=" col-md-1 pr-md-1"></div>
+
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> End Date *</label>
+                        <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.edate' class=" form-control" type="date" name="notiedate" />
+                        <p class="validation">{{ validErr['edate'] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-md-5 pr-md-1">
+                    <div class=" form-group">
+                        <label> Publish Date *</label>
+                        <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.pdate' class=" form-control" type="date" name="notipdate" />
+                        <p class="validation">{{ validErr['pdate'] }}</p>
+                    </div>
+                </div>
+                <div class=" col-md-1 pr-md-1"></div>
+
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> Publish Time *</label>
+                        <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.ptime' class=" form-control" type="time" name="notieptime" />
+                        <p class="validation">{{ validErr['ptime'] }}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class=" row">
+                <div class=" col-md-12 pr-md-1">
+                    <div class=" form-group">
+                        <label> Merchant *</label>
+                        <select [(ngModel)]='editads.merchant' class="form-control" name="notireceiver" id="merchantname">
+                            <option style="color:black"  value="Non-merchant(others)">Non-merchant(others)</option>
+                            <option style="color:black" *ngFor="let merch of merchArr" value="{{merch.companyname}}">
+                                {{merch.companyname}}</option>
+
+                        </select>
+                        <p class="validation">{{ validErr['merchant'] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-md-12 pl-md-1">
+                    <div>
+                        <label for="image-upload-button">Poster &nbsp; </label>
+                        <input style="color: white;" name="file" (change)="onselectFile($event)" [(ngModel)]='editads.thumbnail' type="file" accept="image/png, image/jpeg" />
+                        <br>
+                        <br>
+                        <img id="newimg" src="{{ url }}" />
+                        <img id="ogimg" src="data:{{ imagetype }};base64,{{ image }}" />
+                        <p class="validation">{{ validErr['thumbnail'] }}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class=" row">
+                <div class=" col-md-12">
+                    <div class=" form-group">
+
+                        <label> Details *</label>
+                        <p class="validation">{{ validErr['detail'] }}</p>
+                        <textarea name="notidescription" class=" form-control" [(ngModel)]='editads.detail'></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="ed" style="margin-left: 290px;" (click)="uploadAds(editads)">Save</button> &nbsp;
+                <button type="button" class="ed" (click)="modal.close('')">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+</ng-template> -->
+
+<ng-template #viewads let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">View Advertisement</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span style="text-align: right; color: white;" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class=" row">
+                <div class=" col-md-12 pr-md-1">
+                    <div class=" form-group">
+                        <label>Title </label>
+                        <input disabled placeholder="1212 Promotion" name="notititle" [(ngModel)]='editads.title'
+                            class=" form-control" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-md-5 pr-md-1">
+                    <div class=" form-group">
+                        <label> Start Date </label>
+                        <input disabled style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.sdate'
+                            class=" form-control" type="date" name="notisdate" />
+                    </div>
+                </div>
+                <div class=" col-md-1 pr-md-1"></div>
+
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> End Date </label>
+                        <input disabled style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.edate'
+                            class=" form-control" type="date" name="notiedate" />
+                    </div>
+                </div>
+
+            </div>
+            <div class=" row">
+                <div class=" col-md-5 pr-md-1">
+                    <div class=" form-group">
+                        <label> Publish Date </label>
+                        <input disabled style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.pdate'
+                            class=" form-control" type="date" name="notipdate" />
+                    </div>
+                </div>
+                <div class=" col-md-1 pr-md-1"></div>
+
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> Publish Time </label>
+                        <input disabled style="color:rgb(131, 131, 131) !important;" [(ngModel)]='editads.ptime'
+                            class=" form-control" type="time" name="notiptime" />
+                    </div>
+                </div>
+
+            </div>
+            <div class=" row">
+                <div class=" col-md-12 pr-md-1">
+                    <div class=" form-group">
+                        <label> Merchant </label>
+                        <input disabled [(ngModel)]='editads.merchant' class=" form-control" type="text"
+                        id="merchantname" name="notireceiver">
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-md-12 pl-md-1">
+                    <div>
+                        <label for="image-upload-button">Poster &nbsp; </label>
+                        <img src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}"
+                            style="width: 100%; object-fit: cover;" />
+                        <!-- <input disabled name="notithumbnail" id="thumb" type="file" accept="image/png, image/jpeg" [(ngModel)]='editads.thumbnail' /> -->
+                    </div>
+                </div>
+
+            </div>
+            <div class=" row">
+                <div class=" col-md-12">
+                    <div class=" form-group">
+                        <label> Details </label>
+                        <textarea disabled name="notidescription" class=" form-control"
+                            [(ngModel)]='editads.detail'></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="ed" (click)="modal.dismiss()">Close</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class=" content">
+        <div class=" row">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 style="color: #dec074 !important;"
+                                    class=" card-title font-weight-bold text-muted mb-0">Advertisement Management</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-md-10">
+                            </div>
+                            <div class=" col-md-2" name="addclass" *ngIf="thisadd" style="padding-top: 2.6%;">
+                                <a routerLink="/addAdv"><input type="button" class="mbtn" value="+ New Advertisement" /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class=" card-body">
+                        <div class="row">
+                            <div class="col-md-10"></div>
+                            <div name="exportclass" *ngIf="thisexport" class="col-md-2"><button (click)="exportexcel()">
+                                    <i class="fas fa-download"></i> &nbsp;Export to
+                                    Excel</button></div>
+                        </div>
+                        <br>
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class=" table tablesorter"
+                            id="adstable">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Merchant</th>
+                                    <th class="text-center">Title</th>
+                                    <th class="text-center">Poster</th>
+                                    <th class="text-center">Details</th>
+                                    <th class="text-center">Publish Date</th>
+                                    <th class="text-center">Start Date</th>
+                                    <th class="text-center">End Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let ads of adsArr">
+
+                                    <td class="text-center">
+                                        <div ngbDropdown class="dropdown">
+                                            <div class="button-secondary" id="edit" ngbDropdownToggle><i
+                                                    class="tim-icons icon-bullet-list-67"
+                                                    style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                            </div>
+                                            <div ngbDropdownMenu aria-labelledby="" class="dropdown-content"
+                                                style="padding: 0">
+                                                <div (click)="openDlt(viewads, ads)">
+                                                    <div class="dd" type="button"
+                                                        style="cursor: pointer; font-size: 12px;">
+                                                        <a href="javascript:void(0)" title="View">
+                                                            <i class="fas fa-eye"></i>&nbsp;
+                                                            View
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div (click)="open(edit, ads)" *ngIf="thisedit">
+                                                    <button class="dd" ngbDropdownItem style="cursor: pointer;">
+                                                        <a href="javascript:void(0)" id="editnewss" title="Edit"><i
+                                                                class="tim-icons icon-pencil"></i>
+                                                            Edit</a>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center"> {{ ads.merchant }}</td>
+                                    <td class="text-center"> {{ ads.title }}</td>
+                                    <!-- <td>
+                                        <a class="thumnail" title="{{ ads.thumbnail }}" href="{{ ads.thumbnail }}"><i class="tim-icons icon-image-02"
+                                                aria-hidden="true" style="font-size:20px;color:gold;"></i></a>
+                                    </td> -->
+                                    <td class="text-center">
+                                        <a class="image-uploaded" title="{{ ads.thumbnail }}"
+                                            (click)="opnimage(openimage, ads)"><i class="tim-icons icon-image-02"
+                                                aria-hidden="true" style="font-size:20px;color:gold;"></i></a>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group" ngbDropdown role="group">
+                                            <button class="btn-danger " ngbDropdownToggle><i
+                                                    class="fa fa-caret-down"></i></button>
+                                            <div class="dMenu" ngbDropdownMenu>
+                                                <div class=" row">
+                                                    <h3 style="padding-left: 30px;padding-top: 10px;max-width: 300px;">
+                                                        {{ ads.detail }}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">{{ ads.pdate }}</td>
+                                    <td class="text-center">{{ ads.sdate }}</td>
+                                    <td class="text-center">{{ ads.edate }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

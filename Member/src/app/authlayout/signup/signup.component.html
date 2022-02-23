@@ -1,0 +1,33 @@
+<div class="row h-100">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px">
+        <h3 class="mb-1">Make your move easy</h3>
+        <p class="text-muted mb-4">Sign in with Mobile UX now by<br>entering your email and Password</p>
+        <form class=" d-grid gap-2">
+            <div class="form-floating">
+                <select class="form-control" id="country">
+                    <option selected>United States (+1)</option>
+                    <option>United Kingdoms (+44)</option>
+                </select>
+                <label for="country">Contry</label>
+            </div>
+            <div class="form-group form-floating is-valid">
+                <input type="text" class="form-control" value="info@maxartkiller.com" placeholder="Email or Phone" id="emailphone">
+                <label for="emailphone">Email or Phone</label>
+            </div>
+            <div class="form-floating is-valid">
+                <input type="password" class="form-control" value="asdasdasdsd" placeholder="Password" id="password">
+                <label for="password">Password</label>
+            </div>
+            <div class="form-floating is-invalid">
+                <input type="password" class="form-control" placeholder="Confirm Password" id="confirmpassword">
+                <label for="confirmpassword">Confirm Password</label>
+                <button type="button" class="btn btn-link text-danger tooltip-btn" data-bs-toggle="tooltip"
+                    data-bs-placement="left" title="Enter valid Password" id="passworderror">
+                    <i class="bi bi-info-circle"></i>
+                </button>
+            </div>
+            <a routerLink="/verify" target="_self" class="btn btn-lg btn-default mt-3">Signup now</a>
+        </form>
+        <a routerLink="/signin" target="_self" class="text-white btn btn-lg btn-link">Already have account?</a>
+    </div>
+</div>

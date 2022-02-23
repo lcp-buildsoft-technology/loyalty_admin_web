@@ -1,0 +1,24 @@
+<div class="row h-100">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px ">
+        <h3 class="mb-1">Make your move easy</h3>
+        <p class="text-muted mb-4">Sign in with Mobile UX now by<br>entering your email and Password</p>
+        <form class="d-grid gap-2">
+            <div class="form-group form-floating is-valid">
+                <input type="text" class="form-control" value="info@maxartkiller.com" id="email" placeholder="Email or Phone">
+                <label class="form-control-label" for="email">Email or Phone</label>
+            </div>
+
+            <div class="form-group form-floating is-invalid">
+                <input type="password" class="form-control " id="password" placeholder="Password">
+                <label class="form-control-label" for="password">Password</label>
+                <button type="button" class="btn btn-link text-danger tooltip-btn" data-bs-toggle="tooltip"
+                    data-bs-placement="left" title="Enter valid Password" id="passworderror">
+                    <i class="bi bi-info-circle"></i>
+                </button>
+            </div>
+            <p class="mb-0"><a routerLink="/forgetpassword" class="btn btn-link text-white">Forgot your password?</a></p>
+            <a routerLink="/home" target="_self" class="btn btn-lg btn-default btn-block mt-3">Sign in now</a>
+        </form>
+        <a routerLink="/signup" target="_self" class="text-white btn btn-lg btn-link">Create new account?</a>
+    </div>
+</div>

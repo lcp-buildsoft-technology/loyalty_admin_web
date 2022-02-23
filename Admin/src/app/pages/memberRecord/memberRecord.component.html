@@ -1,0 +1,306 @@
+<style>
+    .avatar {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-control {
+        width: 500px;
+        margin-bottom: 10px;
+        max-width: 445px;
+    }
+
+    .button:hover {
+        background-color: white !important;
+        transition: all 2s;
+    }
+
+    .ed {
+        background-color: #2c2c2c;
+        color: #dec074;
+        border: 1px solid #2c2c2c;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 35px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-left: 28px;
+        margin-top: 20px;
+    }
+
+    .form-control {
+        border: none;
+        border-bottom: 1px solid #dec074;
+        border-radius: 0%;
+    }
+
+    .modal.show .modal-dialog {
+        transform: translate(0, 0%) !important;
+    }
+
+    .form-control:disabled {
+        background-color: transparent !important;
+        opacity: 1;
+    }
+
+    .card-stats .card-body h5 {
+        font-size: 10px;
+    }
+
+    .card-title {
+        font-size: 1.0em;
+    }
+
+    :host ::ng-deep .mat-tab-label-active {
+        color: #dec074;
+    }
+
+    ::ng-deep .mat-tab-label,
+    .mat-tab-link {
+        color: rgb(224, 221, 214);
+    }
+
+    ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+    .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+        background-color: #dec074;
+    }
+
+    ::ng-deep .mat-menu-content {
+        background-color: #dec074;
+        min-width: 150px;
+    }
+
+    /* // ------------------------loader------------------------ */
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(180deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        75% {
+            transform: rotate(360deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+
+        25% {
+            height: 0%;
+        }
+
+        50% {
+            height: 100%;
+        }
+
+        75% {
+            height: 100%;
+        }
+
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class=" content">
+        <div class=" row">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <div class="row">
+                            <a routerLink="/memberData"><i class="tim-icons icon-minimal-left"
+                                    style="color:#dec074; cursor: pointer;font-size: 15px;margin-top: 10px;margin-left: 10px;"></i></a>
+                            <h2 class=" card-title" style="font-size:20px;font-weight: 400;">&nbsp;&nbsp;Member Record :
+                                {{ membername}}</h2>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <mat-tab-group>
+
+                            <!--Spent Records Management-->
+                            <mat-tab label="Spent Records">
+                                <div class="card">
+                                    <div class=" card-body">
+                                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1"
+                                            class=" table tablesorter" id="collectmoney" style="top: 50%; left: 50%;">
+                                            <thead class=" text-primary">
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Merchant</th>
+                                                    <th>Spent( RM )</th>
+                                                    <th>Collected Points</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let coll of specificpointCollectArr">
+                                                    <td> {{ coll.createddate }} </td>
+                                                    <td> {{ eachshopnamearr[coll._id] }} </td>
+                                                    <td> {{ coll.subtotal }} </td>
+                                                    <td> {{ coll.pointsget }} </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <!--Redeemed Records-->
+                            <mat-tab label="Points Redeemed">
+                                <div class="card">
+                                    <div class=" card-body">
+                                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2"
+                                            class=" table tablesorter" id="collectredeem" style="top: 50%; left: 50%;">
+                                            <thead class=" text-primary">
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Merchant</th>
+                                                    <th>Redeemed Points</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr *ngFor="let tran of specificpointTransactArr">
+                                                    <td> {{ tran.createddate }} </td>
+                                                    <td> {{ eachshopnamearr2[tran.merchantid]}} </td>
+                                                    <td> {{ tran.points }} </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="Vouchers Redeemed">
+                                <div class="card">
+                                    <div class=" card-body">
+                                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger3"
+                                            class=" table tablesorter" id="collectvchredeem"
+                                            style="top: 50%; left: 50%;">
+                                            <thead class=" text-primary">
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Merchant</th>
+                                                    <th>Voucher Title</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr *ngFor="let vchr of specificVoucherArr">
+                                                    <td>{{ vchr.createddate }}</td>
+                                                    <td>{{ eachshopnamearr3[vchr._id] }}</td>
+                                                    <td>{{ vchr.title }}</td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="Rewards Redeemed">
+                                <div class="card">
+                                    <div class=" card-body">
+                                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger4"
+                                            class=" table tablesorter" id="collectrwdredeem"
+                                            style="top: 50%; left: 50%;">
+                                            <thead class=" text-primary">
+                                                <tr>
+
+                                                    <th>Rewards Title</th>
+                                                    <th>Rewards</th>
+                                                    <th>Details</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr *ngFor="let rwd of specificRewardArr">
+
+                                                    <td> {{ rwd.title }} </td>
+                                                    <td> {{ rwd.reward }} Points</td>
+                                                    <td [innerHTML]='rwd.detail'> {{ rwd.detail }} </td>
+                                                </tr>
+                                                <tr *ngFor="let rwdvv of specificrewardvcharr">
+
+                                                    <td> {{ rwdvv.title }} </td>
+                                                    <td> {{ rwdvv.discount }}% Discount</td>
+                                                    <td [innerHTML]='rwdvv.detail'> {{ rwdvv.detail }} </td>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

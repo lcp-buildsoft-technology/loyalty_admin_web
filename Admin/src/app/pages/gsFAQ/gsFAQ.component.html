@@ -1,0 +1,309 @@
+<style>
+    .form-control {
+        border: 1px solid #dec074 !important;
+    }
+    
+    .content {
+        background-color: #181818 !important;
+        /* added */
+    }
+    
+    .card {
+        background-color: #2c2c2c !important;
+        /* added */
+    }
+    
+    .modal-body {
+        color: #dec074;
+    }
+    
+    .form-control[_ngcontent-owy-c112] {
+        border: 1px solid transparent !important;
+    }
+    
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 35px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-left: 28px;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    .ed:hover {
+        background-color: black;
+        color: white;
+        border: 1px solid black;
+    }
+    
+    .mbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    
+    .mbtn:active {
+        transform: translateY(4px);
+    }
+    
+    .sbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+        margin-left: 650px;
+    }
+    
+    .sbtn:active {
+        transform: translateY(4px);
+    }
+    
+    .title {
+        color: #dec074 !important;
+        font-weight: bolder;
+    }
+    
+    .modal-title {
+        color: #dec074 !important;
+        font-size: 20px !important;
+    }
+    /* // ------------------------loader------------------------ */
+    
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+    
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+    
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+    
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(180deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        75% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+        25% {
+            height: 0%;
+        }
+        50% {
+            height: 100%;
+        }
+        75% {
+            height: 100%;
+        }
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+
+<!-- Delete FAQ Popup -->
+<ng-template #dlt let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">Delete FAQ</div>
+        <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <p style="color:#dec074">Question: <span style="color:white;"> {{ editFaq.question }}</span></p>
+                <div style="color:red" class="dlt">Are you sure you want to delete ?</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="ed" (click)="deleteFAQ(editFaq)">Yes</button>&nbsp;
+                <button type="button" class="ed" (click)='modal.close()'>Cancel</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- Delete Merchant FAQ Popup -->
+<ng-template #dltmc let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">Delete Merchant FAQ</div>
+        <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <p style="color:#dec074">Question: <span style="color:white;"> {{ editmcFaq.question }}</span></p>
+                <div style="color:red" class="dlt">Are you sure you want to delete ?</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="ed" (click)="deletemcFAQ(editmcFaq)">Yes</button>&nbsp;
+                <button type="button" class="ed" (click)='modal.dismiss()'>Cancel</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-------------------------------------- Table ------------------------------------------>
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class=" content">
+        <div class=" row">
+            <div class="col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <h4 class=" card-title" style="color: #dec074; font-weight: bolder;font-size: 1.5em;margin-top: 3px;">FAQ</h4>
+                    </div>
+
+                    <div class="card-body">
+                        <mat-tab-group>
+                            <mat-tab label="Member">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-11" name="addclass" *ngIf="thisadd">
+                                            <a routerLink="/addFAQ"><input type="button" value=" + New FAQ" class="mbtn" style="position: relative; left: 97%;"></a>
+                                        </div>
+                                    </div>
+                                    <section class="faq-container">
+                                        <div class="faq-one" ng-app="myApp" ng-controller="myCtrl" *ngFor="let faq of faqs">
+                                            <!-- faq question -->
+                                            <h1 class="faq-page">{{faq.question}}</h1>
+                                            <!-- faq answer -->
+                                            <div class="faq-body">
+                                                <div class="row" style="margin-left: 90%;">
+                                                    <div *ngIf="thisedit" name="editclass" (click)="open(faq)"><i class="tim-icons icon-pencil" style="font-size: 17px;color: gold;cursor: pointer;"></i>
+                                                    </div>
+                                                    <div *ngIf="thisdelete" (click)="openDelete(dlt, faq)"><i class="tim-icons icon-trash-simple" style="font-size: 17px;color: gold;margin-left:10px;cursor: pointer;"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="form-control" style="border: transparent !important; font-size: 85%;" [innerHTML]="faq.answer">{{faq.answer}}</div>
+                                            </div>
+                                        </div>
+                                        <hr class="hr-line">
+                                        <hr class="hr-line">
+                                    </section>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="Merchant">
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div *ngIf="thisadd" class="col-md-11" name="addclass">
+                                            <a routerLink="/addmcFAQ"><input type="button" value=" + New FAQ" class="mbtn" style="position: relative; left: 97%;"></a>
+                                        </div>
+                                    </div>
+                                    <section (click)="showbody();" class="faq-container">
+                                        <div class="faq-one" ng-app="myApp" ng-controller="myCtrl" *ngFor="let mcfaq of mcfaqs">
+
+                                            <h1 class="faq-page">{{mcfaq.question}}</h1>
+
+                                            <div class="faq-body">
+                                                <div class="row" style="margin-left: 90%;">
+                                                    <div *ngIf="thisedit" name="editclass" (click)="openm(mcfaq)"><i class="tim-icons icon-pencil" style="font-size: 17px;color: gold;cursor: pointer;"></i>
+                                                    </div>
+                                                    <div *ngIf="thisdelete" (click)="openmDelete(dltmc, mcfaq)"><i class="tim-icons icon-trash-simple" style="font-size: 17px;color: gold;margin-left:10px;cursor: pointer;"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="form-control" style="border: transparent !important; font-size: 85%;" [innerHTML]="mcfaq.answer">{{mcfaq.answer}}</div>
+                                            </div>
+                                        </div>
+                                        <hr class="hr-line">
+                                        <hr class="hr-line">
+                                    </section>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+<script src="https://cdn.tiny.cloud/t7e2rw9as99rh5ltnrbwoo1r2ilgpuhqxc472ftlx271zg0b/tinymce/5/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#mymce1'
+    });
+
+    var app = angular.module("myApp", ['ngSanitize', 'angular-bind-html-compile']);
+    angular.module('myApp')
+        .filter("sanitize", ['$sce', function($sce) {
+            return function(htmlCode) {
+                return $sce.trustAsHtml(htmlCode);
+            }
+        }]);
+</script>

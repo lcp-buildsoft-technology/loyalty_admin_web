@@ -1,0 +1,151 @@
+<div class="eacc" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row">
+        <div class="col-auto pr-0">
+            <button type="button" style="background-color: transparent; color: #dec074;" class="btn btn-link back-btn" (click)="backnav()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="outer">
+            <img id="newimg" src="{{ url }}"/>
+            <img id="ogimg" src="data:{{onregister['thumbnailType']  }};base64,{{ onregister['thumbnail']}}" alt="">
+        <div class="inner">
+        <input class="inputfile" name="file" type="file" accept="image/png, image/jpeg"  [(ngModel)]='onregister.thumbnail' (change)="onselectFile($event)"/>
+        <label><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg></label>
+        </div>
+        </div>
+    </div>
+
+    <!-- profile information -->
+    <div class="row">
+        <div class="col">
+            <h3 style="color: #dec074;">Basic Information</h3>
+        </div>
+    </div>
+    <div class="row h-100 mb-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="text" class="form-control" name="names" [(ngModel)]='onregister.name' autocomplete="off">
+                <label for="names">Name</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating   mb-3">
+                <input type="text" class="form-control" name="usernames" [(ngModel)]='onregister.username' autocomplete="off">
+                <label for="Usernames">Username</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="text" class="form-control" name="emailaddress" [(ngModel)]='onregister.email' autocomplete="off">
+                <label for="emailaddress">Email Address</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="text" class="form-control" name="phonenumber" [(ngModel)]='onregister.phonenumber' autocomplete="off">
+                <label for="phone">Phone Number</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group form-floating  mb-3">
+                <input type="date" class="form-control" name="birthdate" [(ngModel)]='onregister.birthdate' autocomplete="off">
+                <label for="bday">Birthdate</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- add edit address form -->
+    <div class="row mb-2">
+        <div class="col">
+            <h3 style="color: #dec074;">Address Change</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="address1" [(ngModel)]='onregister.address1' autocomplete="off">
+                <label class="form-control-label" for="address1">Address Line 1</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="address2" autocomplete="off"
+                [(ngModel)]='onregister.address2'>
+                <label class="form-control-label" for="address2">Address Line 2</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="address3" [(ngModel)]='onregister.address3' autocomplete="off">
+                <label class="form-control-label" for="address3">Address Line 3</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" list="datalistStates" class="form-control" name="state"
+                [(ngModel)]='onregister.state' autocomplete="off">
+                <datalist id="datalistStates">
+                    <option value="Johor">
+                    <option value="Kedah" selected>
+                    <option value="Kelantan">
+                    <option value="Kuala Lumpur">
+                    <option value="Labuan">
+                    <option value="Melaka">
+                    <option value="Negeri Sembilan">
+                    <option value="Pahang">
+                    <option value="Penang">
+                    <option value="Perak">
+                    <option value="Perlis">
+                    <option value="Putrajaya">
+                    <option value="Sabah">  
+                    <option value="Sarawak">
+                    <option value="Selangor">
+                    <option value="Terengganu">
+                </datalist>
+                <label class="form-control-label" for="state">State</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="city" [(ngModel)]='onregister.city' autocomplete="off">
+                <label class="form-control-label" for="city">City</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control" name="postcode" [(ngModel)]='onregister.postcode' autocomplete="off">
+                <label class="form-control-label" for="postcode">Postcode</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- change password -->
+    <!-- <div class="row mb-2">
+        <div class="col">
+            <h3 style="color: #dec074;">Change Password</h3>
+        </div>
+    </div> -->
+    <!-- <div class="row h-100 mb-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-floating  mb-3">
+                <input type="password" class="form-control" name="password" [(ngModel)]='onregister.password'>
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-floating ">
+                <input type="password" class="form-control" name="confirmpassword" [(ngModel)]='onregister.confirmpwd'>
+                <label for="confirmpassword">Confirm Password</label>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row h-100 mb-4">
+        <div class="col-12 d-grid"><a target="_self" (click)="editRegister(register)" class="btn btn-default mt-3">Save Changes</a></div>
+    </div>
+    <br>
+    <br>    
+</div>

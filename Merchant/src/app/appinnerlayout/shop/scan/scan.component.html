@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-auto pr-0">
+        <button type="button" style="background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" (click)="backnav()">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074; padding-top: 10px;"></h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a routerLink="/profile" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+  </div>
+<div class="title">
+   <h1 style="color:#dec074">Scan QR Code</h1>
+</div>
+
+
+
+<zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+
+<p>
+
+</p>

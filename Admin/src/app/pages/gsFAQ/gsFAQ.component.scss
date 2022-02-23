@@ -1,0 +1,153 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.faq-heading {
+    border-bottom: #777;
+    padding: 20px 60px;
+}
+
+.faq-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hr-line {
+    width: 60%;
+    margin: auto;
+}
+
+
+/* Style the buttons that are used to open and close the faq-page body */
+
+.faq-page {
+    /* background-color: #eee; */
+    color: #dec074;
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 65%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+    font-size: 18px;
+}
+
+.faq-body {
+    margin: auto;
+    /* text-align: center; */
+    width: 65%;
+    padding: auto;
+    font-size: 17px;
+}
+
+.faq-body .div {
+    border: 0px solid black !important;
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+.active,
+.faq-page:hover {
+    background-color: black;
+}
+
+
+/* Style the faq-page panel. Note: hidden by default */
+
+.faq-body {
+    padding: 10px 18px 30px;
+    background-color: #777;
+    display: none;
+    overflow-y: scroll;
+}
+
+.faq-page:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+.title {
+    color: #dec074!important;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+ :host ::ng-deep .mat-tab-label-active {
+    color: #dec074;
+}
+
+ ::ng-deep .mat-tab-label,
+.mat-tab-link {
+    color: rgb(224, 221, 214);
+}
+
+ ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #dec074;
+}
+
+//===================================================================================================================
+.faq-page {
+    /* background-color: #eee; */
+    color: #dec074;
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 65%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+    font-size: 18px;
+}
+
+.faq-body2 {
+    margin: auto;
+    /* text-align: center; */
+    width: 65%;
+    padding: auto;
+    font-size: 17px;
+}
+
+.faq-body2 .div {
+    border: 0px solid black !important;
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+.active,
+.faq-page2:hover {
+    background-color: black;
+}
+
+
+/* Style the faq-page panel. Note: hidden by default */
+
+.faq-body2 {
+    padding: 10px 18px 30px;
+    background-color: #777;
+    display: none;
+    overflow-y: scroll;
+}
+
+.faq-page:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+    display: block
+}

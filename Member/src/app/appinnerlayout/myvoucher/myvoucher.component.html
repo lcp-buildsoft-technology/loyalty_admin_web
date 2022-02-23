@@ -1,0 +1,74 @@
+<div class="myv" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  
+            class="btn btn-link back-btn" routerLink="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> My Vouchers </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-12 text-white position-relative py-4">        
+            <div class="row justify-content-center z-index-1 position-relative">
+                <div class = "search">    
+                    <form action="#">
+                        <div class="input-container">
+                            <i class="material-icons icon">search</i>
+                            <input [(ngModel)]="searchVoucher" class="input-field" type="text" placeholder="Search Vouchers" name="voucher" autocomplete="off">
+                        </div>
+                    </form>    
+                </div>
+                
+                <div class="row" style="width: 100%; margin: 0;margin-top: 5px;">
+                    <div class="col-12 mb-3 px-0">
+                        <div class="row mt-3">
+                            <div class="col-12" *ngFor = "let onv of onuservoucherArr | filter : searchVoucher">
+                                <div class="card mb-4" style="height: 130px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;">
+                                            <div class="row" (click)="goto(onv)">
+                                                <div class="col-auto align-self-center">
+                                                </div>
+                                                <div class="col px-0 align-self-center" style="color: #dec074;margin-left: 15px;margin-right: 15px;">
+                                                    <p style="font-size: 18px;">{{onv['title']}}<br><br>
+                                                        <small>Left: {{onv['quantity']}}</small><br>
+                                                        <small style="color: white;">Valid till: {{onv['edate']}}</small><br>
+                                                        <small style="color: grey;">Min.spend: RM {{onv['minspend']}}</small>
+                                                    </p>
+                                                </div>
+                                                <div class="col-auto text-end align-self-center" [ngClass] = "onv['status']">
+                                                    <p>
+                                                        <small style="font-size: 18px;">{{onv['status']}}</small>
+                                                    </p>
+                                                    <small style="color: grey;font-size: 16px;">
+                                                        <a style="text-decoration: none;color: grey;">
+                                                            T&C
+                                                        </a>
+                                                    </small><br>
+                                                    <small style="color: grey;">{{onv['createddate']}}</small>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>                            
+                            </div>                               
+                        </div>
+                    </div>                
+                </div>            
+            </div>       
+        </div>    
+    </div>    
+</div>

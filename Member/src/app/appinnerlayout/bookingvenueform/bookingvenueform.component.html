@@ -1,0 +1,215 @@
+<div class="row" style="padding-top: -10px;margin-top: -10px;">
+    <div class="col-auto pr-0">
+        <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" (click)="backnav()">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074;margin: 0px;"> {{outlet['shopname']}} </h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+</div>
+<br>
+
+<div class="row">
+        <figure class="overflow-hidden mb-0">
+            <img src="data:{{ imagetypeArr }};base64,{{ image1arr}}" style="width: 100%;height: 250px;object-fit: fill;"/>           
+        </figure> 
+        
+        <div class="card mb-4" style="background-color: transparent;color: white;">
+            <div class="card-body" style="padding: 0px;">
+                <mat-stepper style="background-color: transparent;color: white;">
+                    <mat-step state="edit" [stepControl]="firstFormGroup" style="color: white;">
+                        <form>
+                            <ng-template matStepLabel>Step 1</ng-template>
+                            <form style="margin-top: 16px;">
+                                <label for="date">Select Date:</label>
+                                <br>
+                                <input type="date" name="date" [(ngModel)]= 'venueObj.date' autocomplete="off">
+                            </form>
+                            <form style="margin-top: 16px;">
+                                <label for="time">Select Time:</label>
+                                <br>
+                                <input type="time" name="time" [(ngModel)]= 'venueObj.time' autocomplete="off">
+                            </form>                              
+                        </form>
+                        <div class = "ppl">                            
+                            <label for = "ppl" style="color: white;margin-top: 16px;font-size: 18px;
+                            padding-left: 10px;
+                            padding-bottom: 10px;  
+                            color: white;">No of pax</label>
+                            <mat-icon style="margin-top: 16px; color: #dec074;float: right; margin-right: 15px;">people</mat-icon>
+                            <br>
+                            <mat-form-field color="#dec074" style="text-align: center;margin-bottom: 16px;">
+                                <button style="padding: 10px;width: 80px;"
+                                mat-button 
+                                mat-icon-button 
+                                matPrefix 
+                                aria-label="Remove" 
+                                (click)="incrementValue(-_step)" 
+                                [disabled]="shouldDisableDecrement(_value)">
+                                <mat-icon>remove</mat-icon>
+                                </button>
+                                <input matInput type="number" name="_value" [(ngModel)]="_value"/>
+                                <button style="padding: 10px;width: 80px;"
+                                mat-button 
+                                mat-icon-button 
+                                matSuffix
+                                aria-label="Add"  
+                                (click)="incrementValue(_step)" 
+                                [disabled]="shouldDisableIncrement(_value)">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button type = "submit" mat-button matStepperNext>Next</button>
+                        </div>
+                    </mat-step>
+
+                    <mat-step state="edit" [stepControl]="secondFormGroup" style="color: white;">
+                        <form>
+                            <ng-template matStepLabel>Step 2</ng-template>
+                            <mat-form-field>
+                                <mat-label>First Name</mat-label>
+                                <mat-icon matSuffix>person</mat-icon>
+                                <input matInput placeholder="John" autocomplete="off" name="firstname" [(ngModel)]= 'venueObj.firstname' required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Last Name</mat-label>
+                                <mat-icon matSuffix>person</mat-icon>
+                                <input matInput placeholder="Smith" autocomplete="off" name="lastname" [(ngModel)]= 'venueObj.lastname' required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Phone Number</mat-label>
+                                <mat-icon matSuffix>phone</mat-icon>
+                                <input matInput placeholder="012-XXXXXXX" autocomplete="off" name="phonenumber" [(ngModel)]= 'venueObj.phonenumber' required>
+                            </mat-form-field>                            
+                        </form>
+                        <div>
+                            <button type = "submit" mat-button matStepperNext>Next</button>
+                        </div>
+                    </mat-step>
+
+                    <mat-step label="Step 3">
+                        <h2 style="text-align: center;color: #dec074;">Booking Confirmation</h2>
+                        <mat-form-field style="margin-top: 6px;">
+                            <mat-icon matSuffix>person</mat-icon>
+                            <input matInput disabled value ="John" name="firstname" [(ngModel)]= 'venueObj.firstname' style="font-size: 18px;">
+                        </mat-form-field>
+                        <mat-form-field style="margin-top: 6px;">
+                            <mat-icon matSuffix>person</mat-icon>
+                            <input matInput disabled value ="Smith" name="lastname" [(ngModel)]= 'venueObj.lastname' style="font-size: 18px;">
+                        </mat-form-field>
+                        <mat-form-field style="margin-top: 6px;">
+                            <mat-icon matSuffix>phone</mat-icon>
+                            <input matInput disabled value ="012-3570512" name="phonenumber" [(ngModel)]= 'venueObj.phonenumber' style="font-size: 18px;">
+                        </mat-form-field>
+                        <mat-form-field style="margin-top: 6px;">
+                            <mat-icon matSuffix>people</mat-icon>
+                            <input matInput disabled value ="12" name="_value" [(ngModel)]="_value" style="font-size: 18px;">
+                        </mat-form-field>
+                        <mat-form-field style="margin-top: 6px;">
+                            <mat-icon matSuffix>calendar_today</mat-icon>
+                            <input matInput disabled value ="16/11/2021" name="date" [(ngModel)]= 'venueObj.date' style="font-size: 18px;">
+                        </mat-form-field>
+                        <mat-form-field style="margin-top: 6px;">
+                            <mat-icon matSuffix>access_time</mat-icon>
+                            <input matInput disabled value ="4.00pm" name="time" [(ngModel)]= 'venueObj.time' style="font-size: 18px;">
+                        </mat-form-field>
+                        <div>
+                            <!-- <button type = "submit" (click)='Bookingvenue(venueObj)' mat-button matStepperNext>Confirm Booking</button> -->
+                            <button type = "submit" (click)='calculateslot()' mat-button matStepperNext>Confirm Booking</button>
+                        </div>
+                    </mat-step>
+  
+                  
+                    <ng-template matStepperIcon="phone">
+                    <mat-icon>call_end</mat-icon>
+                    </ng-template>
+                    <ng-template matStepperIcon="chat">
+                    <mat-icon>forum</mat-icon>
+                    </ng-template>
+                </mat-stepper>
+            </div>
+        </div>
+</div>
+
+<div class="modal fade" id="taskmodalsuccess" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content border-0" style="background-color: #2c2c2c; color: #dec074;">
+            <div class="modal-header" style="border-bottom: none;">
+
+                <figure class="mw-100 text-center mb-3" style="margin-left: 40px;">
+                    <img src="assets/img/trophy.png" alt="" class="mw-100">
+                </figure>                
+            </div>
+
+            <div class="modal-body">
+                <h1 style="text-align: center; font-size: 20px;">
+                    Booking Successful
+                </h1>
+                <h4 style="text-align: center;color: white;">
+                    You have successfully booked the venue.
+        <br>See you there! <br>Have a nice day ahead!
+                </h4>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <div class="mybutton">
+                    <button 
+                    (click)="goto()"
+                    type="submit"
+                    style="background-color: transparent;
+                    border: 2px solid #dec074; 
+                    color: #dec074;font-weight: normal;width: 240px"> Confirm      
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="taskmodalfailure" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content border-0" style="background-color: #2c2c2c; color: #dec074;">
+            <button 
+            style="font-size: 20px;background-color: #dec074;opacity: 100%;"
+            type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header" style="border-bottom: none;">
+
+                <figure class="mw-100 text-center mb-3" style="margin-left: 20px;">
+                    <img src="assets/img/sadtrophy.png" alt="" class="mw-100">
+                </figure>                
+            </div>
+
+            <div class="modal-body">
+                <h1 style="text-align: center; font-size: 20px;">
+                    Booking Failed
+                </h1>
+                <h4 style="text-align: center;color: white;">
+                    Your booking has been cancelled.<br>Please try again later
+                </h4>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <div class="mybutton">
+                    <button 
+                    (click)="goto()" 
+                    type="submit"
+                    style="background-color: transparent;
+                    border: 2px solid #dec074; 
+                    color: #dec074;font-weight: normal;width: 240px"> Confirm      
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,289 @@
+*{
+    color:#dec074;
+}
+.demo-inline-calendar-card {
+    width: 90%;
+    color: white;
+    margin: auto;
+  }
+
+  ::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical)
+  {
+      border: 2px solid #dec074;
+      color: white;
+  }
+
+  ::ng-deep .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical), .cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical), .cdk-program-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical)
+  {
+      background-color: #dec074;
+      color: black;
+  }
+
+  ::ng-deep .mat-card
+  {
+      background-color: #2c2c2c;
+      color: white;
+  }
+
+  ::ng-deep .mat-calendar-table-header, .mat-calendar-body-label
+  {
+      color: white;
+  }
+
+  ::ng-deep td.mat-calendar-body-label
+  {
+      color: white;
+  }
+
+  ::ng-deep .mat-calendar-body-cell-content, .mat-date-range-input-separator
+  {
+      color: white;
+  }
+
+  ::ng-deep .mat-calendar-arrow
+  {
+    border-top-color: white;
+  }
+  
+  :host ::ng-deep .mat-tab-label-active {
+    color:#dec074;
+    width:100%;
+  }
+  ::ng-deep .mat-tab-label, .mat-tab-link{
+    color:rgb(224, 221, 214);
+    width:100%;   
+  }
+
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color:#dec074;
+  }
+  
+  ::ng-deep .mat-menu-content{
+    background-color: #dec074;
+    min-width: 150px;
+  }
+
+
+.btn {
+    outline: none;
+  
+    color: black;
+    font-weight: 550;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 20px;
+}
+
+  /*------ ADDED CSS ---------*/
+  #show:not(:checked) ~ p { display: none; }
+  #show:checked ~ h6 {display: none}
+
+  .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:30px;
+	right:20px;
+	
+  z-index: 1;
+	border-radius:50px;
+	text-align:center;
+	
+  font-family:Verdana, Geneva, sans-serif;
+	font-size:20px;
+	background-color:#dec074;
+  
+}
+.float i{
+  color:black;
+  
+}
+.my-float{
+	margin-top:22px;
+}
+#moredd1{
+    position:absolute;
+    right:5px;
+    size:4px;
+    background-color:none;
+    top:0px;
+}
+.modal-content{
+    background-color: rgb(36, 35, 35);
+  }
+  .modal-footer{
+    color:none;
+  }
+.modal-body h2{
+    color:#dec074;
+    text-align:center;
+    margin-bottom:0;
+}
+#yes{
+    width:30%;
+    background-color:#dec074;
+    border:none;
+    margin-right:15px;
+    color:black;
+    font-size:20px;
+    text-align:center;
+  
+   }
+   #no{
+     width:30%;
+     background-color:#dec074;
+     border:none;
+     font-size:20px;
+     color:black;
+     text-align:center;
+   }
+
+   form {
+    background-color:black;
+    width: 100%;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:15px;
+  
+  }
+  input {
+    all: unset;
+    font: 16px system-ui;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+  }
+  ::placeholder {
+    color: #fff;
+    opacity: 0.7; 
+  }
+  button {
+    all: unset;
+    cursor: pointer;
+   
+  }
+  
+  svg {
+    color:#dec074 !important;
+    
+    fill: currentColor;
+    width: 25px;
+    height: 25px;
+    float:right;
+  
+  }
+  .searchbar{
+      padding-left:12px;
+      padding-right:12px;
+  }
+  input #query{
+    width:100%;
+    
+  }
+  .path1{
+      color:#dec074;
+      background-color:gold;
+  }
+
+  ul .dropdown-menu{
+    background-color: black;
+    color:#dec074;
+    margin-top: -4%!important;
+    z-index:0;
+    transform: translate3d(179px, 57px, 0px);
+  }
+  
+  *{
+    color: #dec074;
+  }
+  .input{
+    background-color: transparent;
+    box-shadow: 0px 2px 10px #dec074;
+    color: #dec074;
+  }
+  
+  .input:label{
+    color: #dec074;
+  }
+  
+  svg {
+  color: black;
+  fill: currentColor;
+  width: 25px;
+  height: 25px;
+  float:right;
+  
+  }
+  
+  .searchbar{
+  padding-left:12px;
+  padding-right:12px;
+  }
+  
+  .search
+    {    
+      box-sizing: border-box;
+    }
+  form {
+    background-color: #2c2c2c;
+    width: 100%;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:15px;
+  }
+  
+  .input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%; 
+    border-radius:20px;
+    border: none;
+    font-size: 25px;
+    background-color: #2c2c2c;
+    margin-bottom: 5px;
+    padding: 5px;    
+  }
+  
+  .icon {
+    padding: 5px;
+    color: rgb(175, 168, 168);
+    min-width: 50px;
+    text-align: center;
+    font-size: 20px;    
+  }
+  
+  .input-field {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+  }
+  
+  .input-field::placeholder
+  {
+    color: rgb(175, 168, 168);
+  }
+  
+  ::placeholder {
+    color: #fff;
+    opacity: 0.7; 
+  }
+  
+  input[type = "text"]
+  {
+      font-size: 18px;
+      font-weight: bold;
+  }
+  .row{
+    --bs-gutter-x: 0rem;
+  }

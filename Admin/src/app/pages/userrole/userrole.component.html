@@ -1,0 +1,314 @@
+<style>
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-left: 15px;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    .content {
+        background-color: #181818 !important;
+        overflow: hidden;
+        opacity: 1.0;
+    }
+    
+    .card {
+        background-color: #2c2c2c !important;
+    }
+    
+    .form-control {
+        border-top: transparent;
+        border-right: transparent;
+        border-left: transparent;
+        border-radius: 0%;
+        border-color: #dec074;
+    }
+    
+    option {
+        color: black;
+    }
+    
+    label {
+        color: #dec074;
+        font-size: 13px;
+    }
+    
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    thead>tr>th {
+        color: #dec074;
+    }
+    
+    tbody>tr>th {
+        color: lightgray;
+    }
+    
+    .abtn {
+        margin-left: 75%;
+    }
+    /* // ------------------------loader------------------------ */
+    
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+    
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+    
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+    
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(180deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        75% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+        25% {
+            height: 0%;
+        }
+        50% {
+            height: 100%;
+        }
+        75% {
+            height: 100%;
+        }
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+
+<ng-template #addrole let-modal>
+    <div class="modal-header">
+        <div style="color: #dec074;font-size: 1.2em; text-decoration:bold !important" class="modal-title" id="modal-basic-title">New Role</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true" style="color: white">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+
+                <input class="form-control" type="text" [(ngModel)]="newrole.role" placeholder="Enter a new role">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="ed" (click)="addRole('morerole'); modal.dismiss();">Save</button> &nbsp;
+        <button type="button" class="ed" (click)="modal.dismiss()">Cancel</button>
+    </div>
+</ng-template>
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form" style="color:#dec074">
+                            <!-- Role & Permission -->
+                            <h3>User Role & Permission</h3>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Select a role *</label>
+                                <div class="col-md-8">
+                                    <select (change)="getonePermission($event.target.value)" class="form-control" name="role" style="width: 50%">
+                                        <option value="">None</option>
+                                        <option *ngFor="let rrole of getallrole" value="{{rrole._id}}">
+                                            {{rrole.role}}</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9"></div>
+                                <div name="addlass" *ngIf="thisadd" class="col-md-3"><button type="button" (click)="openAdd(addrole);" class="ed">+ New Role</button>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Modules</th>
+                                        <th scope="col" class="col-md-2 text-center">View</th>
+                                        <th scope="col" class="col-md-2 text-center">Edit</th>
+                                        <th scope="col" class="col-md-2 text-center">Add</th>
+                                        <th scope="col" class="col-md-2 text-center">Delete</th>
+                                        <th scope="col" class="col-md-2 text-center">Export</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Dashboard</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="1v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="1a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="1e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="1d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="1ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Merchant & Online Store</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="2v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="2a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="2e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="2d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="2ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">News</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="3v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="3a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="3e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="3d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="3ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Advertisement</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="4v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="4a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="4e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="4d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="4ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Rewards & Voucher</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="5v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="5a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="5e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="5d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="5ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Gamification</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="6v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="6a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="6e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="6d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="6ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Redemption</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="7v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="7a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="7e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="7d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="7ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Booking List</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="8v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="8a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="8e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="8d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="8ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">User Management</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="9v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="9a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="9e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="9d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="9ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Reporting</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="10v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="10a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="10e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="10d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="10ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Member Account</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="11v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="11a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="11e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="11d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="11ex"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">General Setting</th>
+                                        <td><input class="text-center" type="checkbox" value="" id="12v"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="12a"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="12e"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="12d"></td>
+                                        <td><input class="text-center" type="checkbox" value="" id="12ex"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class=" card-footer">
+                                <div class="abtn">
+                                    <button name="editclass" *ngIf="thisedit" type="button" (click)="role('saverole')" class="ed">Save</button>
+                                    <button type="button" class="ed">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

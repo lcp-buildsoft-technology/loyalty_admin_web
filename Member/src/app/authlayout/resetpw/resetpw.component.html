@@ -1,0 +1,22 @@
+<div class="row h-50">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px">
+        <div class="covering position-absolute start-0" style="opacity: 10%;top: 20%;height: 70%">
+            <img src="assets/img/logo x.png" 
+            style="display: none; height: 80%; width: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;">
+        </div>
+        <div style="display: none;" class="image-box__overlay"></div>
+        <h2 class="mb-1">New password</h2>
+        <p class="mb-4">Now you can set new password for <br>your account</p>
+        <form class=" d-grid gap-2">
+            <div class="form-group form-floating is-valid">
+                <input type="password" class="form-control-sm" id="password" name="password" [(ngModel)]="user.password" placeholder="Enter the new password" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group form-floating is-invalid">
+                <input type="password" class="form-control-sm" id="confirmpwd" name="confirmpwd" [(ngModel)]="user.confirmpwd" placeholder="Confirm password" [ngModelOptions]="{standalone: true}">
+            </div>
+            
+        </form>
+        <button (click)="sendData99()"  class="btn">Reset Password</button>
+    </div>
+</div>

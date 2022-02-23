@@ -1,0 +1,26 @@
+h1{
+    text-align:center;
+    color:#dec074;
+}
+.btn {
+    outline: none;
+    background-color: #dec074;
+    border: 1px solid #dec074;
+    color: black;
+    font-weight: 550;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    margin-top: 110px;
+    cursor: pointer;
+    transition: 0.5s;
+ 
+}
+.row{
+    --bs-gutter-x: 0rem;
+}
+
+.heading{
+    padding:10px;
+}
+
+

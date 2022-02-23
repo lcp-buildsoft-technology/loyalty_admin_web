@@ -1,0 +1,303 @@
+<style>
+    option {
+        color: black;
+    }
+    /* // ------------------------loader------------------------ */
+    
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+    
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+    
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+    
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(180deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        75% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+        25% {
+            height: 0%;
+        }
+        50% {
+            height: 100%;
+        }
+        75% {
+            height: 100%;
+        }
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+
+<!------------------------------------------------------------------------------->
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class=" content">
+        <div class=" row">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <h2 class=" card-title font-weight-bold text-muted mb-0">Rewards & Voucher Management</h2>
+                    </div>
+                    <div class="card-body">
+                        <mat-tab-group (click)="findrole()">
+
+                            <!--Rewards Management-->
+                            <mat-tab label="Rewards">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class=" col-md-10">
+                                            </div>
+                                            <div class="col-md-2" name="addclass" *ngIf="thisadd">
+                                                <a routerLink="/addRwd"><input type="button" class="mbtn" value="+ New Rewards" /></a>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class=" card-body">
+                                            <div class="row">
+                                                <div class="col-md-10"></div>
+                                                <div name="exportclass" *ngIf="thisexport" class="col-md-2"><button (click)="exportrewardexcel()"> <i class="fas fa-download"></i>
+                                                        &nbsp;Export to
+                                                        Excel</button></div>
+                                            </div>
+                                            <br>
+                                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1" class=" table tablesorter" id="rewardtable">
+                                                <thead class=" text-primary">
+                                                    <tr>
+                                                        <th class="text-center">Action</th>
+                                                        <th class="text-center">Reward Title</th>
+                                                        <th class="text-center">Type</th>
+                                                        <th class="text-center">Reward</th>
+                                                        <th class="text-center">Details</th>
+                                                        <th class="text-center">Status</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr *ngFor="let rwdvc of rewvch">
+                                                        <td class="text-center">
+                                                            <div (click)="openrv(rwdvc, 'rvoucher')"><i class="tim-icons icon-pencil" style="font-size: 17px;color: gold; cursor: pointer;"></i>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center"> {{ rwdvc.title }} </td>
+                                                        <td class="text-center" id="type"> {{ rwdvc.type }} </td>
+                                                        <td class="text-center"> {{ rwdvc.discount }}% Discount </td>
+                                                        <td class="text-center">
+                                                            <ng-template #content1 let-modal>
+                                                                <div class="modal-header">
+                                                                    <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">
+                                                                        View Reward
+                                                                    </div>
+                                                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+                                                                        <span style="text-align: right; color: white;"
+                                                                            aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    <p style="color:#dec074;">
+                                                                        Thumbnail:</p>
+                                                                    <img class="text-center" style="width: 100%; height: 100%; object-fit: cover;" src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" /><br>
+                                                                    <p style="color:#dec074;">
+                                                                        Details:</p>
+                                                                    <h3 style="color:white!important;overflow-wrap: break-word;" [innerHTML]='rwdvc.detail'>
+                                                                        {{ rwdvc.detail }}</h3>
+
+                                                                    <p style="color:#dec074;">Tems and Condition:</p>
+                                                                    <h3 style="color:white;">{{ rwdvc.termsandcondition }}
+                                                                    </h3>
+                                                                </div>
+                                                            </ng-template>
+                                                            <div class="detail" (click)="image(content1, rwdvc)"><i class="tim-icons icon-image-02" aria-hidden="true" style="font-size:20px;color:gold;"></i></div>
+                                                        </td>
+
+                                                        <td class="text-center"> {{ rwdvc.status }} </td>
+                                                    </tr>
+                                                    <tr *ngFor="let rwd of rewardArr">
+                                                        <td class="text-center">
+                                                            <div name="editclass" (click)="openr(rwd, 'reward')"><i class="tim-icons icon-pencil" style="font-size: 17px;color: gold; cursor: pointer;"></i>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center"> {{ rwd.title }} </td>
+                                                        <td class="text-center" id="type"> {{ rwd.type }} </td>
+                                                        <td class="text-center"> {{ rwd.reward }} points </td>
+                                                        <td class="text-center">
+                                                            <ng-template #content1 let-modal>
+                                                                <div class="modal-header">
+                                                                    <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">
+                                                                        View Reward
+                                                                    </div>
+                                                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+                                                                        <span style="text-align: right; color: white;"
+                                                                            aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    <p style="color:#dec074;">
+                                                                        Thumbnail:</p>
+                                                                    <img class="text-center" style="width: 100%; height: 100%; object-fit: cover;" src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" /><br>
+
+                                                                    <p style="color:#dec074;">Details:</p>
+                                                                    <h3 style="color:white!important;overflow-wrap: break-word;" [innerHTML]='rwd.detail'>
+                                                                        {{ rwd.detail }}</h3>
+                                                                    <p style="color:#dec074;">Tems and Condition:</p>
+                                                                    <h3 style="color:white;">{{ rwd.termsandcondition }}
+                                                                    </h3>
+                                                                </div>
+                                                            </ng-template>
+                                                            <div class="detail" (click)="image(content1, rwd)"><i class="tim-icons icon-image-02" aria-hidden="true" style="font-size:20px;color:gold;"></i></div>
+                                                        </td>
+
+                                                        <td class="text-center"> {{ rwd.status }} </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <!--Voucher Management-->
+                            <mat-tab label="Voucher">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class=" col-md-10">
+                                            </div>
+                                            <div name="addclass" class="col-md-2" *ngIf="thisadd">
+                                                <a routerLink="/addVch"><input type="button" class="mbtn" value="+ New Voucher" /></a>
+                                            </div>
+                                        </div><br>
+                                        <div class=" card-body">
+                                            <div class="row">
+                                                <div class="col-md-10"></div>
+                                                <div name="exportclass" *ngIf="thisexport" class="col-md-2"><button (click)="exportvoucherexcel()"> <i class="fas fa-download"></i>
+                                                        &nbsp;Export to
+                                                        Excel</button></div>
+                                            </div>
+                                            <br>
+                                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2" class=" table tablesorter" id="vouchertable">
+                                                <thead class=" text-primary">
+                                                    <tr>
+                                                        <th class="text-center">Action</th>
+                                                        <th class="text-center">Voucher Title</th>
+                                                        <th class="text-center">Details</th>
+                                                        <th class="text-center">Type</th>
+                                                        <th class="text-center">Voucher Left</th>
+                                                        <th class="text-center">Discount</th>
+                                                        <th class="text-center">Min Spend(RM)</th>
+                                                        <th class="text-center">Start Date</th>
+                                                        <th class="text-center">End Date</th>
+                                                        <th class="text-center">Status</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr *ngFor="let vch of voucherArr">
+                                                        <td class="text-center">
+                                                            <div name="editclass" (click)="openv(vch)"><i class="tim-icons icon-pencil" style="font-size: 17px;color: gold; cursor: pointer;"></i>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center"> {{ vch.title }} </td>
+                                                        <td class="text-center">
+                                                            <ng-template #content2 let-modal>
+                                                                <div class="modal-header">
+                                                                    <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">
+                                                                        View Voucher
+                                                                    </div>
+                                                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+                                                                        <span style="text-align: right; color: white;"
+                                                                            aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <p style="color:#dec074;">
+                                                                        Thumbnail:</p>
+                                                                    <img class="text-center" style="width: 100%; height: 100%; object-fit: cover;" src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" /><br>
+                                                                    <p style="color:#dec074;">
+                                                                        Details:</p>
+                                                                    <h3 style="margin-top:5%;overflow-wrap: break-word;color:white;" [innerHTML]='vch.detail'> {{vch.detail}}
+
+                                                                    </h3>
+                                                                    <p style="color:#dec074;">Terms and Condition:</p>
+                                                                    <h3 style="max-width: 300px;margin-top:5%;color:white;">
+                                                                        {{ vch.termsandcondition }}
+                                                                    </h3>
+                                                                </div>
+                                                            </ng-template>
+                                                            <div class="detail" (click)="image(content2, vch)"><i class="tim-icons icon-image-02" aria-hidden="true" style="font-size:20px;color:gold;"></i></div>
+                                                        </td>
+                                                        <td class="text-center"> {{ vch.type }} </td>
+                                                        <td class="text-center"> {{ vch.quantity }} </td>
+                                                        <td class="text-center"> {{ vch.discount }} </td>
+                                                        <td class="text-center"> {{ vch.minspend }} </td>
+                                                        <td class="text-center"> {{ vch.sdate }} </td>
+                                                        <td class="text-center"> {{ vch.edate }} </td>
+                                                        <td class="text-center"> {{ vch.status }} </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

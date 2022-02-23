@@ -1,0 +1,433 @@
+<!--List Merchant Account Management-->
+
+<style>
+    .avatar {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .form-control {
+        width: 500px;
+        margin-bottom: 10px;
+        max-width: 445px;
+    }
+    
+    .button:hover {
+        background-color: white !important;
+        transition: all 2s;
+    }
+    
+    .modal.show .modal-dialog {
+        transform: translate(0, 0%) !important;
+    }
+    
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 35px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-left: 28px;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    .form-control {
+        border: none;
+        border-bottom: 1px solid #dec074;
+        border-radius: 0%;
+        border-color: #dec074;
+        color: black !important;
+    }
+    
+    .modal.show .modal-dialog {
+        transform: translate(0, 0%) !important;
+    }
+    
+    .form-control:disabled {
+        background-color: transparent !important;
+        opacity: 1;
+    }
+    
+    .col-md-2 a:hover {
+        background-color: rgb(255, 241, 163) !important;
+    }
+    
+    .dropbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 30px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    
+    .dropbtn:active {
+        transform: translateY(4px);
+    }
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #dec074;
+        color: #2c2c2c !important;
+        min-width: 170px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+    }
+    
+    .dd {
+        color: #2c2c2c !important;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-weight: 600;
+    }
+    
+    .dd a {
+        color: #2c2c2c !important;
+    }
+    
+    .dd:hover {
+        background-color: grey;
+        border-radius: 1rem;
+    }
+    
+    .show {
+        display: inline-block;
+    }
+    
+    .ddContent {
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 170px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+        height: 200px;
+    }
+    
+    .form-control {
+        border-top: transparent;
+        border-right: transparent;
+        border-left: transparent;
+        border-radius: 0%;
+        border-color: #dec074;
+    }
+    
+    .ctd {
+        color: #2c2c2c;
+        text-decoration: none;
+    }
+    
+    .mbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+        text-decoration: none;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    
+    .mbtn:active {
+        transform: translateY(4px);
+    }
+    
+    .modal-title {
+        color: #dec074 !important;
+        font-size: 20px !important;
+    }
+    
+    .abtn {
+        /*         margin-left: 1027px;
+        margin-top: -61px;
+        margin-bottom: 15px; */
+        margin-left: 88%;
+        margin-bottom: 2%;
+        margin-top: -5%;
+    }
+    
+    .search {
+        /* 
+        margin-top: 40px;
+        margin-bottom: 15px;
+ */
+        margin-top: 4%;
+    }
+    
+    .fas:active {
+        transform: translateY(4px);
+    }
+</style>
+<ng-template #content let-modal>
+
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">Edit Merchant</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross Click')">
+            <span style="text-align: right;" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class=" row">
+            <div class=" col-md-2 pr-md-1"></div>
+            <div class=" col-md-8 pr-md-1">
+                <a href="javascript:void(0)">
+                    <img alt="Your Avatar" class=" avatar" src="assets/img/emilyz.jpg" />
+                </a>
+            </div>
+            <div class=" col-md-2 pr-md-1"></div>
+        </div>
+        <form>
+            <div class="row">
+                <div class=" col-md-1 pl-md-1">
+                    <div class=" form-group">
+                        <label> Name </label>
+
+                        <input class=" form-control" [(ngModel)]="editMerchant.name" name="mername" value="" placeholder="" type="text" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-6 pl-md-1">
+                    <div class=" form-group">
+                        <label> Phone Number </label>
+
+                        <input [(ngModel)]="editMerchant.phonenumber" name="merphonenumber" value="" class=" form-control" type="text" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class=" col-md-6 pl-md-1">
+                    <div class=" form-group">
+
+                        <label> Bank Account</label>
+                        <input style="color: black;" [(ngModel)]="editMerchant.bankaccount" name="merbankaccount" value="" class=" form-control" type="text" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-6 pl-md-1">
+                    <div class=" form-group">
+
+                        <label> Location</label>
+                        <input style="color: black;" [(ngModel)]="editMerchant.location" name="merlocation" value="" class=" form-control" type="text" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-6 pl-md-1">
+                    <div class=" form-group">
+
+
+                        <label> Video </label>
+                        <input [(ngModel)]="editMerchant.video" name="mervideo" value="" class=" form-control" type="text" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+
+                        <label> Image</label>
+                        <div *ngFor='let in of counter(editMerchant.image.length) ;let i = index'>
+                            <input [(ngModel)]="editMerchant.image[i]" name=" {{ editMerchant.image[i] }}" value="" class=" form-control" type="text" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> Email </label>
+
+                        <input value="" [(ngModel)]="editMerchant.email" name="meremailaddress" class=" form-control" type="text" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> Password</label>
+
+                        <input value="" class=" form-control" placeholder="" type="password" [(ngModel)]="editMerchant.password" name="merpassword" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="ed" (click)="modal.dismiss();uploadMerchant(editMerchant)">Save</button>
+                <button type="reset" class="ed" (click)="modal.dismiss()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+</ng-template>
+
+<ng-template #edit let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">Delete Merchant</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <div class="dlt">Are you sure you want to delete ?</div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="ed" style="margin-left: 300px;" (click)="modal.close('Save click')">Yes</button>
+        <button type="button" class="ed" (click)="modal.close()">Cancel</button>
+    </div>
+</ng-template>
+
+<div class=" content">
+    <div class=" row">
+        <div class=" col-md-12">
+            <div class=" card">
+                <div class=" card-header">
+                    <h4 class=" card-title font-weight-bold text-muted mb-0">Account Management</h4>
+                    <h4 class=" card-title ">Merchant</h4>
+                    <div class=" search">
+                        <div class="input-group rounded">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="max-width: 300px;" />
+                            <span class="input-group-text border-0" id="search-addon"><i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class=" card-body">
+                    <div class="row">
+                        <div class="col-md-10"></div>
+                        <div class="col-md-2"><button (click)="exportexcel()"> <i class="fas fa-download"></i> &nbsp;Export to Excel</button></div>
+                    </div>
+                    <br>
+                    <table class=" table tablesorter" id="" style="top: 50%; left: 50%;">
+                        <thead class=" text-primary">
+                            <tr>
+                                <th>Action</th>
+                                <th>Name</th>
+                                <th>Phone No.</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th>Bank Account</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let merchs of merchantArr">
+
+                                <td>
+                                    <div ngbDropdown class="dropdown">
+
+                                        <!--                                         <div class="button-secondary" id="edit" ngbDropdownToggle><i class="tim-icons icon-tap-02" style="font-size:20px;margin-left: 15px;color:gold"></i></div> -->
+
+                                        <div class="button-secondary" ngbDropdownToggle><i class="tim-icons icon-bullet-list-67" style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                        </div>
+
+                                        <div ngbDropdownMenu aria-labelledby="" class="dropdown-content">
+                                            <button class="dd" ngbDropdownItem>
+                                                <a href="javascript:void(0)" id="editnewss" title="edit"
+                                                    (click)="open(content, merchs)"><i
+                                                        class="tim-icons icon-pencil"></i> Edit</a> &nbsp;&nbsp;
+                                            </button>
+                                            <button class="dd" ngbDropdownItem>
+                                                <a href="javascript:void(0)" title="delete" (click)="openEdit(edit)"> <i
+                                                        class="tim-icons icon-trash-simple"></i> Delete</a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td> {{ merchs.name }}</td>
+                                <td> {{ merchs.phonenumber }}</td>
+                                <td> {{ merchs.email }}</td>
+                                <td>{{ merchs.location }}</td>
+                                <td>{{ merchs.bankaccount }}</td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-9"></div>
+                        <div class="col-sm-3">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <span class="page-link">Previous</span>
+                                    </li>
+
+                                    <li class="page-item active">
+                                        <span class="page-link">
+                                            1
+                                            <span class="sr-only">(current)</span>
+                                        </span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

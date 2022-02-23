@@ -1,0 +1,78 @@
+p, h4, h2 {
+    color: white;
+}
+
+.btn {
+    outline: none;
+    background-color: #dec074;
+    border: 1px solid #dec074;
+    color: black;
+    font-weight: 550;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 20px;
+}
+
+.container-fluid {
+    background-color: transparent;
+    padding-top: 20px;
+}
+
+.mat-form-field {
+    margin-top: 16px;
+    width: 100%;
+  }
+  .mat-form-field .mat-icon
+  {
+    color: #dec074;
+  }
+  
+  .mat-form-field input
+  {
+      font-size: 16px;
+      padding-left: 10px;
+      padding-bottom: 5px;  
+      padding-top: 10px; 
+      color: white;
+  }
+  .mat-form-field mat-label
+  {
+      font-size: 18px;
+      padding-left: 10px; 
+      color: white;   
+  }
+
+  .mat-form-field ::placeholder
+  {
+      color: #dec074;
+  }
+
+  button
+  {
+    color: #dec074;
+    background-color: transparent;
+    border: 1px solid #dec074;
+    font-size: 16px;
+  }
+  button[type = "submit"]
+  {
+    color: #dec074;
+    background-color: transparent;
+    width: 100%;
+    padding: 12px 30px;
+    border: 1px solid #dec074;
+    font-size: 16px;
+  }
+
+  .row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}

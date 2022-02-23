@@ -1,0 +1,1133 @@
+<style>
+    .form-control {
+        width: 500px !important;
+    }
+    
+    .button:hover {
+        background-color: white !important;
+        transition: all 1s;
+    }
+    
+    #password {
+        background-color: transparent;
+        color: white;
+        border-color: transparent;
+    }
+    
+    .content {
+        background-color: #181818 !important;
+        /* added */
+    }
+    
+    .card {
+        background-color: #2c2c2c !important;
+        /* added */
+    }
+    
+    #pop {
+        color: black;
+        margin-bottom: 10px;
+        max-width: 445px;
+    }
+    
+    .modal-body {
+        color: #dec074;
+    }
+    
+    .form-control {
+        border-top: transparent;
+        border-right: transparent;
+        border-left: transparent;
+        border-radius: 0%;
+        border-color: #dec074;
+        width: 500px;
+        margin-bottom: 10px;
+        max-width: 450px;
+        color: white;
+    }
+    /* Save & Cancel button */
+    
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 35px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-left: 28px;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    .dropbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 30px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    
+    .dropbtn:active {
+        transform: translateY(4px);
+    }
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #dec074;
+        color: #2c2c2c !important;
+        min-width: 120px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+    }
+    
+    .dd {
+        color: #2c2c2c !important;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+        font-weight: 600;
+    }
+    
+    .dd a {
+        color: #2c2c2c !important;
+    }
+    
+    .dd:hover {
+        background-color: lightgrey;
+    }
+    
+    .show {
+        display: inline-block;
+    }
+    
+    .ddContent {
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 170px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+        height: 200px;
+    }
+    
+    .btn-group button {
+        background-color: black !important;
+    }
+    
+     ::ng-deep .mat-menu-content {
+        background-color: #dec074;
+        min-width: 150px;
+    }
+    
+    input:disabled {
+        background-color: transparent;
+        color: white !important;
+    }
+    
+    option {
+        color: black;
+    }
+    
+    .validation {
+        font-weight: 500;
+        font-size: 1em;
+        color: rgb(255, 0, 0) !important;
+    }
+    
+    .validation2 {
+        font-weight: 500;
+        font-size: 1em;
+        color: rgb(255, 0, 0) !important;
+    }
+    
+    .validation3 {
+        font-weight: 500;
+        font-size: 1em;
+        color: rgb(255, 0, 0) !important;
+    }
+    
+    .validation4 {
+        font-weight: 500;
+        font-size: 1em;
+        color: rgb(255, 0, 0) !important;
+    }
+    /* // ------------------------loader------------------------ */
+    
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+    
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+    
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+    
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(180deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        75% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+        25% {
+            height: 0%;
+        }
+        50% {
+            height: 100%;
+        }
+        75% {
+            height: 100%;
+        }
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+<ng-template #openimage let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">View Thumbnails
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span style="text-align: right; color: white;" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" style="margin-left: 5%;">
+        <img style="width: 100%; object-fit: cover;" src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" />
+    </div>
+</ng-template>
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+    <div class=" content">
+
+        <div class=" row1">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <div class="row">
+                            <a routerLink="/merchant"><i class="tim-icons icon-minimal-left"
+                                    style="color:#dec074; cursor: pointer;font-size: 15px;margin-top: 10px;margin-left: 10px;"></i></a>
+                            <h2 class=" title">Merchant & Online Store</h2>
+                        </div>
+
+                    </div>
+                    <div class=" card-body">
+
+
+                        <mat-tab-group>
+                            <!------------------------------------ Merchant Details Tab ----------------------------------------->
+                            <mat-tab label="Merchant Details">
+                                <div class=" card">
+                                    <div class=" card-body" ng-app="myModule" ng-controller="myController">
+                                        <form class="form" style="color:#dec074">
+                                            <!-- Merchant Details -->
+
+                                            <div class="form-group row" hidden>
+                                                <label class="col-md-3 col-form-label">ID </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.id' name="id" class=" form-control" type="text" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Company name </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.companyname' name="companyname" class=" form-control" type="text" disabled>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="form-group row">
+                        <label class="col-md-3 col-form-label">Shop Name </label>
+                        <div class="col-md-8">
+                          <input [(ngModel)]='merchant.shopname' name="shopname" class=" form-control" type="text"
+                            disabled>
+                        </div>
+                      </div> -->
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Registration Number </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.regno' name="regno" class=" form-control" type="text" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Email Address </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.email' name="email" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Merchant Type </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.merchanttype' name="mtype" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Contact Number </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.contact' name="contact" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Address </label>
+                                                <div class="col-md-8">
+                                                    <textarea [(ngModel)]='merchant.address' name="address" class=" form-control" type="text" disabled style="background-color: transparent;"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Facebook </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.fb' name="fb" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Instagram </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.ig' name="ig" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Twitter </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.twitter' name="twitter" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">LinkedIn </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.linkedin' name="linkedin" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Tiktok </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.tiktok' name="tiktok" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Bank Account </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.bankacc' name="bankacc" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Bank Name </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.bankname' name="bankname" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Swift Code </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.swiftcode' name="swiftcode" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Status </label>
+                                                <div class="col-md-8">
+                                                    <input [(ngModel)]='merchant.status' name="status" class=" form-control" type="text" disabled />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+
+
+                            <!------------------------------------ User Tab ----------------------------------------->
+                            <mat-tab label="User">
+                                <div class=" card">
+                                    <div class=" card-header">
+                                        <div class="row">
+                                            <div class=" col-md-10">
+                                            </div>
+
+                                            <div *ngIf="thisadd" class=" col-md-2" style="padding-top: 2.6%;">
+                                                <input type="button" (click)="add(adduser)" class="mbtn" value="+ Add User" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class=" card-body" ng-app="myModule" ng-controller="myController">
+                                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1" class=" table tablesorter" id="usertable" style="top: 50%; left: 50%;">
+                                            <thead class=" text-primary">
+                                                <tr>
+                                                    <th class="text-center">Action</th>
+                                                    <th class="text-center">Email</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">Created By</th>
+                                                    <th class="text-center">Created Date</th>
+                                                    <th class="text-center">Updated By</th>
+                                                    <th class="text-center">Updated Date</th>
+                                                    <th class="text-center">Contact Number</th>
+                                                    <th class="text-center">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor='let in of counter(usermerchant.length) ;let i = index'>
+                                                    <td class="text-center">
+
+                                                        <div ngbDropdown class="dropdown">
+                                                            <div class="button-secondary" id="edit" ngbDropdownToggle><i class="tim-icons icon-bullet-list-67" style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                                            </div>
+                                                            <div ngbDropdownMenu aria-labelledby="" class="dropdown-content" style="padding: 0">
+                                                                <div (click)="open(view, usermerchant[i])">
+
+                                                                    <div *ngIf="thisview" class="dd" type="button" style="cursor: pointer; font-size: 12px;">
+
+                                                                        <a href="javascript:void(0)" title="View"><i
+                                                                                style="font-size: 1.2em"
+                                                                                class="fas fa-eye"></i>&nbsp;
+                                                                            View</a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div *ngIf="thisedit" (click)="openEdit(edit, usermerchant[i])">
+                                                                    <button class="dd" ngbDropdownItem style="cursor: pointer;">
+
+                                                                        <a href="javascript:void(0)" title="Edit"><i
+                                                                                style="font-size: 1.2em; color: black;"
+                                                                                class="tim-icons icon-pencil"></i>
+                                                                            Edit</a> &nbsp;&nbsp;
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="mailto: {{usermerchant[i].email}}" data-toggle="tooltip" data-placement="right" title="{{usermerchant[i].email}}">
+                                                            <i class="fas fa-envelope"></i></a>
+                                                    </td>
+                                                    <td class="text-center">{{usermerchant[i].name}}</td>
+                                                    <td class="text-center">{{usermerchant[i].createdby}}</td>
+                                                    <td class="text-center">{{usermerchant[i].createddate}}</td>
+                                                    <td class="text-center">{{usermerchant[i].updatedby}}</td>
+                                                    <td class="text-center">{{usermerchant[i].updateddate}}</td>
+                                                    <td class="text-center">{{usermerchant[i].contact}}</td>
+                                                    <td class="text-center">{{usermerchant[i].status}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <!-- Add New User Popup -->
+                            <ng-template #adduser let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">Add New User</div>
+                                    <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Name *</label>
+                                        <input [(ngModel)]='merchantuser.name' name="name" class=" form-control" type="text" maxlength="50" autocomplete="off" />
+                                        <p class="validation">{{ valid['name'] }}</p>
+                                        <label>Email *</label>
+                                        <input [(ngModel)]='merchantuser.email' name="emailll" class=" form-control" [pattern]="emailPattern" #email="ngModel" type="text" maxlength="40" autocomplete="off" />
+                                        <div *ngIf="email.errors?.pattern" style="color:red;">
+                                            *Invalid Email.
+                                        </div>
+                                        <p class="validation">{{ valid['email'] }}</p>
+                                        <label>Password *</label>
+                                        <input [(ngModel)]='merchantuser.pwd' name="pwddd" class=" form-control" type="password" maxlength="15" [pattern]="pwdPattern" #pwd="ngModel" autocomplete="off" />
+                                        <div *ngIf="pwd.errors?.pattern" style="color:red;">
+                                            *Password must be at least 8 characters and maximum 15 characters.<br> *Password must contain at least one number and at least one letter.
+                                        </div>
+                                        <p class="validation">{{ valid['pwd'] }}</p>
+                                        <label>Confirm Password *</label>
+                                        <input [(ngModel)]='merchantuser.cfmpwd' name="cfmpwd" class=" form-control" type="password" maxlength="15" autocomplete="off" />
+                                        <p class="validation">{{ valid['cfmpwd'] }}</p>
+
+                                        <!-- auto create in backend -->
+                                        <label hidden>Created By *</label>
+                                        <input [(ngModel)]='merchantuser.createdby' name="createdby" class=" form-control" type="text" maxlength="50" hidden />
+                                        <!-- <label>Created Date:</label> -->
+                                        <input [(ngModel)]='merchantuser.createddate' name="createddate" class=" form-control" type="text" id="createddate" hidden />
+                                        <label hidden>Updated By *</label>
+                                        <input [(ngModel)]='merchantuser.updatedby' name="updatedby" class=" form-control" type="text" hidden />
+                                        <!-- <label>Updated Date:</label> -->
+                                        <input [(ngModel)]='merchantuser.updateddate' name="updateddate" class=" form-control" type="text" id="updateddate" hidden />
+                                        <!-- -------------------- -->
+                                        <label>Contact *</label>
+                                        <input [(ngModel)]='merchantuser.contact' name="contact" class=" form-control" type="text" maxlength="15" [pattern]="contactPattern" #contact="ngModel" autocomplete="off" />
+                                        <div *ngIf="contact.errors?.pattern" style="color:red;">
+                                            *Invalid Contact Number.
+                                        </div>
+                                        <p class="validation">{{ valid['contact'] }}</p>
+                                        <label hidden>Status *</label>
+                                        <input [(ngModel)]='merchantuser.status' class=" form-control" type="text" id="status" name="status" hidden>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="sendMerchantUser()">Save</button>&nbsp;&nbsp;
+                                    <button type="button" class="ed" (click)="modal.close('')">Cancel</button>
+                                </div>
+                            </ng-template>
+
+                            <!-- View User -->
+                            <ng-template #view let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">View User</div>
+                                    <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Email:</label>
+                                        <input [(ngModel)]='editmerchantuser.email' name="email" class=" form-control" type="text" disabled />
+                                        <!-- <label>Password:</label>
+                    <input [(ngModel)]='editmerchantuser.pwd' name="pwd" class=" form-control" type="password" disabled/>
+                    <label>Confirm Password:</label>
+                    <input [(ngModel)]='editmerchantuser.cfmpwd' name="cfmpwd" class=" form-control" type="password" disabled/> -->
+                                        <label>Name:</label>
+                                        <input [(ngModel)]='editmerchantuser.name' name="name" class=" form-control" type="text" disabled />
+                                        <label>Created By:</label>
+                                        <input [(ngModel)]='editmerchantuser.createdby' name="createdby" class=" form-control" type="text" disabled />
+                                        <label>Created Date:</label>
+                                        <input [(ngModel)]='editmerchantuser.createddate' name="createddate" class=" form-control" type="date" disabled />
+                                        <label>Updated By:</label>
+                                        <input [(ngModel)]='editmerchantuser.updatedby' name="updatedby" class=" form-control" type="text" disabled />
+                                        <label>Updated Date:</label>
+                                        <input [(ngModel)]='editmerchantuser.updateddate' name="updateddate" class=" form-control" type="date" disabled />
+                                        <label>Contact:</label>
+                                        <input [(ngModel)]='editmerchantuser.contact' name="contact" class=" form-control" type="text" disabled />
+                                        <label class="act" id="pop" style="color: #dec074">Status:</label>
+                                        <input [(ngModel)]='editmerchantuser.status' name="status" class=" form-control" type="text" disabled />
+                                        <br>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="modal.close('')">Close</button>
+                                </div>
+                            </ng-template>
+
+                            <!-- Edit User -->
+                            <ng-template #edit let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">Edit User</div>
+                                    <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Email:</label>
+                                        <input [(ngModel)]='editmerchantuser.email' name="email" class=" form-control" type="text" [pattern]="emailPattern" #email="ngModel" autocomplete="off" />
+                                        <div *ngIf="email.errors?.pattern" style="color:red;">
+                                            *Invalid Email.
+                                        </div>
+                                        <p class="validation2">{{ uvalid['email'] }}</p>
+                                        <!-- admin cannot edit user's password -->
+                                        <label>Name:</label>
+                                        <input [(ngModel)]='editmerchantuser.name' name="name" class=" form-control" type="text" autocomplete="off" />
+                                        <p class="validation2">{{ uvalid['name'] }}</p>
+                                        <!-- --------------------------------- -->
+                                        <!-- edit in backend not in frontend -->
+                                        <!-- <label>Created By:</label>
+                    <input [(ngModel)]='editmerchantuser.createdby' name="createdby" class=" form-control"
+                      type="text" />
+                    <label>Created Date:</label>
+                    <input [(ngModel)]='editmerchantuser.createddate' name="createddate" class=" form-control"
+                      type="date" />
+                    <label>Updated By:</label>
+                    <input [(ngModel)]='editmerchantuser.updatedby' name="updatedby" class=" form-control"
+                      type="text" />
+                    <label>Updated Date:</label>
+                    <input [(ngModel)]='editmerchantuser.updateddate' name="updateddate" class=" form-control"
+                      type="date" /> -->
+                                        <label>Contact:</label>
+                                        <input [(ngModel)]='editmerchantuser.contact' name="contact" class=" form-control" type="text" [pattern]="contactPattern" #contact="ngModel" autocomplete="off" />
+                                        <div *ngIf="contact.errors?.pattern" style="color:red;">
+                                            *Invalid Contact Number.
+                                        </div>
+                                        <p class="validation2">{{ uvalid['contact'] }}</p>
+                                        <label>Password:</label>
+                                        <input [(ngModel)]='editmerchantuser.pwd' [pattern]="pwdPattern" #pwd="ngModel" name="pwd" class=" form-control" type="password" autocomplete="off" />
+                                        <div *ngIf="pwd.errors?.pattern" style="color:red;">
+                                            *Password must be at least 8 characters and maximum 15 characters.<br> *Password must contain at least one number and at least one letter. </div>
+                                        <p class="validation2">{{ uvalid['pwd'] }}</p>
+                                        <label>Confirm Password:</label>
+                                        <input [(ngModel)]='editmerchantuser.cfmpwd' name="cfmpwd" class=" form-control" type="password" autocomplete="off" />
+                                        <p class="validation2">{{ uvalid['cfmpwd'] }}</p>
+                                        <label class="act" id="pop" style="color: #dec074">Status:</label>
+                                        <select class="action" [(ngModel)]='editmerchantuser.status'>
+                                            <option class="yn" value="Active">Active</option>
+                                            <option class="yn" value="Inactive">Inactive</option>
+                                        </select><br>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="editMerchantUser(editmerchantuser)">Save</button>&nbsp;&nbsp;
+                                    <button type="button" class="ed" (click)="modal.close('')">Cancel</button>
+                                </div>
+                            </ng-template>
+
+
+
+                            <!------------------------------------ Online Store Tab ----------------------------------------->
+                            <mat-tab label="Online Store (Products)">
+                                <div class=" card">
+                                    <!-- <div class=" card-header">
+                                        <div class="row">
+                                            <div class=" col-md-10">
+                                            </div>
+                                            <div class=" col-md-2" style="padding-top: 2.6%;">
+                                                <input type="button" (click)="add(addonlinestore)" class="mbtn" value="+ Add Products" hidden />
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <br>
+
+                                    <div class=" card-body" ng-app="myModule" ng-controller="myController">
+                                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2" class=" table tablesorter" id="producttable" style="top: 50%; left: 50%;">
+                                            <thead class=" text-primary">
+                                                <tr>
+                                                    <th class="text-center">Action</th>
+                                                    <th class="text-center">Thumbnail</th>
+                                                    <th class="text-center">Category</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">Description</th>
+                                                    <th class="text-center">Price</th>
+                                                    <!-- <th class="text-center">Availability</th> -->
+                                                    <th class="text-center">T&C</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor='let in of counter(storeonline.length) ;let i = index'>
+                                                    <td class="text-center">
+
+                                                        <div ngbDropdown class="dropdown">
+                                                            <div class="button-secondary" id="edit" ngbDropdownToggle><i class="tim-icons icon-bullet-list-67" style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                                            </div>
+                                                            <div ngbDropdownMenu aria-labelledby="" class="dropdown-content" style="padding: 0">
+                                                                <div (click)="open2(viewonlinestores, storeonline[i])">
+
+                                                                    <div *ngIf="thisview" class="dd" type="button" style="cursor: pointer; font-size: 12px;">
+
+                                                                        <a href="javascript:void(0)" title="View"><i
+                                                                                style="font-size: 1.2em"
+                                                                                class="fas fa-eye"></i>&nbsp;
+                                                                            View</a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div *ngIf="thisedit" (click)="openEdit2(editonlinestores, storeonline[i])">
+                                                                    <button class="dd" ngbDropdownItem style="cursor: pointer;">
+
+                                                                        <a href="javascript:void(0)" title="Edit"><i
+                                                                                style="font-size: 1.2em; color: black;"
+                                                                                class="tim-icons icon-pencil"></i>
+                                                                            Edit</a> &nbsp;&nbsp;
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a class="image-uploaded" title="{{ storeonline[i].thumbnail }}" (click)="opnimage(openimage, storeonline[i])"><i
+                                                                class="tim-icons icon-image-02" aria-hidden="true"
+                                                                style="font-size:20px;color:gold;"></i></a>
+
+                                                    </td>
+                                                    <td class="text-center">{{storeonline[i].categories}}</td>
+                                                    <td class="text-center">{{storeonline[i].name}}</td>
+                                                    <td class="text-center">{{storeonline[i].description}}</td>
+                                                    <td class="text-center">{{storeonline[i].price}}</td>
+                                                    <!-- <td class="text-center">{{storeonline[i].availability}}</td> -->
+                                                    <td class="text-center">{{storeonline[i].tnc}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <!-- Add New Online Store Popup -->
+                            <ng-template #addonlinestore let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">Add New Products</div>
+                                    <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Thumbnail *</label>
+                                        <input [(ngModel)]='onlinestore.thumbnail' name="thumbnail" class=" form-control-file" type="file" id="thumbnail" /><br>
+                                        <label>Category *</label>
+                                        <input [(ngModel)]='onlinestore.categories' name="categories" class=" form-control" type="text" />
+                                        <label>Name *</label>
+                                        <input [(ngModel)]='onlinestore.name' name="name" class=" form-control" type="text" maxlength="40" />
+                                        <label>Description *</label>
+                                        <input [(ngModel)]='onlinestore.description' name="description" class=" form-control" type="text" maxlength="100" />
+                                        <label>Price *</label>
+                                        <input [(ngModel)]='onlinestore.price' name="price" class=" form-control" type="text" maxlength="10" />
+                                        <label class="act" id="pop" style="color: #dec074" hidden>Availability:</label>
+                                        <input [(ngModel)]='onlinestore.availability' class=" form-control" type="text" id="availability" name="availability" hidden>
+                                        <label>T&C *</label>
+                                        <input [(ngModel)]='onlinestore.tnc' name="tnc" class=" form-control" type="text" maxlength="100" />
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="sendOnlineStore()">Save</button>&nbsp;&nbsp;
+                                    <button type="button" class="ed" (click)="modal.close('')">Cancel</button>
+                                </div>
+                            </ng-template>
+
+                            <!-- View Online Store -->
+                            <ng-template #viewonlinestores let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">View Online Store</div>
+                                    <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Thumbnail:</label>
+                                        <input name="thumbnail" class=" form-control-file" type="file" style="display:none;color: transparent !important" id="thumbnail" disabled />
+                                        <img src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" style="width: 100%;height: 100%; object-fit: cover;" />
+
+                                        <label>Category:</label>
+                                        <input [(ngModel)]='editonlinestore.categories' name="categories" class=" form-control" type="text" disabled />
+                                        <label>Name:</label>
+                                        <input [(ngModel)]='editonlinestore.name' name="name" class=" form-control" type="text" disabled />
+                                        <label>Description:</label>
+                                        <input [(ngModel)]='editonlinestore.description' name="description" class=" form-control" type="text" disabled />
+                                        <label>Price:</label>
+                                        <input [(ngModel)]='editonlinestore.price' name="price" class=" form-control" type="text" disabled />
+                                        <!-- <label class="act" id="pop" style="color: #dec074">Availability:</label>
+                                        <select class="action" [(ngModel)]='editonlinestore.availability' disabled>
+                                            <option class="yn" value="Available">Available</option>
+                                            <option class="yn" value="Unavailable">Unavailable</option>
+                                        </select>-->
+                                        <label class="act" id="pop" style="color: #dec074">Status:</label>
+                                        <input [(ngModel)]='editonlinestore.status' name="status" class=" form-control" type="text" disabled />
+                                        <label>T&C:</label>
+                                        <input [(ngModel)]='editonlinestore.tnc' name="tnc" class=" form-control" type="text" disabled />
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button type="button" class="ed" (click)="editOnlineStore(editonlinestore)">Save</button> -->
+                                    <button type="button" class="ed" (click)="modal.close('')">Close</button>
+                                </div>
+                            </ng-template>
+
+                            <!-- Edit Online Store -->
+                            <ng-template #editonlinestores let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">Edit Online Store</div>
+                                    <button type="button" class="close" aria-label="Close" style="color: white" (click)="modal.dismiss()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Thumbnail:</label>
+                                        <!-- <p class="validation3">{{ pvalid['thumbnail'] }}</p> -->
+                                        <input style="color: transparent;" name="file" (change)="oneditselectFile($event)" type="file" accept="image/png, image/jpeg" />
+                                        <br>
+                                        <br>
+                                        <img style="display:none;object-fit: cover;" id="newimg" src="{{ url }}" />
+                                        <img style="width: 100%;object-fit: cover;" id="ogimg" src="data:{{ imagetype }};base64,{{ image }}" />
+                                        <label>Category:</label>
+
+                                        <select [(ngModel)]='editonlinestore.categories' class="form-control" name="categories">
+
+                                            <option style="color:black" *ngFor="let pcg of productcategory"
+                                                value="{{pcg.category}}">
+
+                                                {{pcg.category}}</option>
+
+                                        </select>
+
+                                        <p class="validation3">{{ pvalid['categories'] }}</p>
+                                        <label>Name:</label>
+                                        <input [(ngModel)]='editonlinestore.name' name="name" class=" form-control" type="text" autocomplete="off" />
+                                        <p class="validation3">{{ pvalid['name'] }}</p>
+
+                                        <label>Description:</label>
+                                        <input [(ngModel)]='editonlinestore.description' name="description" class=" form-control" type="text" autocomplete="off" />
+                                        <p class="validation3">{{ pvalid['description'] }}</p>
+
+                                        <label>Price:</label>
+                                        <input [(ngModel)]='editonlinestore.price' name="price" class=" form-control" type="text" [pattern]="pricePattern" #price="ngModel" autocomplete="off" />
+                                        <!-- <label class="act" id="pop" style="color: #dec074">Availability:</label>
+                                        <select class="action" [(ngModel)]='editonlinestore.availability'>
+                                            <option class="yn" value="Available">Available</option>
+                                            <option class="yn" value="Unavailable">Unavailable</option>
+                                        </select> -->
+                                        <div *ngIf="price.errors?.pattern" style="color:red;">
+                                            *Invalid Price.
+                                        </div>
+                                        <p class="validation3">{{ pvalid['price'] }}</p>
+                                        <label class="act" id="pop" style="color: #dec074">Status:</label>
+                                        <select class="action" [(ngModel)]='editonlinestore.status'>
+                                            <option class="yn" value="Active">Active</option>
+                                            <option class="yn" value="Inactive">Inactive</option>
+                                        </select><br>
+                                        <label>T&C:</label>
+                                        <input [(ngModel)]='editonlinestore.tnc' name="tnc" class=" form-control" type="text" autocomplete="off" />
+                                        <p class="validation3">{{ pvalid['tnc'] }}</p>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="editOnlineStore(editonlinestore)">Save</button>
+                                    <button type="button" class="ed" (click)="modal.close('')" style="margin-left: 10px;">Cancel</button>
+                                </div>
+                            </ng-template>
+
+
+
+                            <!------------------------------------ Outlet Tab ----------------------------------------->
+                            <mat-tab label="Outlet">
+                                <div class=" card">
+                                    <!-- <div class=" card-header">
+                                        <div class="row">
+                                            <div class=" col-md-10">
+                                            </div>
+                                            <div class=" col-md-2" style="padding-top: 2.6%;">
+                                                <input type="button" (click)="add(addoutlet)" class="mbtn" value="+ Add Outlet" />
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <br>
+
+                                    <div class=" card-body" ng-app="myModule" ng-controller="myController">
+                                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger3" class=" table tablesorter" id="outlettable" style="top: 50%; left: 50%;">
+                                            <thead class=" text-primary">
+                                                <tr>
+                                                    <th class="text-center">Action</th>
+                                                    <th class="text-center">Outlet Name</th>
+                                                    <th class="text-center">Address</th>
+                                                    <th class="text-center">Phone</th>
+                                                    <th class="text-center">Whatsapp</th>
+                                                    <th class="text-center">Email</th>
+                                                    <th class="text-center">Operating Hours</th>
+                                                    <th class="text-center">Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor='let in of counter(letsout.length) ;let i = index'>
+                                                    <td class="text-center">
+                                                        <div ngbDropdown class="dropdown">
+                                                            <div class="button-secondary" id="edit" ngbDropdownToggle><i class="tim-icons icon-bullet-list-67" style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                                            </div>
+
+                                                            <div ngbDropdownMenu aria-labelledby="" class="dropdown-content" style="padding: 0">
+                                                                <div *ngIf="thisview" (click)="open3(viewoutlet, letsout[i])">
+                                                                    <div class="dd" type="button" style="cursor: pointer; font-size: 12px;">
+
+                                                                        <a href="javascript:void(0)" title="View"><i
+                                                                                style="font-size: 1.2em"
+                                                                                class="fas fa-eye"></i>&nbsp;
+                                                                            View</a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div *ngIf="thisedit" (click)="openEdit3(editoutlets, letsout[i])">
+                                                                    <button class="dd" ngbDropdownItem style="cursor: pointer;">
+
+                                                                        <a href="javascript:void(0)" title="Edit"><i
+                                                                                style="font-size: 1.2em; color: black;"
+                                                                                class="tim-icons icon-pencil"></i>
+                                                                            Edit</a> &nbsp;&nbsp;
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">{{letsout[i].shopname}}</td>
+                                                    <td class="text-center"><a data-toggle="tooltip" data-placement="right" title="{{letsout[i].address}}"><i
+                                                                class="fas fa-map-marker-alt"
+                                                                style="color: gold; cursor: pointer"
+                                                                (click)="openmap(maploca, letsout[i].latlong)"></i></a>
+                                                    </td>
+
+                                                    <td class="text-center"><a href="tel:{{letsout[i].phone}}" data-toggle="tooltip" data-placement="right" title="{{letsout[i].phone}}"><i
+                                                                class="fas fa-phone"></i></a></td>
+                                                    <td class="text-center"><a href="https://api.whatsapp.com/send?phone={{letsout[i].phone}}" target="_blank" data-toggle="tooltip" data-placement="right" title="Whatsapp to {{letsout[i].phone}}"><i
+                                                                class="fab fa-whatsapp"></i></a></td>
+                                                    <td class="text-center"><a href="mailto: {{letsout[i].email}}" data-toggle="tooltip" data-placement="right" title="{{letsout[i].email}}"><i
+                                                                class="fas fa-envelope"></i></a>
+                                                    </td>
+                                                    <td class="text-center">{{letsout[i].operateday1}} ({{letsout[i].operatehrsstart}}) to {{letsout[i].operateday2}} ({{letsout[i].operatehrsend}})
+                                                    </td>
+                                                    <td class="text-center">{{letsout[i].description}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-tab>
+
+                            <!-- Add New Outlet Popup -->
+                            <ng-template #addoutlet let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">Add New Outlet</div>
+                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()" style="color: white">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Outlet Name *</label>
+                                        <input [(ngModel)]='outlet.shopname' name="shopname" class=" form-control" type="text" maxlength="50" />
+                                        <label hidden>Address *</label>
+                                        <input [(ngModel)]='outlet.address' name="address" class=" form-control" type="text" maxlength="130" hidden />
+                                        <label>Phone *</label>
+                                        <input [(ngModel)]='outlet.phone' name="phone" class=" form-control" type="text" maxlength="15" />
+                                        <!-- <label>Whatsapp *</label>
+                                        <input [(ngModel)]='outlet.whatsapp' name="whatsapp" class=" form-control"
+                                            type="text" maxlength="30" /> -->
+                                        <label>Email *</label>
+                                        <input [(ngModel)]='outlet.email' name="email" class=" form-control" type="text" maxlength="40" />
+                                        <label>Operating Hours (Start) *</label>
+                                        <input [(ngModel)]='outlet.operatehrsstart' name="operatehrsstart" class=" form-control" type="time" />
+                                        <label>Operating Hours (End) *</label>
+                                        <input [(ngModel)]='outlet.operatehrsend' name="operatehrsend" class=" form-control" type="time" />
+                                        <label>Business Day (Start) *</label>
+                                        <select [(ngModel)]='outlet.operateday1' class=" form-control" type="time" id="operateday1" name="operateday1">
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option>
+                                        </select>
+                                        <label>Business Day (End) *</label>
+                                        <select [(ngModel)]='outlet.operateday2' class=" form-control" type="time" id="operateday2" name="operateday2">
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option>
+                                        </select>
+                                        <label>Description *</label>
+                                        <input [(ngModel)]='outlet.description' name="description" class=" form-control" type="text" maxlength="100" />
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="sendOutlet()">Save</button>&nbsp;&nbsp;
+                                    <button type="button" class="ed" (click)="modal.close('')">Cancel</button>
+                                </div>
+                            </ng-template>
+
+                            <!-- View Outlet -->
+                            <ng-template #viewoutlet let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">View Outlet</div>
+                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()" style="color: white">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Outlet Name:</label>
+
+                                        <input [(ngModel)]='editoutlet.shopname' name="shopname" class=" form-control" type="text" disabled />
+                                        <label>Thumbnail:</label>
+                                        <img src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" style="width: 100%;height: 100%; object-fit: cover;" />
+
+                                        <label>Address:</label>
+                                        <input [(ngModel)]='editoutlet.address' name="address" class=" form-control" type="text" disabled />
+                                        <label>Phone:</label>
+                                        <input [(ngModel)]='editoutlet.phone' name="phone" class=" form-control" type="text" disabled />
+                                        <!-- <label>Whatsapp:</label>
+                                        <input [(ngModel)]='editoutlet.whatsapp' name="whatsapp" class=" form-control"
+                                            type="text" disabled /> -->
+                                        <label>Email:</label>
+                                        <input [(ngModel)]='editoutlet.email' name="email" class=" form-control" type="text" disabled />
+                                        <label>Operating Hours (Start):</label>
+                                        <input [(ngModel)]='editoutlet.operatehrsstart' name="operatehrsstart" class=" form-control" type="time" disabled />
+                                        <label>Operating Hours (End):</label>
+                                        <input [(ngModel)]='editoutlet.operatehrsend' name="operatehrsend" class=" form-control" type="time" disabled />
+                                        <label>Business Day (Start):</label>
+
+                                        <input [(ngModel)]='editoutlet.operateday1' name="operateday1" class=" form-control" type="text" disabled />
+                                        <label>Business Day (End):</label>
+                                        <input [(ngModel)]='editoutlet.operateday2' name="operateday2" class=" form-control" type="text" disabled />
+
+                                        <label>Description:</label>
+                                        <input [(ngModel)]='editoutlet.description' name="description" class=" form-control" type="text" disabled />
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="modal.close('')">Close</button>
+                                </div>
+                            </ng-template>
+
+                            <!-- Edit Outlet -->
+                            <ng-template #editoutlets let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">Edit Outlet</div>
+                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()" style="color: white">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" style="color:#dec074">
+                                        <label>Outlet Name:</label>
+
+                                        <input [(ngModel)]='editoutlet.shopname' name="shopname" class=" form-control" type="text" />
+                                        <p class="validation3">{{ ovalid['shopname'] }}</p>
+                                        <label>Thumbnail:</label>
+                                        <!-- <p class="validation3">{{ pvalid['thumbnail'] }}</p> -->
+                                        <input style="color: transparent;" name="file" (change)="oneditoutletselectFile($event)" type="file" accept="image/png, image/jpeg" />
+                                        <br>
+                                        <br>
+                                        <img style="display:none;object-fit: cover;" id="newimgoutlet" src="{{ url }}" />
+                                        <img style="width: 100%;object-fit: cover;" id="ogoutletimg" src="data:{{ imagetype }};base64,{{ image }}" />
+
+                                        <label hidden>Address:</label>
+                                        <input [(ngModel)]='editoutlet.address' name="address" class=" form-control" type="text" hidden />
+                                        <label>Contact Number:</label>
+                                        <input [(ngModel)]='editoutlet.phone' name="phone" class=" form-control" type="text" autocomplete="off" [pattern]="contactPattern" #contact="ngModel" />
+                                        <div *ngIf="contact.errors?.pattern" style="color:red;">
+                                            *Invalid Contact Number.
+                                        </div>
+                                        <p class="validation3">{{ ovalid['phone'] }}</p>
+                                        <!-- <label>Whatsapp:</label>
+                                        <input [(ngModel)]='editoutlet.whatsapp' name="whatsapp" class=" form-control"
+                                            type="text" /> -->
+                                        <label>Email:</label>
+                                        <input [(ngModel)]='editoutlet.email' name="email" class=" form-control" type="text" autocomplete="off" [pattern]="emailPattern" #email="ngModel" />
+                                        <div *ngIf="email.errors?.pattern" style="color:red;">
+                                            *Invalid Email.
+                                        </div>
+                                        <p class="validation3">{{ ovalid['email'] }}</p>
+                                        <label>Operating Hours (Start):</label>
+                                        <input [(ngModel)]='editoutlet.operatehrsstart' name="operatehrsstart" class=" form-control" type="time" />
+                                        <p class="validation3">{{ ovalid['operatehrsstart'] }}</p>
+                                        <label>Operating Hours (End):</label>
+                                        <input [(ngModel)]='editoutlet.operatehrsend' name="operatehrsend" class=" form-control" type="time" />
+                                        <p class="validation3">{{ ovalid['operatehrsend'] }}</p>
+                                        <label>Business Day (Start):</label>
+                                        <select [(ngModel)]='editoutlet.operateday1' class=" form-control" type="time" id="operateday1" name="operateday1">
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option>
+                                        </select>
+                                        <p class="validation3">{{ ovalid['operateday1'] }}</p>
+                                        <label>Business Day (End):</label>
+                                        <select [(ngModel)]='editoutlet.operateday2' class=" form-control" type="time" id="operateday2" name="operateday2">
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option>
+                                        </select>
+                                        <p class="validation3">{{ ovalid['operateday2'] }}</p>
+                                        <label>Description:</label>
+                                        <input [(ngModel)]='editoutlet.description' name="description" class=" form-control" type="text" autocomplete="off" />
+                                        <p class="validation3">{{ ovalid['description'] }}</p>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="ed" (click)="editOutlet(editoutlet)">Save</button>&nbsp;&nbsp;
+                                    <button type="button" class="ed" (click)="modal.close('')">Cancel</button>
+                                </div>
+                            </ng-template>
+
+
+
+                            <!------------------------------------ MAP ----------------------------------------->
+                            <!-- Map Location -->
+                            <ng-template #maploca let-modal>
+                                <div class="modal-header">
+                                    <div class="modal-title" id="modal-basic-title">View Location</div>
+                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()" style="color: white">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="map" class="full" style="width: 450px; height: 300px"></div>
+                                </div>
+                            </ng-template>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

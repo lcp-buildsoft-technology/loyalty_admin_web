@@ -1,0 +1,198 @@
+<div class="pts" style="margin-left: 10px;margin-right:10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  
+            class="btn btn-link back-btn" routerLink="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> My Transactions </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-12 text-white position-relative py-4">        
+            <div class="row justify-content-center z-index-1 position-relative">
+                <div class = "search">    
+                    <form action="#">
+                        <div class="input-container">
+                            <i class="material-icons icon">search</i>
+                            <input class="input-field" type="text" placeholder="Search Transactions" [(ngModel)] = "searchTransaction" name="transaction" autocomplete="off">
+                        </div>
+                    </form>    
+                </div> 
+                <div class="row" style="width: 100%; margin: 0;margin-top: 5px;">
+                    <div class="col-12 mb-3 px-0">
+                        <mat-tab-group mat-align-tabs="start">
+                            <mat-tab label="Recent">
+                                <div class="row mt-3">
+                                    <div class="col-12" *ngFor = "let recpointsredeemed of recuserpointsredeemedArr | transaction:searchTransaction">
+                                        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col px-0 align-self-center">
+                                                            <p style="font-size: 18px;color: #dec074;padding-top: 5px;">{{recpointsredeemed['name']}}<br></p>
+                                                            <p>
+                                                                <small style="color: white;">{{recpointsredeemed['createddate']}}</small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end align-self-center">
+                                                            <p>
+                                                                <small style="font-size: 20px;color: rgb(255, 0, 0);">-{{recpointsredeemed['points']|number : '1.2-2'}}</small>                                
+                                                                <br><small style="color: white;">Pts</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                     
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-12" *ngFor = "let recpointscollected of recpointsgivenArr | transaction:searchTransaction">
+                                        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col px-0 align-self-center">
+                                                            <p style="font-size: 18px;color: #dec074;padding-top: 5px;">{{recpointscollected['productname']}}<br></p>
+                                                            <p>
+                                                                <small style="color: white;">{{recpointscollected['createddate']}}</small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end align-self-center">
+                                                            <p>
+                                                                <small style="font-size: 20px;" class="text-success">+{{recpointscollected['pointsget'] |number : '1.2-2'}}</small>                                
+                                                                <br><small style="color: white;">Pts</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                       
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-12" *ngFor = "let recgameprize of recprizespts | transaction:searchTransaction">
+                                        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col px-0 align-self-center">
+                                                            <p style="font-size: 18px;color: #dec074;padding-top: 5px;">Points Collected <br>
+                                                            <span style="font-size:15px;color:white;">from Spin Wheel</span></p>
+                                                            <p>
+                                                                <small style="color: white;">{{recgameprize['createdDate']}}</small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end align-self-center">
+                                                            <p>
+                                                                <small style="font-size: 20px;" class="text-success">+{{recgameprize['points'] |number : '1.2-2'}}</small>                                
+                                                                <br><small style="color: white;">Pts</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                       
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="History">
+                                <div class="row mt-3">
+                                    <div class="col-12" *ngFor = "let hispointsredeemed of hisuserpointsredeemedArr | transaction:searchTransaction">
+                                        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col px-0 align-self-center">
+                                                            <p style="font-size: 18px;color: #dec074;padding-top: 5px;">{{hispointsredeemed['name']}}<br></p>
+                                                            <p>
+                                                                <small style="color: white;">{{hispointsredeemed['createddate']}}</small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end align-self-center">
+                                                            <p>
+                                                                <small style="font-size: 20px;color: rgb(255, 0, 0);">-{{hispointsredeemed['points']|number : '1.2-2'}}</small>                                
+                                                                <br><small style="color: white;">Pts</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                       
+                                </div>                           
+    
+                                <div class="row mt-3">
+                                    <div class="col-12" *ngFor = "let hispointscollected of hispointsgivenArr | transaction:searchTransaction">
+                                        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col px-0 align-self-center">
+                                                            <p style="font-size: 18px;color: #dec074;padding-top: 5px;">{{hispointscollected['productname']}}<br></p>
+                                                            <p>
+                                                                <small style="color: white;">{{hispointscollected['createddate']}}</small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end align-self-center">
+                                                            <p>
+                                                                <small style="font-size: 20px;" class="text-success">+{{hispointscollected['pointsget']|number : '1.2-2'}}</small>                                
+                                                                <br><small style="color: white;">Pts</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                       
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-12" *ngFor = "let hisgameprize of hisprizespts | transaction:searchTransaction">
+                                        <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                                    <div class="row">
+                                                        <div class="col px-0 align-self-center">
+                                                            <p style="font-size: 18px;color: #dec074;padding-top: 5px;">Points Collected <br>
+                                                            <span style="font-size:15px;color:white;">from Spin Wheel</span></p>
+                                                            <p>
+                                                                <small style="color: white;">{{hisgameprize['createdDate']}}</small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end align-self-center">
+                                                            <p>
+                                                                <small style="font-size: 20px;" class="text-success">+{{hisgameprize['points'] |number : '1.2-2'}}</small>                                
+                                                                <br><small style="color: white;">Pts</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                       
+                                </div>
+    
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>                
+                </div>
+            </div>       
+        </div>    
+    </div>
+</div>

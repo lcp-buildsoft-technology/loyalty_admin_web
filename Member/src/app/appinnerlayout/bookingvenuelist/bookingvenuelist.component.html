@@ -1,0 +1,84 @@
+<div class="bvl" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row" style="padding-top: -10px;margin-top: -10px;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" routerLink="/bookingvenuehome">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> Search Result </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-12 position-relative py-4">        
+            <div class="row justify-content-center z-index-1 position-relative">
+                <div class = "search">    
+                    <form action="#">
+                        <div class="input-container" >
+                            <i class="material-icons icon">place</i>
+                            <input disabled class="input-field" type="text" placeholder="{{outlet['state']}}" name="place">
+                        </div>
+                    </form>    
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col">
+                        <h2 style="color: #dec074;"> Venues </h2>
+                    </div>
+                </div>            
+
+                <div class="row">
+                    <div class="col-6 col-md-4 col-lg-3" *ngFor = "let onout of onoutletArr">
+                        <div class="card mb-4" style="background-color: transparent;box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">                   
+                                <img src="data:{{ onout['thumbnailType'] }};base64,{{onout['thumbnail']}}" alt="" style="width: 100%; height: 150px;object-fit: fill;">
+                        <a (click) = "open(onout)" class="card-body" style="height:120px;">
+                            <div class="row">
+                                <div class="col-12" style="padding-left: 2px;">
+                                    <div class="column2">
+                                        <div class="column-right" style="margin-right: -10px;">
+                                            <div class="fee">
+                                                <div class="rating small mx-2" style="float: right;">
+                                                    <i class="bi bi-star-fill" style="color: #dec074;"></i> {{onout['avgrating'] |number : '1.1-1'}}
+                                                </div>          
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="column-left">
+                                            <div class = "title">
+                                                <p>{{onout['shopname']}} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column2">                                                                       
+                                        <div class="column-left">
+                                            <div class = "subtitle">
+                                                <p style="margin-bottom: 0;">
+                                                    <i class="bi bi-clock"></i>&nbsp;&nbsp;
+                                                    {{onout['operatehrsstart']}} - {{onout['operatehrsend']}} 
+                                                <br>
+                                                {{onout['operateday1']}} - {{onout['operateday2']}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </a>                    
+                    </div>
+                    </div>              
+                </div>
+                
+                <div class="result">
+                    <p>End of the result</p>
+                </div>
+            </div>                
+        </div>    
+    </div>    
+</div>

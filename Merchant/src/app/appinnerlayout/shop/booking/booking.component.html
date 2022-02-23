@@ -1,0 +1,214 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<div class="row" >
+    <div class="col-auto pr-0">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i style="color: #dec074;" class="bi bi-arrow-left"></i>
+        </a>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074; padding-top: 10px;">Venue Booking</h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i style="color: #dec074;" class="bi bi-house"></i>
+        </a>
+        <a routerLink="/profile" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;">
+            <i style="color: #dec074;" class="bi bi-person"></i>
+        </a>
+    </div>
+  </div>
+
+<div class="searchbar mb-3">
+    <form role="search" id="form">
+        <input type="search" id="query" name="searchInput" [(ngModel)]="searchInput" placeholder="Search the booking"
+        autocomplete="off" aria-label="Search through site content" style="all: unset;
+        font: 16px system-ui;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        padding: 6px 10px;">
+  
+  <button style="background-color: transparent;outline: none;border: none;">
+    <svg viewBox="0 0 1024 1024">
+      <path class="path1"
+        d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z">
+      </path>
+    </svg>
+  </button>
+    </form>
+  </div>
+
+<div class="row">
+    <div class="row" style="width: 100%; margin: 0;margin-top: 5px;">
+        <div class="col-12 mb-3 px-0">
+            <mat-tab-group mat-align-tabs="start">    
+                <mat-tab label="Today">
+                    <article>
+
+                        <ng-container *ngFor= "let todayvenue of todayvenueArr | searchnumber : searchInput" >
+                            <div class="col-12">
+                                <div class="card mb-4" 
+                                style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" 
+                                        style="padding: 0px; padding-right: 15px; background-color: transparent;">
+                                            <div class="row">
+                                                <div class="col-auto align-self-center">
+
+                                                    <img src="data:{{ image['thumbnailType']}};base64,{{ image['thumbnail'] }}" alt="" style="width: 15vh; height: 15vh;">
+
+                                                </div>
+                                                <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                    <p style="font-size: 18px;">{{image['shopname']}}<br>
+                                                        <small style="color: white;">{{todayvenue['firstname']}} | {{todayvenue['phonenumber']}}</small><br>
+                                                        <small style="color: white;">{{todayvenue['date']}}  {{todayvenue['time']}}</small><br>
+                                                        <small style="color: white;">No of pax: {{todayvenue['_value']}}</small>
+                                                    </p>
+                                                </div>
+                                                <div class="col-auto" style="align-self: flex-end; text-align: center;">
+                                                    <button class="btn btn-link caret-none dropdown-toggle px-0" type="button" id="moredd1"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa fa-ellipsis-v" style="font-size:20px"></i>
+                                                    <small  id="status">{{todayvenue['status']}}</small>
+                                                </button>
+
+                                                <ul class="dropdown-menu" aria-labelledby="moredd1">
+                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#taskmodal" 
+                                                        name="{{todayvenue['_id']}}" id="deletebtn_{{todayvenue['_id']}}" 
+                                                        (click)="Transfer(todayvenue['_id'])" >Cancel</a></li>
+                                                </ul>
+
+                                                    <input type="checkbox" class="show" (click)="Check(todayvenue['_id'])" [checked]="todayvenue['arrv']">
+                                                    <p class="text-muted text-success" >Arrived</p> 
+                                                    <h6 for="show" style="color: #757474;font-size: 14px;">Pending</h6>
+                                                    </div>
+                                                </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ng-container>
+
+
+</article>
+
+                </mat-tab>
+                <mat-tab label="Upcoming">
+                    <article>
+                        <ng-container *ngFor= "let upvenue of upvenueArr | searchnumber : searchInput" >
+                            <div class="col-12">
+                                <div class="card mb-4" style=" background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;">
+                                            <div class="row">
+                                                <div class="col-auto align-self-center">
+
+                                                    <img src="data:{{ image['thumbnailType']}};base64,{{ image['thumbnail'] }}" alt="" style="width: 15vh; height: 15vh;">
+                                                </div>
+                                                <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                    <p style="font-size: 18px;">{{image['shopname']}}<br>
+                                                        <small style="color: white;">{{upvenue['firstname']}} | {{upvenue['phonenumber']}}</small><br>
+                                                        <small style="color: white;">{{upvenue['date']}}  {{upvenue['time']}}</small><br>
+                                                        <small style="color: white;">No of pax: {{upvenue['_value']}}</small>
+                                                    </p>
+                                                </div>
+                                                <div class="col-auto" style="align-self: flex-end; text-align: center;">
+                                                    <button class="btn btn-link caret-none dropdown-toggle px-0" type="button" id="moredd1"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa fa-ellipsis-v" style="font-size:20px"></i>
+                                                    <small  id="status">{{upvenue['status']}}</small>
+                                                </button>
+
+                                                <ul class="dropdown-menu" aria-labelledby="moredd1">
+                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#taskmodal" 
+                                                        name="{{upvenue['_id']}}" id="deletebtn_{{upvenue['_id']}}" 
+                                                        (click)="Transfer(upvenue['_id'])" >Cancel</a></li>
+                                                </ul>
+                                               
+                                                    <input type="checkbox" class="show" (click)="Check(upvenue['_id'])" [checked]="upvenue['arrv']">
+                                                    <p class="text-muted text-success" >Arrived</p> 
+                                                    <h6 for="show" style="color: #757474;font-size: 14px;">Pending</h6>
+                                                   
+                                                    </div>
+                                                </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </ng-container>
+
+
+</article>
+
+
+                </mat-tab>
+                <mat-tab label="History">
+                    <article>
+                        <ng-container *ngFor= "let hisvenue of hisvenueArr | searchnumber : searchInput" >
+                            <div class="col-12">
+                                <div class="card mb-4" style=" background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding: 0px; padding-right: 15px; background-color: transparent;">
+                                            <div class="row">
+                                                <div class="col-auto align-self-center">
+                                                    <img src="data:{{ image['thumbnailType']}};base64,{{ image['thumbnail'] }}" alt="" style="width: 15vh; height: 15vh;">
+                                                </div>
+                                                <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                    <p style="font-size: 18px;">{{image['shopname']}}<br>
+                                                        <small style="color: white;">{{hisvenue['firstname']}} | {{hisvenue['phonenumber']}}</small><br>
+                                                        <small style="color: white;">{{hisvenue['date']}}  {{hisvenue['time']}}</small><br>
+                                                        <small style="color: white;">No of pax: {{hisvenue['_value']}}</small>
+                                                    </p>
+                                                </div>
+                                                <div class="col-auto" style="align-self: flex-end; text-align: center;">
+                                                    <button class="btn btn-link caret-none dropdown-toggle px-0" type="button" id="moredd1"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa fa-ellipsis-v" style="font-size:20px"></i>
+                                                    <small  id="status">{{hisvenue['status']}}</small>
+                                                </button>
+
+                                                <ul class="dropdown-menu" aria-labelledby="moredd1">
+                                                   
+                                                    <li><a class="dropdown-item"    data-bs-toggle="modal" data-bs-target="#taskmodal"        name="{{hisvenue['_id']}}" id="deletebtn_{{hisvenue['_id']}}" (click)="Transfer(hisvenue['_id'])" >Cancel</a></li>
+                                                    
+                                                </ul>
+                                               
+                                                    <input type="checkbox" class="show" (click)="Check(hisvenue['_id'])" [checked]="hisvenue['arrv']">
+                                                    <p class="text-muted text-success" >Arrived</p> 
+                                                    <h6 for="show" style="color: #757474;font-size: 14px;">Pending</h6>
+                                                   
+                                                    </div>
+                                                </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </ng-container>
+
+
+</article>
+
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+        
+    </div>
+</div>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+    
+

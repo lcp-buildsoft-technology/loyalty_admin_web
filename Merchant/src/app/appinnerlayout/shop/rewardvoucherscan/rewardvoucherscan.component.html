@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col-auto pr-0">
+        <button type="button" style="background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" (click)="backnav()">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074; padding-top: 10px;"></h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a routerLink="/profile" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+  </div>
+<div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <h5 style="font-size: 24px; color: #dec074;">{{outlet['shoptitle']}}</h5>
+                            <h3 style="font-size: 18px; color: white;">Summary</h3>
+                        </td>
+
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <h5 style="font-size: 16px; color: white;"> {{member['name']}}</h5>
+        <h5 style="font-size: 16px; color: white;">{{voucherscan['createddate']}} </h5>
+
+
+        <tr class="heading">
+            <td>Item</td>
+
+            <td>Price (RM)</td>
+        </tr>
+
+        <tr class="item">
+            <td  class="form-group"  >
+                <input type="text" class="form-control" placeholder="Enter your product"  style="background-color: transparent; border: black; color: #dec074;"[(ngModel)]="points.productname"  >
+            </td>
+
+            <td  class="form-group"  >
+                <input type="text" class="form-control" placeholder="Enter price"  style="background-color: transparent; border: black; color: #dec074; text-align-last: right;" [(ngModel)]="points.price" >
+            </td>
+        </tr>
+
+     
+
+
+        <tr class="item">
+            <td style="font-size: 16px;">Voucher Used<h4 style="color: white;">{{rewardvoucherscan['title']}} </h4></td>
+            <td>- {{rewardvoucherscan['discount']}}</td>
+        </tr>
+        <tr class="item">
+            <td style="font-size: 16px;">Voucher Type<h4 style="color: white;">{{rewardvoucherscan['type']}} </h4></td>
+            <td></td>
+        </tr>
+      
+
+        <tr class="total">
+            <td></td>
+
+            <td>Total: RM{{points['subtotal']}}</td>
+           
+        </tr>
+        <button  id="calculate" style="background-color: black;border-radius:5px;border-color:#dec074;float:right;color:#dec074;margin-bottom:5px;"  (click)=calculate()>Calculate</button>
+    </table>
+    
+</div>
+<br><br>
+
+<div class="row" style="margin-inline-start: 10px; margin-inline-end: 10px;">
+    <h4 style="color: #dec074; font-size: 18px;">Points Summary</h4>
+    <div class="col-12">
+        <div class="card" style="background-color: transparent;">
+            <ul class="list-group list-group-flush">
+                <li  class="list-group-item" style="background-color: transparent;border-bottom: 2px solid #dec074;">
+                    <div class="row" style="display: inline-block;">
+                        <div class="col" style="color: #dec074; font-size: 14px">Points Collected</div>
+                    </div>
+                    <div class="col-auto text-success" style="float: right; color: white;">
+                        <h2>{{points['pointsget']| number : '1.2-2'}}</h2>
+                       
+                    </div>
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<div class="mybutton" style="text-align-last: center;">
+    <button 
+    (click) = sendData()
+    type="submit"
+    style="background-color: transparent;
+    border: 2px solid #dec074; 
+    color: #dec074;"> Confirm      
+</button>
+</div>
+
+
+<br><br><br><br>

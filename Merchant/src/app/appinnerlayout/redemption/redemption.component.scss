@@ -1,0 +1,144 @@
+// @import "~bootstrap/dist/css/bootstrap.css";
+*{
+    color:#dec074;
+}
+
+.main-background{
+    background-color: black;
+}
+  
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.card  {
+    z-index: 0;
+    background-color:black;
+    box-shadow: 4px 10px #dec074;
+}
+
+.top {
+    padding-top: 40px;
+    padding-left: 13% !important;
+    padding-right: 13% !important
+}
+
+@media screen and (max-width: 992px) {
+    .icon-content {
+        width: 50%
+    }
+}
+.d-flex h5{
+  color:white;
+  margin-top:20px;
+  margin-left:15px;
+  margin-bottom:7px;
+  font-size:15px;
+}
+.flex-row{
+    color:white;
+  }
+.bg-white1{
+    overflow-x : auto;
+}
+.container{
+    border-color:transparent;
+}
+
+#dfd{
+    padding-left:0;
+}
+
+.list-group {
+    
+    width: 100%;
+
+}
+
+.list-group-item {
+    margin:0;
+    border-radius: none;
+    color: white;
+    background:black;
+    box-shadow: 2px 5px rgba(222, 192, 116, 0.4);
+    cursor: pointer;
+    display:block;
+    width:100%;
+}
+
+
+
+
+
+.list-group-item:hover .check {
+    opacity: 1
+}
+
+
+
+.seemore{
+    float:right;
+}
+.point{
+    float:right;
+    font-size:25px;
+    color:rgb(158, 44, 44);
+    margin-top:18px;
+}
+.ml-2 h6{
+    color:rgb(201, 192, 182);
+}
+.about {
+    color:white;
+    font-size:12px;
+}
+
+.product-detail-container {
+    padding: 10px
+}
+
+
+
+ .container-fluid{
+   padding-left:0px;
+   padding-right:0px;
+  }
+
+.bottom-left{
+    position:absolute;
+    top:170px;
+    left:40px;
+}
+
+
+.nav-item label {
+font-size: 20px;
+}
+
+
+:host ::ng-deep .mat-tab-label-active {
+    color:#dec074;
+    
+    
+  }
+::ng-deep .mat-tab-label, .mat-tab-link{
+    color:rgb(224, 221, 214);
+    width:25%;
+  
+}
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color:#dec074;
+}
+::ng-deep .mat-tab-body-content{
+    background-color:none;
+}
+h4{
+    margin-top:5px;
+}
+
+.row{
+    --bs-gutter-x: 0rem;
+  }

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<div class="row">
+    <div class="col-auto pr-0">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-arrow-left"></i>
+        </a>
+    </div>
+    <div class="col text-center align-self-center px-0">
+        <h2 style="color: #dec074; padding-top: 10px;"> Points Redemption </h2>
+    </div>
+    <div class="col-auto align-self-center">
+        <a routerLink="/home" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+            <i class="bi bi-house"></i>
+        </a>
+        <a routerLink="/profile" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;">
+            <i class="bi bi-person"></i>
+        </a>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+
+<!-- Top Navigation Menu -->
+<body >
+    <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="All">
+    <ng-container *ngFor= "let all of allArr " >
+            <div class="container d-flex justify-content-center mb-0">
+        <ul class="list-group  text-white">
+        
+        <li class="list-group-item d-flex justify-content-between align-content-center mb-2 " style="padding-left:3px">
+                <img src="data:{{ all['thumbnailType']}};base64,{{ all['thumbnail'] }}" width="90px" height="93" >
+            <div class="d-flex flex-row"> 
+                <div class="ml-2">
+                    <h4 class="mb-0">{{all['productname']}} </h4>
+                    <div class="flex-row " style="padding-top:10px">
+                      <span style="color:#dec074"> Member : </span>
+                       {{all['membername']}}
+                    </div>
+                    <div class="about"> <span style="color:#dec074">Redeemed :</span> {{all['createddate']}}</div>
+                </div>
+            </div>
+            <div class="point">
+                -{{all['points']}}
+            </div>
+        </li>
+
+        </ul>
+      </div>
+    </ng-container>
+
+    </mat-tab>
+    <mat-tab label="Today">
+        <article>
+            <ng-container *ngFor= "let today of todayArr " >
+                <div class="container d-flex justify-content-center mb-0">
+            <ul class="list-group  text-white">
+    
+            <li class="list-group-item d-flex justify-content-between align-content-center mb-2 " style="padding-left:3px">
+                <img src="data:{{ today['thumbnailType']}};base64,{{ today['thumbnail'] }}" width="90px" height="93" >
+                
+                <div class="d-flex flex-row"> 
+                    <div class="ml-2">
+                        <h4 class="mb-0">{{today['productname']}}</h4>
+                        <div class="flex-row " style="padding-top:10px" >
+                            <span style="color:#dec074"> Member : </span>
+                            {{today['membername']}}
+                        </div>
+                        <div class="about"> <span style="color:#dec074">Redeemed :</span>{{today['createddate']}} </div>
+                    </div>
+                </div>
+                <div class="point">
+                    -{{today['points']}}
+                </div>
+            </li>
+            </ul>
+          </div>
+        </ng-container>
+   
+</article>
+    </mat-tab>
+    <mat-tab label="Yesterday">
+        <article>  
+            <ng-container *ngFor= "let yesterday of yesterdayArr " >
+                <div class="container d-flex justify-content-center mb-0">
+            <ul class="list-group  text-white">
+
+            <li class="list-group-item d-flex justify-content-between align-content-center mb-2 " style="padding-left:3px">
+                <img src="data:{{ yesterday['thumbnailType']}};base64,{{ yesterday['thumbnail'] }}" width="90px" height="93" >
+                
+                <div class="d-flex flex-row"> 
+                    <div class="ml-2">
+                        <h4 class="mb-0">{{yesterday['productname']}}</h4>
+                        <div class="flex-row " style="padding-top:10px">
+                            <span style="color:#dec074"> Member : </span>
+                            {{yesterday['membername']}}
+                        </div>
+                        <div class="about"> <span style="color:#dec074">Redeemed :</span>{{yesterday['createddate']}} </div>
+                    </div>
+                    
+                </div>
+                <div class="point">
+                  -{{yesterday['points']}}
+                </div>
+            </li>
+            </ul>
+          </div>
+        </ng-container>
+
+</article>
+    </mat-tab>
+    <mat-tab label="30 Days">
+        <article>  
+            <ng-container *ngFor= "let monthly of monthArr " >
+                <div class="container d-flex justify-content-center mb-0">
+            <ul class="list-group  text-white">
+              
+            <li class="list-group-item d-flex justify-content-between align-content-center mb-2 " style="padding-left:3px">
+                    <img src="data:{{ monthly['thumbnailType']}};base64,{{ monthly['thumbnail'] }}" width="90px" height="93" >
+                <div class="d-flex flex-row"> 
+                    <div class="ml-2">
+                        <h4 class="mb-0">{{monthly['productname']}}</h4>
+                        <div class="flex-row " style="padding-top:10px">
+                            <span style="color:#dec074"> Member : </span>
+                            {{monthly['membername']}}
+                        </div>
+                        <div class="about"> <span style="color:#dec074">Redeemed :</span>{{monthly['createddate']}} </div>
+                    </div>
+                    
+                </div>
+                <div class="point">
+                  -{{monthly['points']}}
+                </div>
+      
+            </li>
+            </ul>
+          </div>
+        </ng-container>
+
+         </article>   
+    </mat-tab>
+  </mat-tab-group>
+
+   

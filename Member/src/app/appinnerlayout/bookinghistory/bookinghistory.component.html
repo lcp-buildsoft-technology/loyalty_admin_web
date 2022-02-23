@@ -1,0 +1,217 @@
+<div class="bookinghistory" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  
+            class="btn btn-link back-btn" routerLink="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> My Bookings </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-12">
+            <full-calendar [options]="calendarOptions" class="card"></full-calendar>
+        </div>
+
+        <div class="row" style="width: 100%; margin: 0;margin-top: 15px;">
+            <div class="col-12 mb-3 px-0">
+                <mat-tab-group mat-align-tabs="start">    
+                <mat-tab label="Today">
+                    <div class="row mt-3">
+                        <div class="col-12" *ngFor = 'let onvenue of onbookingvenueArr'>
+                            <div class="card mb-4" style="height: 110px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);"
+                            (click) = "detail(onvenue)">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="padding: 0px;  padding-left: 25px; padding-right: 25px; background-color: transparent;">
+                                        <div class="row">
+                                            <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                <p style="font-size: 18px;">Venue Booked @ {{onvenue['name']}}<br><br>
+                                                    <small style="color: white;">{{onvenue['date']}} | {{onvenue['time']}}</small>
+                                                </p>                                                
+                                            </div>
+                                            <div class="col-auto text-end align-self-center" [ngClass] = "onvenue['status']">
+                                                <p>
+                                                    <small style="font-size: 18px;">{{onvenue['status']}}</small>                                                    
+                                                </p> 
+                                                <small style="float: right;color: white;">{{onvenue['createddate']}}
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </small>                
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12" *ngFor = 'let onevent of onbookingeventArr'>
+                            <div class="card mb-4" style="height: 110px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);"
+                            (click) = "info(onevent)">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="padding: 0px;  padding-left: 25px; padding-right: 25px; background-color: transparent;">
+                                        <div class="row">
+                                            <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                <p style="font-size: 18px;margin-bottom: 0;">Event Booked @ {{onevent['eventname']}}
+                                                    <br>
+                                                    <small style="color: white;">From: {{onevent['sdate']}}</small>
+                                                    <br>
+                                                    <small style="color: white;">Till: {{onevent['edate']}}</small>
+                                                    <br>
+                                                    <small style="color: white;">{{onevent['stime']}}</small>
+                                                </p>
+                                            </div>
+                                            <div class="col-auto text-end align-self-center" [ngClass] = "onevent['status']">
+                                                <p>
+                                                    <small style="font-size: 18px;">{{onevent['status']}}</small>                                                    
+                                                </p> 
+                                                <small style="float: right;color: grey;">{{onevent['createddate']}}
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </small>                
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </mat-tab>
+                    <mat-tab label="Upcoming">
+                        <div class="row mt-3">
+                            <div class="col-12" *ngFor = 'let upvenue of upbookingvenueArr'>
+                                <div class="card mb-4" style="height: 100px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);"
+                                (click) = "detail(upvenue)">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding: 0px;  padding-left: 25px; padding-right: 25px; background-color: transparent;">
+                                            <div class="row">
+                                                <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                    <p style="font-size: 18px;">Venue Booked @ {{upvenue['name']}}<br><br>
+                                                        <small style="color: white;">{{upvenue['date']}} | {{upvenue['time']}}</small>
+                                                    </p>                                                
+                                                </div>
+                                                <div class="col-auto text-end align-self-center" [ngClass] = "upvenue['status']">
+                                                    <p>
+                                                        <small style="font-size: 18px;">{{upvenue['status']}}</small>                                                    
+                                                    </p> 
+                                                    <small style="float: right;color: white;">{{upvenue['createddate']}}
+                                                        <i class="bi bi-arrow-right"></i>
+                                                    </small>                
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12" *ngFor = 'let upevent of upbookingeventArr'>
+                                <div class="card mb-4" style="height: 110px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);"
+                                (click) = "info(upevent)">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding: 0px; padding-left: 25px; padding-right: 25px; background-color: transparent;">
+                                            <div class="row">
+                                                <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                    <p style="font-size: 18px;margin-bottom: 0;">Event Booked @ {{upevent['eventname']}}
+                                                        <br>
+                                                        <small style="color: white;">From: {{upevent['sdate']}}</small>
+                                                        <br>
+                                                        <small style="color: white;">Till: {{upevent['edate']}}</small>
+                                                        <br>
+                                                        <small style="color: white;">{{upevent['stime']}}</small>
+                                                    </p>
+                                                </div>
+                                                <div class="col-auto text-end align-self-center" [ngClass] = "upevent['status']">
+                                                    <p>
+                                                        <small style="font-size: 18px;">{{upevent['status']}}</small>                                                    
+                                                    </p> 
+                                                    <small style="float: right;color: white;">{{upevent['createddate']}}
+                                                        <i class="bi bi-arrow-right"></i>
+                                                    </small>                
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="History">
+                        <div class="row mt-3">
+                            <div class="col-12" *ngFor = 'let hisvenue of hisbookingvenueArr'>
+                                <div class="card mb-4" style="height: 110px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);"
+                                (click) = "detail(hisvenue)">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding: 0px;  padding-left: 25px; padding-right: 25px; background-color: transparent;">
+                                            <div class="row">
+                                                <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                    <p style="font-size: 18px;">Venue Booked @ {{hisvenue['name']}}<br><br>
+                                                        <small style="color: white;">{{hisvenue['date']}} | {{hisvenue['time']}}</small>
+                                                    </p>                                                
+                                                </div>
+                                                <div class="col-auto text-end align-self-center" [ngClass] = "hisvenue['status']">
+                                                    <p>
+                                                        <small style="font-size: 18px;">{{hisvenue['status']}}</small>                                                    
+                                                    </p> 
+                                                    <small style="float: right;color: white;">{{hisvenue['createddate']}}
+                                                        <i class="bi bi-arrow-right"></i>
+                                                    </small>                
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12" *ngFor = 'let hisevent of hisbookingeventArr'>
+                                <div class="card mb-4" style="height: 100px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);"
+                                (click) = "info(hisevent)">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding: 0px;  padding-left: 25px; padding-right: 25px; background-color: transparent;">
+                                            <div class="row">
+                                                <div class="col px-0 align-self-center" style="color: #dec074;">
+                                                    <p style="font-size: 18px;margin-bottom: 0;">Event Booked @ {{hisevent['eventname']}}
+                                                        <br>
+                                                        <small style="color: white;">From: {{hisevent['sdate']}}</small>
+                                                        <br>
+                                                        <small style="color: white;">Till: {{hisevent['edate']}}</small>
+                                                        <br>
+                                                        <small style="color: white;">{{hisevent['stime']}}</small>
+                                                    </p>
+                                                </div>
+                                                <div class="col-auto text-end align-self-center" [ngClass] = "hisevent['status']">
+                                                    <p>
+                                                        <small style="font-size: 18px;">{{hisevent['status']}}</small>                                                    
+                                                    </p> 
+                                                    <small style="float: right;color: white;">{{hisevent['createddate']}}
+                                                        <i class="bi bi-arrow-right"></i>
+                                                    </small>                
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>  
+        </div>
+    </div>  
+</div>
+<app-staticfooter class="footer"></app-staticfooter>
+
+
+
+

@@ -1,0 +1,97 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}
+
+p, h4 {
+  color: #636060;
+}
+
+.btn {
+  outline: none;
+  background-color: #dec074;
+  border: 1px solid #dec074;
+  color: black;
+  font-weight: 550;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.container-fluid {
+  background-color: #dedede;
+  padding-top: 20px;
+}
+
+.rating {
+display: inline-block;
+position: relative;
+height: 50px;
+line-height: 50px;
+font-size: 50px;
+}
+
+.rating label {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+cursor: pointer;
+}
+
+.rating label:last-child {
+position: static;
+}
+
+.rating label:nth-child(1) {
+z-index: 5;
+}
+
+.rating label:nth-child(2) {
+z-index: 4;
+}
+
+.rating label:nth-child(3) {
+z-index: 3;
+}
+
+.rating label:nth-child(4) {
+z-index: 2;
+}
+
+.rating label:nth-child(5) {
+z-index: 1;
+}
+
+.rating label input {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.rating label .icon {
+float: left;
+color: transparent;
+}
+
+.rating label:last-child .icon {
+color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+color: #dec074;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+color: #000;
+text-shadow: 0 0 5px #dec074;
+}

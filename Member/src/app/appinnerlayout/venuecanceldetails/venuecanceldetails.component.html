@@ -1,0 +1,64 @@
+<div class="venuecancel"  style="margin-right: 10px;margin-left: 10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  class="btn btn-link back-btn" (click)="backnav()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> {{bookingvenue['name']}} </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <!-- Cafe Images and titles -->
+    <div class="row">
+        <div class="col-12 position-relative px-0 mb-4">
+            <div class="container-fluid" style="height: fit-content;">            
+                <div class="col-12 mb-4" style="padding-left:15px;padding-right: 15px;">
+                    <br>
+                    <h2 style="color: white; font-size: 25px;text-align: center;">Booking Summary</h2>
+                    
+                    <mat-form-field style="margin-top: 6px;">
+                        <mat-icon matSuffix>person</mat-icon>
+                        <input matInput disabled value ="{{bookingvenue['firstname']}}" style="font-size: 18px;">
+                    </mat-form-field>
+                    <mat-form-field style="margin-top: 6px;">
+                        <mat-icon matSuffix>person</mat-icon>
+                        <input matInput disabled value ="{{bookingvenue['lastname']}}" style="font-size: 18px;">
+                    </mat-form-field>
+                    <mat-form-field style="margin-top: 6px;">
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <input matInput disabled value ="{{bookingvenue['phonenumber']}}" style="font-size: 18px;">
+                    </mat-form-field>
+                    <mat-form-field style="margin-top: 6px;">
+                        <mat-icon matSuffix>people</mat-icon>
+                        <input matInput disabled value ="{{bookingvenue['_value']}}" style="font-size: 18px;">
+                    </mat-form-field>
+                    <mat-form-field style="margin-top: 6px;">
+                        <mat-icon matSuffix>calendar_today</mat-icon>
+                        <input matInput disabled value ="{{bookingvenue['date']}}" style="font-size: 18px;">
+                    </mat-form-field>
+                    <mat-form-field style="margin-top: 6px;">
+                        <mat-icon matSuffix>access_time</mat-icon>
+                        <input matInput disabled value ="{{bookingvenue['time']}}" style="font-size: 18px;">
+                    </mat-form-field>
+
+                    <div class="row mb-4">
+                        <div class="col-15 d-grid">
+                            <h3 id="line" style="width: 100%;margin: auto;border-color: #dec074;color: #dec074;font-size: 20px;text-align: center;">Cancelled Booking</h3>                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

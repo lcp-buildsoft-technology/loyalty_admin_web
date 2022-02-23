@@ -1,0 +1,169 @@
+<style>
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    input:disabled {
+        background-color: #18181860;
+        color: white;
+    }
+    
+    .form-group input[type=file] {
+        opacity: 1;
+    }
+</style>
+
+<script src="https://cdn.tiny.cloud/1/7sgdemiqg542gd8kn5gznm1gr9i20rbzn638xseq048n0lmq/tinymce/5/tinymce.min.js"></script>
+
+<script>
+</script>
+<div class=" content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class=" card-header">
+                    <h2 class=" title">Edit Voucher</h2>
+                </div>
+                <div class="card-body">
+                    <form class="form" style="color:#dec074">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label"> Voucher Title *</label>
+                                <div class="col-md-8">
+                                    <input name="vchtitle" [(ngModel)]='editVch.title' class=" form-control" id="chg" type="text" style="color:white;" />
+                                    <p class="validation">{{ valid['title'] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-3 col-form-label">Thumbnails *</label>
+                                <div class="col-md-8">
+                                    <input class="upload" style="color: transparent;" type="file" accept="image/png, image/jpeg, imgae/jpg" name="vchthumbnail" (change)="onselectFile($event)" />
+                                    <br>
+                                    <br>
+                                    <img id="newimg" src="{{ url }}" />
+                                    <img id="ogimg" src="data:{{ imagetype }};base64,{{ image }}" />
+                                    <p class="validation">{{ valid['thumbnail'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Type * </label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="vchtype" name="vchtype" [(ngModel)]='editVch.type'>
+                                        <option value="FixAmount" style="color: black;"> Discount (Fix Amount) </option>
+
+                                        <option value="Percentage" style="color: black;"> Discount (Percentage Off) </option>
+
+                                    </select>
+                                    <p class="validation">{{ valid['type'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Voucher Quantity * </label>
+                                <div class="col-md-8">
+                                    <input class=" form-control" id="chg" type="text" min="1" max="1000" name="vchqty" [(ngModel)]='editVch.quantity' style="color:white;" />
+                                    <p class="validation">{{ valid['quantity'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Merchant *</label>
+                                <div class="col-md-8">
+                                    <select style="background-color: #2c2c2c;" [(ngModel)]='editVch.merchantid' class="form-control" name="notireceiver" id="">
+                                        <option value="All">All</option>
+                                        <option *ngFor="let merch of merchArr" value="{{merch._id}}">
+                                            {{merch.companyname}}</option>
+                                    </select>
+                                    <p class="validation">{{ valid['merchant'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Discount * </label>
+                                <div class="col-md-8">
+                                    <input class=" form-control" id="chg" type="text" name="vchdiscount" [(ngModel)]='editVch.discount' style="color:white;" maxlength="5" [pattern]="discountPattern" #discount="ngModel" />
+                                    <div *ngIf="discount.errors?.pattern" style="color:red;">
+                                        *Invalid Discount Amount.
+                                    </div>
+                                    <p class="validation">{{ valid['discount'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Min Spend(RM) * </label>
+                                <div class="col-md-8">
+                                    <input class=" form-control" id="chg" type="text" name="vchminspend" [(ngModel)]='editVch.minspend' style="color:white;" maxlength="6" [pattern]="spendPattern" #minspend="ngModel" />
+                                    <div *ngIf="minspend.errors?.pattern" style="color:red;">
+                                        *Invalid Minimum Spend Amount.
+                                    </div>
+                                    <p class="validation">{{ valid['minspend'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Start Date *</label>
+                                <div class="col-md-8">
+                                    <input style="color:white!important;" class=" form-control" id="chg" type="date" name="vchsdate" [(ngModel)]='editVch.sdate' />
+                                    <p class="validation">{{ valid['sdate'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">End Date *</label>
+                                <div class="col-md-8">
+                                    <input style="color:white!important;" class=" form-control" id="chg" type="date" name="vchedate" [(ngModel)]='editVch.edate' />
+                                    <p class="validation">{{ valid['edate'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Status *</label>
+                                <div class="col-md-8">
+                                    <select class="form-control" name="status" id="editcoucherstatus" [(ngModel)]='editVch.status'>
+                                        <option value="Active" style="color:black;">Active</option>
+                                        <option value="Inactive" style="color:black;">Inactive</option>
+                                    </select>
+                                    <p class="validation">{{ valid['status'] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">T&C *</label>
+                                <div class="col-md-8">
+                                    <p class="validation">{{ valid['termsandcondition'] }}</p>
+                                    <textarea class=" form-control" id="chg" name="vchtermsandcondition" [(ngModel)]='editVch.termsandcondition' style="color:white;"></textarea>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class=" col-md-12">
+                                    <div class=" form-group">
+                                        <label> Details *</label>
+                                        <p class="validation">{{ valid['detail'] }}</p>
+                                        <textarea class=" form-control" id="mymce1" name="vchdetail" [(ngModel)]='editVch.detail' style="color:white;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-9"></div>
+                                <div class="col-md-3">
+                                    <button type="button" class="ed" (click)="uploadVch(editVch)">Save</button>
+                                    <button type="button" class="ed" style="margin-left: 10px;" (click)='goBack()'>Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

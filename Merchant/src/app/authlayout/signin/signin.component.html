@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row h-100 " style="background-color: black; align-content: center;">
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px ">
+        <img  src="assets/img/logox.png" class="base" style="width:100%; height:auto; max-width:150px;"/>
+        <br><br>
+        <h2 class="mb-1">Login to continue</h2>
+        <form class="d-grid gap-2">
+            <div class="form-group form-floating is-valid">
+                <input type="text" class="form-control-sm"  name="name"  value="" placeholder="Enter your email address" id="phonenumber" [(ngModel)]="mlogin.email" autocomplete="off" >
+            </div>
+
+            <div class="form-floating is-valid">
+                <input type="password" class="form-control-sm"  name="name"  value="" placeholder="Password" id="password"  [(ngModel)]="mlogin.pwd" autocomplete="off">
+            </div>
+            <a (click)="sendData()" target="_self" class="btn">Login</a>
+            <p class="mb-0"><a routerLink="/forgetpassword">Forgot Password?</a></p>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+<!-- Different Events  -->
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+<!-- Top Navigation Menu -->
+
+<body>
+  <div class="row" >
+    <div class="col-auto pr-0">
+      <a routerLink="/product" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+        <i class="bi bi-arrow-left"></i>
+      </a>
+    </div>
+  </div>
+
+  <div id="form">
+    <form action="" method="post">
+
+      <div class="form-group mb15">
+        <label for="exampleInputPassword1">Product Name</label>
+
+        <input type="text" class="form-control" value="{{editProduct['name'] }}" id="exampleInputPassword1" name="name"
+          id="name12" [(ngModel)]="editProduct.name" placeholder="Name of product" style="border-color:#dec074;"
+          maxlength="21" autocomplete="off">
+        <p class="validation">{{ valid['name'] }}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="uploadphoto">Upload Photo</label>
+        <input type="file" class="form-control" (change)=onselectFile($event); name="file"
+          accept="image/png, image/jpeg" style="margin-bottom:3px;">
+          <br>
+          <label>Image Preview </label>
+          <img id="newimg" src="{{ url }}" style="width:100%;object-fit: cover;"/>
+          <img id="ogimg" src="data:{{ imagetype }};base64,{{ image }}" style="width:100%;object-fit: cover;"/>
+        </div>
+
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Product description</label>
+        <textarea id="productdesc" rows="5" name="description" id="description" value="{{editProduct['description'] }}"
+          class="form-control" [(ngModel)]="editProduct.description">lorem secriptio canner </textarea>
+        <p class="validation">{{ valid['description'] }}</p>
+      </div>
+
+
+      <div class="form-group" >
+        <label> Categories </label>
+        <select class="form-col" id="#foodcategories" value="{{editProduct['categories'] }}" name="foodcategories"
+          [(ngModel)]="editProduct.categories" style="background-color:black">
+
+          <option selected disabled>Food categories</option>
+
+          <ng-container *ngFor="let category of categoryArr ">
+            <option value="{{category['category']}}"> {{category['category']}}
+            </option>
+
+          </ng-container>
+
+        </select>
+        <p class="validation">{{ valid['categories'] }}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Price</label>
+        <input type="text" class="form-control" id="price21" name="price8" value="{{editProduct['price'] }}"
+          placeholder="" [(ngModel)]="editProduct.price" autocomplete="off" style="border-color:#dec074;" [pattern]="pricePattern"
+          #price="ngModel">
+          <div *ngIf="price.errors?.pattern" style="color:red;font-size: 1.1em;">
+            *Invalid Price.
+          </div>
+        <p class="validation">{{ valid['price'] }}</p>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Terms and Conditions</label>
+        <input type="text" class="form-control" id="price" name="tnc" value="{{editProduct['tnc'] }}" placeholder=""
+          [(ngModel)]="editProduct.tnc" autocomplete="off" style="border-color:#dec074;">
+        <p class="validation">{{ valid['tnc'] }}</p>
+      </div>
+
+      <!-- add product to redemption -->
+      <label for="chkYes" style="color: #dec074;">Add to Redemption</label>
+      <input type="radio" id="chkYes" name="chk" />
+
+      <div id="dvtext">
+        <input type="text" class="form-control" id="points" name="redemp" value="{{editProduct['redemp'] }}"
+          placeholder="Please set max Points" [(ngModel)]="editProduct.redemp" style="border-color: #dec074;">
+      </div>
+
+      <div class="row" >
+        <div class="col-md-12">
+          <a routerLink="/product"
+           class="btn btn-link"  id="submit123"
+           (click)="uploadProduct(editProduct)" style="text-decoration-line:none">Save
+          </a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="modal fade" id="taskmodal2" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content  border-0">
+
+
+        <div class="modal-body">
+          <h2>Successfully added!</h2>
+        </div>
+
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary d-block w-100" (click)="backto">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

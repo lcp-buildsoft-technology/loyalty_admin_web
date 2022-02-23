@@ -1,0 +1,104 @@
+h2 {
+    color: #dec074;
+  }
+
+  .search {    
+    box-sizing: border-box;
+  }
+  
+  form {
+    font-size: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%; 
+    border-radius:20px;
+    border: none;
+    background-color: #2c2c2c;
+    margin-bottom: 5px;
+    padding: 5px;    
+  }
+    
+  .icon {
+    padding: 5px;
+    color: rgb(175, 168, 168);
+    min-width: 50px;
+    text-align: center;
+    font-size: 20px;    
+  }
+    
+  .input-field {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+  }
+  
+  .input-field::placeholder {
+    color: rgb(175, 168, 168);
+  }
+  
+  input[type = "text"] {
+    font-size: 18px;
+  }
+  
+  .card {
+    background-color: transparent;
+    box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);
+  }
+  
+  .subtitle {
+    color: rgb(175, 168, 168);
+    font-size: 12px;
+  }
+  
+  .subdetails p {
+    color:#dedede;
+    margin-right: -10px;
+    font-size: 12px;
+  }
+    
+  .place {
+    font-size: 12px;
+  }
+    
+  .result {
+    color: #dedede;
+    text-align: center;
+  } 
+  
+  .details {
+    color:#dec074;
+    position: absolute;
+    top: 110px;
+    left: 5px;
+    font-size: 15px;
+  }
+  
+  .row2 {
+    margin:0;
+  }
+  
+  .row2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .column2 {
+    margin-top: 30px;
+    padding: 0px;
+  }
+  
+  .column-right
+  {
+    float: right;
+  }
+  
+  .column-left {
+    margin-left: -10px;
+  }

@@ -1,0 +1,63 @@
+<div class="f" style="margin-left: 10px;margin-right:10px;">
+    <div class="row">
+        <div class="col-auto pr-0">
+            <button type="button" class="btn btn-link back-btn" routerLink="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074; padding-top: 10px;"> FAQs </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link">
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link " (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Search -->
+    <!-- <div class="row mb-4 h-190 position-relative text-white top-20"> -->
+        <!-- <div class="position-absolute start-0 top-0 coverimg h-100 w-100 opacity-5" style="background-image:url('assets/img/banner1.jpg')">
+            <img src="assets/img/banner1.jpg" alt="">
+        </div> -->
+        <!-- <div class="col-12 col-md-6 col-lg-4 mx-auto align-self-center" style="background-color: transparent;">
+            <h4 class="text-center mb-2">Frequently Asked Questions</h4>
+            <p class="text-center text-muted small">Search your query or go trough your desired choice category
+                and questions.</p>
+            <div class="form-group search-header">
+                <input class="form-control border-0" placeholder="Search" [(ngModel)] = "searchFaq" name="faq" autocomplete="off">
+                <button type="button" class="btn btn-link tooltip-btn">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+    </div> -->
+    
+    <cdk-accordion class="example-accordion">
+        <cdk-accordion-item
+          *ngFor="let faq of faqArr let index = index;"
+          #accordionItem="cdkAccordionItem"
+          class="example-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-' + index"
+          [attr.aria-expanded]="accordionItem.expanded"
+          [attr.aria-controls]="'accordion-body-' + index">
+          <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+            {{ faq['question'] }}
+          </div>
+          <div [innerHTML]="faq['answer']"
+            class="example-accordion-item-body"
+            role="region"
+            [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + index"
+            [attr.aria-labelledby]="'accordion-header-' + index">
+            {{faq['answer']}}
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+    
+</div>

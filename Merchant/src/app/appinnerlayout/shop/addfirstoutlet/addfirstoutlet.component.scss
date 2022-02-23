@@ -1,0 +1,202 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+*{
+  color:#dec074;
+  margin-left:0;
+}
+
+.main-background{
+  background-color: black
+}
+ 
+ 
+.topnav {
+  position: relative;
+  overflow: hidden; 
+}
+ 
+.topnav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.active {
+  text-align:center;
+  color: #dec074;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+ 
+.topnav-right {
+  float: right;
+}
+ 
+.table-responsive{
+  text-align:center;
+  display:block;  
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+  background-color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  overflow:hidden;
+}
+
+/* Create an active/current tablink class */
+.nav-item.active{
+  background-color:#dec074;
+}
+
+/* Style the tab content */
+.nav-tabs .nav-link{
+  background-color: black;
+  color: white ;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+input[type=text], select, textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  resize: vertical;
+  border: transparent;
+  border:1px solid #dec074;
+  background-color: transparent;
+  color: white;
+}
+  
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  color:#dec074;
+}
+
+.form-group label{
+  color:#dec074;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border:1px solid #dec074;
+  border-radius: 10px;
+  cursor: pointer;
+  float: right;
+}
+  
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+  
+.container {
+  border-radius: 5px;
+  padding:0;  
+}
+
+.panel-body{
+  margin-top:22px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+  
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+form{
+  margin-left:2px;
+  margin-right:2px;
+}
+#submit{
+  margin-top:70px;
+}
+#form{
+  padding:15px;
+}
+#submit123{
+  width:100%;
+  border-color:#dec074;
+  background-color: #dec074;
+  color: #2c2c2c;;
+  
+}
+.form-control{
+  background-color:black !important;
+  color:white !important;
+  border:1px solid #dec074 !important;
+  border-radius: 10px !important;
+}
+
+label{
+  color:white;
+}
+option{
+  color:white;
+  background-color:black;
+}
+.fa-caret-down{
+color:white;
+}
+.form-col{
+  background-color:rgb(36, 34, 34);
+  color:#dec074;
+}
+#fixedbutton {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+.card{
+  background-color: transparent;
+  display: inline-block;
+  padding: 2px;
+  font-size: 12px;
+  width: 100%;
+  text-align-last: center;
+}
+.validation {
+  font-weight: 500;
+  font-size: 1.1em;
+  color: rgb(255, 0, 0) !important;
+}
+.body{
+  height:117% !important
+}
+.h-100{
+  height:117% !important
+}

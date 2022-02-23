@@ -1,0 +1,77 @@
+<div class="proqr" style="margin-left:10px;margin-right:10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  
+            class="btn btn-link back-btn" routerLink="/home">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> My Profile </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-12 align-self-center text-center">
+            <h2 style="font-size: 25px; font-weight: normal; color: white;">Hello, {{register['username']}}</h2>
+            <br>
+                <qr-code [value]="dataToString" [size]="250"></qr-code>
+            <br><br>
+            <p style="font-size: 16px;color: grey;">
+                Show QR code to cashier during payments for points collection
+                <br><br>
+            </p>       
+        </div>    
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card mb-4" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                        <div class="row">
+                            <div class="col px-0 align-self-center">
+                                <p style="font-size: 18px;color: #dec074;padding-top: 5px;">Total Points Collected</p>
+                            </div>
+                            <div class="col-auto text-end align-self-center">
+                                <p>
+                                    <small style="font-size: 20px;color:#ADFF2F;">{{register['pointscollect']}} Pts</small>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>    
+        <div class="col-12">
+            <div class="card" style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="padding: 0px; padding-right: 15px; padding-left: 20px; background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                        <div class="row">
+                            <div class="col px-0 align-self-center">
+                                <p style="font-size: 18px;color: #dec074;padding-top: 5px;">Total Points Redeemed</p>
+                            </div>
+                            <div class="col-auto text-end align-self-center">
+                                <p>
+                                    <small style="font-size: 20px;color:#ff0134;">{{register['pointsredeem']}} Pts</small>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>                  
+    </div>
+ 
+</div>
+<app-staticfooter class="footer"></app-staticfooter>
+

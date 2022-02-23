@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+<!-- Top Navigation Menu -->
+<body>
+  <div class="row" >
+    <div class="col-auto pr-0">
+      <a routerLink="/payment" class="btn btn-link" style="background-color: transparent;outline: none;border: none;color: #dec074;" >
+        <i class="bi bi-arrow-left"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="container-fluid" style="height:100%">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="md-float-material form-material">
+          <div class="auth-box card" style="height:100%">
+            <div class="card-block" style="height:100%; background-color: black;">
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <h3 class="text-center heading">Create voucher only in 1 minute to help your business</h3>
+                </div>
+              </div>
+
+
+              <form action="" method="post">
+                <div class="form-group">
+                  <label for="uploadphoto">Upload Photo</label>
+                  <input type="file" class="form-control" name="file" (change)="onselectFile($event)"
+                    accept="image/png, image/jpeg" style="margin-bottom:3px;color: transparent;">
+                  <br>
+                  <label>Image Preview </label>
+                  <img id="newimg" src="{{ url }}" style="width:100%;object-fit: cover;"/>
+                  <img id="ogimg" src="data:{{ imagetype }};base64,{{ image }}" style="width:100%;object-fit: cover;"/>
+                </div>
+
+                <div class="form-group form-primary">
+                  <label style="color: #110f0b;" for="taskdate">Start Date</label>
+                  <input type="date" name="sdate" class="form-control" id="tasksdate" value="{{editVoucher['sdate']}}"
+                    [(ngModel)]="editVoucher.sdate" autocomplete="off">
+                  <p class="validation">{{ valid['sdate'] }}</p>
+                </div>
+                <div class="form-group form-primary">
+                  <label style="color: #dec074;" for="taskdate">End Date</label>
+                  <input type="date" name="edate" class="form-control" id="taskdate" value="{{editVoucher['edate']}}"
+                    [(ngModel)]="editVoucher.edate" autocomplete="off">
+                  <p class="validation">{{ valid['edate'] }}</p>
+                </div>
+                <div class="form-group form-primary">
+                  <label>Voucher Type</label>
+
+                  <select class="form-col" id="#foodcategories" name="vtype" value="{{editVoucher['type']}}"
+                    name="foodcategories" [(ngModel)]="editVoucher.type" style="background-color: black;">
+
+                    <option selected disabled>voucher Type</option>
+                    <option value="Percentage"> Discount (%)
+                    </option>
+                    <option value="FixAmount"> Percentage (RM)
+                    </option>
+
+                  </select>
+                  <p class="validation">{{ valid['type'] }}</p>
+                </div>
+                <div class="form-group form-primary ">
+                  <label>Discount amount</label>
+                  <input type="text" class="form-control" name="discount" value="" placeholder="Discount amount (RM)"
+                    id="discount" [(ngModel)]="editVoucher.discount" autocomplete="off" >
+                  <p class="validation">{{ valid['discount'] }}</p>
+                </div>
+
+
+
+                <div class="form-group form-primary">
+                  <label>Voucher Name</label>
+                  <input type="text" class="form-control" name="name" value="{{editVoucher['title'] }}"
+                    [(ngModel)]="editVoucher.title" placeholder="Voucher Name" id="name" autocomplete="off"
+                    maxlength="18">
+                </div>
+                <p class="validation">{{ valid['title'] }}</p>
+
+                <div class="form-group form-primary ">
+                  <label>Voucher Quantity</label>
+                  <input type="text" class="form-control" name="quantity" value="{{editVoucher['quantity'] }}"
+                    placeholder="Usage Quantity" id="quantity" [(ngModel)]="editVoucher.quantity" autocomplete="off">
+                  <p class="validation">{{ valid['quantity'] }}</p>
+                </div>
+
+                <div class="form-group form-primary ">
+                  <label>Min. Spend Required</label>
+                  <input type="text" class="form-control" name="minspend" value="" placeholder="" id="minspend"
+                    [(ngModel)]="editVoucher.minspend" autocomplete="off" maxlength="5">
+  
+                  <p class="validation">{{ valid['minspend'] }}</p>
+                </div>
+
+                <div class="form-group form-primary ">
+                  <label>Terms and Conditions :</label>
+                  <textarea rows="5" class="form-control" [(ngModel)]="editVoucher.termsandcondition "
+                    name="second_name" value="{{editVoucher['termsandcondition']}}" placeholder="Terms and Condition"
+                    id="termsandcondition" autocomplete="off"></textarea>
+                  <p class="validation">{{ valid['termsandcondition'] }}</p>
+                </div>
+
+                <div class="form-group form-primary ">
+                  <label>Voucher detail</label>
+                  <editor id="editor007" [(ngModel)]="editVoucher.detail "
+                    apiKey="u664xbh2q1de3zrrftr9qnov0tzs8mks5w2quuzes4hbi53w" name="detail"
+                    initialValue="{{editVoucher['detail']}}" [init]="{
+                            height: 300,
+                            menubar: false,
+                            plugins: [
+                              'advlist autolink lists link image charmap print',
+                              'preview anchor searchreplace visualblocks code',
+                              'fullscreen insertdatetime media table paste',
+                              'help wordcount'
+                            ],
+                            toolbar:
+                              'undo redo | formatselect | bold italic | \
+                              alignleft aligncenter alignright alignjustify | \
+                              bullist numlist outdent indent | help'
+                          }">
+                  </editor>
+                  <p class="validation">{{ valid['detail'] }}</p>
+                </div>
+
+                <div class="row" >
+                  <div class="col-md-12">
+                    <a routerLink="/payment"
+                     class="btn btn-link"  id="save"
+                     (click)="uploadVoucher(editVoucher)" style="text-decoration-line:none">Save
+                    </a>
+                  </div>
+                </div>
+
+                <br><br>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Task modal -->
+  <div class="modal fade" id="taskmodal" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content  border-0">
+
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="taskdate" [(ngModel)]="editVoucher.sdate">
+            <label for="taskdate">Start Date</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="taskdate" [(ngModel)]="editVoucher.edate">
+            <label for="taskdate">End Date</label>
+          </div>
+
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary d-block w-100">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

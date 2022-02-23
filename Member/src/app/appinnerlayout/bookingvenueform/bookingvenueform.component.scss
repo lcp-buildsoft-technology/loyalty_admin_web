@@ -1,0 +1,149 @@
+::ng-deep .mat-horizontal-stepper-header
+{
+  -webkit-text-fill-color: white;
+  font-size: 20px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #dec074; 
+  -webkit-text-fill-color: black;
+}
+::ng-deep .mat-step-header .mat-step-icon {
+  background-color: #dec074; 
+  -webkit-text-fill-color: black;
+}
+
+::ng-deep .mat-step-label-selected
+{
+  font-size: 18px;
+}
+  .mat-form-field {
+    margin-top: 10px;
+    width: 100%;
+  }
+  .mat-form-field .mat-icon
+  {
+    color: #dec074;
+  }
+  
+  .mat-form-field input
+  {
+      font-size: 16px;
+      padding-left: 10px;
+      padding-bottom: 5px;  
+      padding-top: 10px; 
+      color: white;
+  }
+  .mat-form-field mat-label
+  {
+      font-size: 18px;
+      padding-left: 10px; 
+      color: white;   
+  }
+
+  .mat-form-field ::placeholder
+  {
+      color: grey;
+  }
+
+  button
+  {
+    color: #dec074;
+    background-color: transparent;
+    border: 1px solid #dec074;
+    font-size: 16px;
+  }
+  button[type = "submit"]
+  {
+    color: #dec074;
+    background-color: transparent;
+    width: 100%;
+    padding: 12px 30px;
+    border: 1px solid #dec074;
+    font-size: 16px;
+  }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+   }
+  ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #dec074 !important;;
+    display: none;
+   }
+  
+  .example-full-width {
+    min-width: 140px;
+    max-width: 175px;
+  }
+
+  .button {
+    height: 80px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #dec074;
+    color: #dec074;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: -15px 4px;
+    font-size: 12px;
+    padding: 12px 12px 12px;
+    width: 110px;
+    min-width: 95px;
+    max-width: 110px;
+    display: inline-block;
+}
+
+.button:hover {
+    color: white;
+    background-color: #dec074;
+}
+
+.column2 {
+  padding: 0px;
+}
+
+.column-right
+{
+  float: right;
+}
+
+.column-left
+{
+  float: left;
+}
+
+label
+{
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 500;
+}
+
+input[type="date"], input[type="time"], input[type="text"]
+{
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: white;
+  border-bottom: 1px solid #dec074;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator{
+  filter: invert(98%) sepia(40%) saturate(1765%) hue-rotate(317deg) brightness(91%) contrast(89%);
+  font-size: 20px;    
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+  filter: invert(98%) sepia(40%) saturate(1765%) hue-rotate(317deg) brightness(91%) contrast(89%);
+  font-size: 20px;    
+}
+
+.row
+{
+    --bs-gutter-x:0rem;
+}

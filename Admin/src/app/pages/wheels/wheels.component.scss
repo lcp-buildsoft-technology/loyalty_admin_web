@@ -1,0 +1,257 @@
+.content {
+    background-color: #181818 !important; /* added */
+  }
+  .card {
+    background-color: #2c2c2c !important; /* added */
+  }
+  
+
+  .fas{
+    margin-top: 9px;
+
+  }
+  .fas:active{
+    transform: translateY(4px);
+  }
+  
+  .mbtn{
+    background-color: #dec074 ;
+    color:black ;
+    border: 3px solid #dec074 ;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 15px;
+    line-height: 1em;
+    border-radius: 1rem;
+    cursor:pointer;
+    font-size: 12px;
+  }
+  .mbtn:active {
+      transform: translateY(4px);
+    }
+  
+  .dropbtn {
+    background-color: #dec074 ;
+    color:black ;
+    border: 3px solid #dec074 ;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 30px;
+    line-height: 1em;
+    border-radius: 1rem;
+    cursor:pointer;
+    font-size: 12px;
+
+  }
+  
+  .dropbtn:active {
+    transform: translateY(4px);
+  }
+  
+  .dropdown {
+  position: relative;
+  display: inline-block;
+  }
+  
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #dec074;
+  min-width: 170px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 1rem;
+  
+  }
+  
+  .dd {
+  color: #2c2c2c ;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 600;
+  
+  }
+  
+  .dd:hover {
+    background-color: grey;
+    border-radius: 1rem;
+  
+  }
+  
+  .show {
+    display: inline-block;
+  }
+  
+  
+  h2, th{
+    color:#dec074!important;
+    font-weight: 700!important;
+  }
+  
+  h3{
+    font-size: 12px;
+    line-height: 20px;
+    color:black;
+  }
+  
+  
+  .ed{
+    background-color: #dec074 ;
+    color:#2c2c2c ;
+    border: 1px solid #dec074 ;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 15px;
+    line-height: 1em;
+    border-radius: 1rem;
+    cursor:pointer;
+    margin-left: 28px;
+    margin-top:20px;
+  }
+  
+  .ed:active {
+    transform: translateY(4px);
+  }
+  
+
+  
+  .smit:active{
+    transform: translateY(4px);
+  
+  }
+  
+  .dlt{
+    font-size: 20px;
+  }
+  
+  
+  .modal-title{
+    color: #dec074!important;
+    font-size: 25px;
+  }
+  
+  #pop{
+    color:black!important;
+  }
+  
+  .btn-danger{
+      background-color: white!important;
+  }
+  
+  .btn-secondary{
+    background-color: #2c2c2c!important;
+    color:white;
+    border-color: #2c2c2c;
+    display: inline-block;
+    line-height: 1em;
+    border-radius: 1rem;
+    cursor:pointer;
+  }
+  
+  .btn-secondary:active{
+        transform: translateY(4px);
+  
+  }
+  
+  
+  .col-md-6{
+    margin-left: 10px;
+    margin-top:1px;
+  }
+  
+  .col-md-5{
+    margin-top:15px;
+  }
+  
+  img{
+    height:150px;
+  }
+  
+  .dot{
+    border-color: 3px solid #2c2c2c;
+    color:grey;
+  }
+  
+  .ddContent {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 170px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 1rem;
+    height:200px;
+    }
+  
+  #icon{
+    font-size:20px;
+    color:gold;
+  }
+
+  .form-control{
+    border-top:transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-radius: 0%;
+    border-color: #dec074;
+    
+  }
+
+  #chg{
+    color:black;
+  }
+
+  .ddimg{
+    width:370px;
+  }
+
+
+  :host ::ng-deep .mat-tab-label-active {
+    color:#dec074;
+  }
+  ::ng-deep .mat-tab-label, .mat-tab-link{
+    color:rgb(224, 221, 214);   
+  }
+
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color:#dec074;
+  }
+  
+  ::ng-deep .mat-menu-content{
+    background-color: #dec074;
+    min-width: 150px;
+  }
+
+  ::ng-deep .mat-paginator-container{
+    background-color: #2c2c2c;
+    color:white;
+  }
+
+  .form-control[disabled]{
+    background-color: aliceblue;
+    color: #344675;
+    cursor: not-allowed;
+}
+
+.validation {
+  font-weight: 500;
+  font-size: 1em;
+  color: rgb(255, 0, 0) !important;
+}
+
+::ng-deep .modal-content .modal-body p {
+  color: white;
+}
+
+
+
+  

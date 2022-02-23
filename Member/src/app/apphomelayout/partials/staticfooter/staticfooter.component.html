@@ -1,0 +1,75 @@
+<div class="container" style="padding-right: 0;padding-left: 0;">
+    <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive='active'>
+                <span>
+                    <i class="nav-icon bi bi-house"></i>
+                    <span class="nav-text">Home</span>
+                </span>
+            </a>
+        </li>
+
+        <!-- <li class="nav-item">
+            <a class="nav-link" [class.active]="selectedLink==='home'" (click)="goHome('home')">
+                <span>
+                    <i class="nav-icon bi bi-house"></i>
+                    <span class="nav-text">Home</span>
+                </span>
+            </a>
+        </li> -->
+
+        <li class="nav-item">
+            <a class="nav-link" [class.active]="selectedLink==='booking'" (click)="goBooking('booking')">
+                <span>
+                    <i class="nav-icon bi bi-calendar-check"></i>
+                    <span class="nav-text">Booking List</span>
+                </span>
+            </a>
+        </li>
+
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/bookinghistory" routerLinkActive='active'>
+                <span>
+                    <i class="nav-icon bi bi-calendar-check"></i>
+                    <span class="nav-text">Booking List</span>
+                </span>
+            </a>
+        </li> -->
+
+        <li class="nav-item">
+            <a class="nav-link" [class.active]="selectedLink==='profileqr'" (click)="open('profileqr')">
+                <span>
+                    <i class="nav-icon fa fa-qrcode"></i>
+                    <span class="nav-text">QR</span>
+                </span>
+            </a>
+        </li>
+
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/profileqr" routerLinkActive='active'>
+                <span>
+                    <i class="nav-icon fa fa-qrcode"></i>
+                    <span class="nav-text">QR</span>
+                </span>
+            </a>
+        </li> -->
+    
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/gamificationhome" routerLinkActive='active'>
+                <span>
+                    <i class="nav-icon bi bi-controller"></i>
+                    <span class="nav-text">Lucky Spin</span>
+                </span>
+            </a>
+        </li> -->
+
+        <li class="nav-item">
+            <a class="nav-link" [class.active]="selectedLink==='gamewheel'" (click)="game('gamewheel')">
+                <span>
+                    <i class="nav-icon bi bi-controller"></i>
+                    <span class="nav-text">Lucky Spin</span>
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>

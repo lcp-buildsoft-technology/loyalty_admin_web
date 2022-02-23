@@ -1,0 +1,20 @@
+.nav-item .nav-link {
+    color:black;
+    cursor: pointer;
+}
+
+.container .nav .nav-item .nav-link.active
+{
+    background-color: black;
+    color:#dec074;
+    height: 75px;
+    width: 100%;
+}
+
+.active {
+    cursor: pointer;
+    background-color: black;
+    color:#dec074;
+    height: 75px;
+    width: 100%;
+}

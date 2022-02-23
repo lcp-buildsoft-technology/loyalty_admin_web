@@ -1,0 +1,179 @@
+<style>
+    option {
+        color: black;
+    }
+</style>
+
+<body>
+
+    <!-- <ng-template #add let-modal>
+        <div class="modal-header">
+            <div class="modal-title" id="modal-basic-title">Add Game Reward</div>
+            <button type="button" class="close" aria-label="Close" (click)="modal.close('')">
+                <span style="text-align: right;" aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="row">
+                    <div class=" col-md-10 pl-md-1">
+                        <div class=" form-group">
+                            <label> Reward Type </label>
+                            <p class="validation">{{ valid['type'] }}</p>
+                            <select class="form-control" [(ngModel)]='gamesetting.type' name="type" style="color: white;">
+                                <option value="Point">Point</option>
+                                <option value="Voucher">Voucher</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class=" col-md-10 pl-md-1">
+                            <div class=" form-group">
+                                <label> Content </label>
+                                <p class="validation">{{ valid['content'] }}</p>
+                                <input class=" form-control" type="text" [(ngModel)]='gamesetting.content' name="content" style="color: white;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <ng-template #voucher>
+          <div>
+            <div class="row">
+              <div class=" col-md-10 pl-md-1">
+                <div class=" form-group">
+                  <label> Content </label>
+                  <select class="form-control" [(ngModel)]='gamesetting.content' name="content" style="color: white;">
+                    <option value="Discount RM20">Discount RM20</option>
+                    <option value="Discount 10%">Discount 10%</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+       
+
+                <div class="modal-footer">
+                    <button type="button" class="ed" style="margin-left: 290px;margin-right: 10px;" (click)="sendGameSetting()">Save</button>
+                    <button type="reset" class="ed" (click)='modal.dismiss()'>Cancel</button>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+    <ng-template #edit let-modal>
+        <div class="modal-header">
+            <div class="modal-title" id="modal-basic-title">Edit Game Reward</div>
+            <button type="button" class="close" aria-label="Close" (click)="modal.close('')">
+                <span style="text-align: right;" aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form method="post" action="/">
+                <div class="row">
+                    <div class=" col-md-1 pl-md-1">
+                        <div class=" form-group">
+                            <label> Type </label>
+                            <p class="validation">{{ valid['type'] }}</p>
+                            <select class="form-control" [(ngModel)]='editgamesetting.type' name="type" style="color: white;">
+                                <option value="Point">Point</option>
+                                <option value="Voucher">Voucher</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-1 pl-md-1">
+                        <div class=" form-group">
+                            <label> Content </label>
+                            <p class="validation">{{ valid['content'] }}</p>
+
+                            <input class=" form-control" type="text" [(ngModel)]='editgamesetting.content' name="content" style="color:white;" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="ed" style="margin-left: 280px;margin-right: 10px;" (click)="updateSetting()">Save</button>
+
+                    <button type="button" class="ed" (click)='modal.close()'>Cancel</button>
+                </div>
+            </form>
+        </div>
+    </ng-template> -->
+
+    <div class=" content">
+        <div class=" row">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <div class="row">
+                            <a routerLink="/gamification"><i class="tim-icons icon-minimal-left"
+                                    style="color:#dec074; cursor: pointer;font-size: 15px;margin-top: 10px;margin-left: 10px;margin-right: 10px;"></i></a>
+                            <h3 class=" card-title"
+                                style="color: #dec074; font-weight: bolder;font-size: 1.5em;margin-top: 3px;">Game
+                                Rewards </h3>
+                        </div>
+                        <div hidden class="col-md-1" style="margin-left: 88%;margin-bottom: -2%;">
+                            <a routerLink="/addSetting"><input type="button" class="mbtn" value="+ New Reward"></a>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class=" card-body">
+                        <div class="row">
+                            <div class="col-md-10"></div>
+                            <div class="col-md-2"><button (click)="exportexcel()"> <i class="fas fa-download"></i>
+                                    &nbsp;Export to Excel</button></div>
+                        </div>
+                        <br>
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class=" table tablesorter"
+                            id="gamesettingtable" style="top: 50%; left: 50%;">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th class="text-center" style="color: #dec074;">Action</th>
+                                    <th class="text-center" style="color: #dec074;">Reward Type</th>
+                                    <th class="text-center" style="color: #dec074;">Content</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let gamesetting of gameArr">
+                                    <td class="text-center">
+
+
+                                        <!--                                         <div (click)="openEdit(edit, gamesetting)"><i class="tim-icons icon-pencil" style="font-size: 17px;color: gold;margin-left: 10%;cursor: pointer;"></i> -->
+
+                                        <div (click)="open(gamesetting)"><i class="tim-icons icon-pencil"
+                                                style="font-size: 17px;color: gold;cursor: pointer;"></i>
+
+                                        </div>
+                                    </td>
+                                    <td class="text-center"> {{ gamesetting.type }}</td>
+                                    <td class="text-center"> {{ gamesetting.content }} </td>
+                                </tr>
+
+                                <tr *ngFor="let gamevoucher of gamevArr">
+                                    <td class="text-center">
+
+
+                                        <!--                                         <div (click)="openEdit(edit, gamesetting)"><i class="tim-icons icon-pencil" style="font-size: 17px;color: gold;margin-left: 10%;cursor: pointer;"></i> -->
+
+                                        <div (click)="openv(gamevoucher)"><i class="tim-icons icon-pencil"
+                                                style="font-size: 17px;color: gold;cursor: pointer;"></i>
+
+                                        </div>
+                                    </td>
+                                    <td class="text-center"> {{ gamevoucher.type }}</td>
+                                    <td class="text-center"> {{ gamevoucher.content }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

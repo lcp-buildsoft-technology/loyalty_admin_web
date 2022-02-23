@@ -1,0 +1,537 @@
+<!--News Management list -->
+<style>
+    .avatar {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .form-control {
+        width: 500px;
+        margin-bottom: 10px;
+        max-width: 445px;
+    }
+    
+    .button:hover {
+        background-color: white !important;
+        transition: all 2s;
+    }
+    
+    .modal.show .modal-dialog {
+        transform: translate(0, 0%) !important;
+    }
+    
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 35px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-left: 28px;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    .form-control {
+        border: none;
+        border-bottom: 1px solid #dec074;
+        border-radius: 0%;
+        border-color: #dec074;
+        color: black !important;
+    }
+    
+    .modal.show .modal-dialog {
+        transform: translate(0, 0%) !important;
+    }
+    
+    .form-control:disabled {
+        background-color: transparent !important;
+        opacity: 1;
+    }
+    /* .col-md-2 a:hover {
+        background-color: rgb(255, 241, 163) !important;
+    } */
+    
+    .dropbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 30px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    
+    .dropbtn:active {
+        transform: translateY(4px);
+    }
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #dec074;
+        color: #2c2c2c !important;
+        min-width: 120px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+    }
+    
+    .dd {
+        color: #2c2c2c !important;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+        font-weight: 600;
+    }
+    
+    .dd a {
+        color: #2c2c2c !important;
+    }
+    
+    .dd:hover {
+        background-color: lightgrey;
+    }
+    
+    .show {
+        display: inline-block;
+    }
+    
+    .ddContent {
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 170px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 1rem;
+        height: 200px;
+    }
+    
+    .form-control {
+        border-top: transparent;
+        border-right: transparent;
+        border-left: transparent;
+        border-radius: 0%;
+        border-color: #dec074;
+    }
+    
+    .ctd {
+        color: #2c2c2c;
+        text-decoration: none;
+    }
+    
+    .mbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    
+    .mbtn:active {
+        transform: translateY(4px);
+    }
+    
+    .modal-title {
+        color: #dec074 !important;
+        font-size: 20px !important;
+    }
+    /*     .search {
+        margin-top: 44px;
+        margin-left: 15px; */
+    
+    .search {
+        margin-top: 2.6%;
+    }
+    
+    .fas:active {
+        transform: translateY(4px);
+    }
+    
+    .dMenu {
+        width: 310px;
+        height: 150px;
+        border-radius: 0.5rem;
+    }
+    
+    #caption {
+        color: black !important;
+        font-size: 0.9em !important;
+    }
+    
+    input:disabled {
+        background-color: transparent;
+        color: white !important;
+    }
+    
+    textarea:disabled {
+        background-color: transparent;
+        color: white !important;
+    }
+    
+    a.paginate_button {
+        color: white !important;
+        background-color: red !important;
+    }
+    /* // ------------------------loader------------------------ */
+    
+    #loader-wrapper {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #181818;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 97;
+    }
+    
+    #loader {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        border: 7px solid #dec074;
+        animation: loader 2s infinite ease;
+        z-index: 99;
+    }
+    
+    #loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #dec074;
+        animation: loader-inner 2s infinite ease-in;
+        z-index: 99;
+    }
+    
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(180deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        75% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes loader-inner {
+        0% {
+            height: 0%;
+        }
+        25% {
+            height: 0%;
+        }
+        50% {
+            height: 100%;
+        }
+        75% {
+            height: 100%;
+        }
+        100% {
+            height: 0%;
+        }
+    }
+</style>
+<ng-template #openimage let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">View Thumbnails
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span style="text-align: right; color: white;" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" style="margin-left: 5%;">
+        <img src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" />
+
+    </div>
+</ng-template>
+<ng-template #content let-modal>
+
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title" style="font-size: 1.2em; text-decoration:bold !important">View Announcement
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span style="text-align: right; color: white;" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class=" col-md-6 pl-md-1">
+                    <div class=" form-group">
+                        <label>Title </label>
+                        <input disabled [(ngModel)]='editNews.title' value="" name="notititle" class=" form-control" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label>Caption </label>
+                        <input disabled [(ngModel)]='editNews.caption' value="" name="noticaption" class=" form-control" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> Publish Date </label>
+                        <input disabled [(ngModel)]='editNews.date' value="" name="notidate" class=" form-control" type="date" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label>Publish Time </label>
+                        <input disabled [(ngModel)]='editNews.time' value="" name="notitime" class=" form-control" type="time">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-3 pl-md-1">
+                    <div class=" form-group">
+                        <label> Receiver </label>
+                        <select disabled style="color: white !important;" class="form-control" id='dropdown_news' name="notireceiver" [(ngModel)]='editNews.receiver'>
+                            <option value="none">--select one--</option>
+                            <option value="All">All</option>
+                            <option value="Member">Member</option>
+                            <option value="Merchant">Merchant</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div>
+                        <label for="image-upload-button">Thumbnails &nbsp; </label>
+                        <img src="data:{{ imagetypearr[0] }};base64,{{ image1arr[0] }}" style="width: 100%; object-fit: cover;" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-5 pl-md-1">
+                    <div class=" form-group">
+                        <label> Description </label>
+                        <textarea disabled name="notidescription" id="newsdesc" [(ngModel)]='editNews.description' class=" form-control" cols="80" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="ed" (click)="modal.dismiss()">Close</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- <ng-template #edit let-modal>
+    <div class="modal-header">
+        <div class="modal-title" id="modal-basic-title">Delete Merchant</div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <div class="dlt">Are you sure you want to delete ?</div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="ed" (click)="modal.close('Save click')">Yes</button>
+        <button type="button" class="ed" (click)="modal.dismiss()">Cancel</button>
+    </div>
+</ng-template> -->
+
+<!-- <ng-template #load let-modal>
+    <progress style="width: 200px; height: 30px"></progress>
+</ng-template> -->
+
+<body>
+    <div id="loader-wrapper">
+        <span id="loader"><span id="loader-inner"></span></span>
+    </div>
+
+    <div class=" content">
+        <div class=" row">
+            <div class=" col-md-12">
+                <div class=" card">
+                    <div class=" card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class=" card-title font-weight-bold text-muted mb-0">News Management</h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class=" col-md-10">
+                            </div>
+                            <div name="addclass" class=" col-md-2" *ngIf="thisadd" style="padding-top: 2.6%;">
+                                <a routerLink="/addNews"><input type="button" class="mbtn" value="+ Add News" /></a>
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class=" card-body">
+                            <div class="row">
+                                <div class="col-md-10"></div>
+                                <div name="exportclass" *ngIf="thisexport" class="col-md-2"><button (click)="exportexcel()"> <i class="fas fa-download"></i> &nbsp;Export to
+                                        Excel</button></div>
+                            </div>
+                            <br>
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class=" table tablesorter" id="newstable">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>Action</th>
+                                        <th>Title</th>
+                                        <th>Thumbnail</th>
+                                        <th>Caption</th>
+                                        <th>Publish Time</th>
+                                        <th>Publish Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let news of newsArr">
+                                        <td>
+                                            <div ngbDropdown class="dropdown">
+                                                <div class="button-secondary" id="edit" ngbDropdownToggle><i class="tim-icons icon-bullet-list-67" style="font-size:18px; color:gold; cursor: pointer;"></i>
+                                                </div>
+                                                <div ngbDropdownMenu aria-labelledby="" class="dropdown-content" style="padding: 0">
+                                                    <div (click)="openEdit(content, news)">
+                                                        <div class="dd" type="button" style="cursor: pointer; font-size: 12px;">
+                                                            <a href="javascript:void(0)" title="View"><i
+                                                                    style="font-size: 1.2em"
+                                                                    class="fas fa-eye"></i>&nbsp;
+                                                                View</a>
+                                                        </div>
+                                                    </div>
+                                                    <div (click)="open(content, news)">
+                                                        <button *ngIf="thisedit" name="editclass" class="dd" ngbDropdownItem style="cursor: pointer;">
+                                                            <a href="javascript:void(0)" id="editnewss" title="edit"><i
+                                                                    class="tim-icons icon-pencil"></i>
+                                                                Edit</a> &nbsp;&nbsp;
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td> {{ news.title }}</td>
+
+
+
+                                        <!--                                     <td>
+                                        <a class="image-uploaded" title="{{ news.thumbnail }}" href="{{ news.thumbnail }}"><i class="tim-icons icon-image-02" aria-hidden="true"
+                                        style="font-size:20px;color:gold;"></i></a>
+                                    </td> -->
+
+                                        <td>
+                                            <a class="image-uploaded" title="{{ news.thumbnail }}" (click)="opnimage(openimage, news)"><i class="tim-icons icon-image-02"
+                                                    aria-hidden="true" style="font-size:20px;color:gold;"></i></a>
+                                        </td>
+
+
+                                        <td>
+                                            <div class="btn-group" ngbDropdown role="group">
+                                                <button class="btn-danger " ngbDropdownToggle style="height:30px;width:25px"><i
+                                                        class="fa fa-caret-down"></i></button>
+                                                <div class="dMenu" ngbDropdownMenu>
+                                                    <div class=" row">
+                                                        <h3 id="caption" style="padding-left: 30px;padding-top: 10px;max-width: 300px;" [innerHTML]='news.caption'>
+                                                            {{ news.caption }} </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>{{ news.time }}</td>
+                                        <td>{{ news.date }}</td>
+
+                                    </tr>
+
+                                    <!-- <tr>
+                                <td>
+                                    <a style="text-decoration: none;" href="#/editNews"><input class="button" type="submit" value="Edit" style="background-color: rgb(222, 192, 116); border-color: transparent; border-radius: 8px; border-width: 7px; "> &nbsp;</a>
+                                    <input class="button" type="submit" value="Delete" style="background-color: rgb(222, 192, 116); border-color: transparent; border-radius: 8px; border-width: 7px; ">
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0)" title="edit" (click)="open(content)"><i class="tim-icons icon-pencil"></i> </a> &nbsp;&nbsp;
+
+                                    <a href="javascript:void(0)" title="delete" (click)="openEdit(edit)"> <i class="tim-icons icon-trash-simple"></i> </a>
+                                </td>
+                                <td>NV-12345</td>
+                                <td>Tiffany Kelley</td>
+                                <td>tiffany.kelley@example.com</td>
+                                <td><a class="image-uploaded" href="#">xxxVoucher.png</a></td>
+                                <td>Free voucher on xxx store ...</td>
+                                <td>01-NOV-2021</td>
+
+                            </tr> -->
+                                </tbody>
+                            </table>
+
+
+                            <br>
+                            <!-- mongodbimg -->
+
+                            <!-- <img src="data:{{ imagetype }};base64,{{ image }}" alt="Red dot" /> -->
+                            <!-- <img src="data:image/<%=image.img.contentType%>;base64,<%=image.img.data.toString('base64')%>"> -->
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

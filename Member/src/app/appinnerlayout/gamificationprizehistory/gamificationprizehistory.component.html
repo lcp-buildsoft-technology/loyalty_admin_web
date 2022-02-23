@@ -1,0 +1,103 @@
+<div class="gph" style="margin-left: 10px;margin-right: 10px;">
+    <div class="row" style="padding-right: 0;padding-left: 0;">
+        <div class="col-auto pr-0">
+            <!-- <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  class="btn btn-link back-btn" (click)="backnav()"> -->
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;width: 0;"  class="btn btn-link back-btn" (click)="getGameCount()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> Gamification </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="row" style="width: 100%; margin: 0;margin-top: 5px;">
+        <div class="col-12 mb-3 px-0">
+            <mat-tab-group mat-align-tabs="start">
+                <mat-tab label="Prize History">
+                    <div class="row mt-3">
+                        <div class="col-12" *ngFor = "let prizee of prizespts">
+                            <div class="card mb-4"
+                                style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"
+                                        style="padding: 0px; padding-right: 15px;background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+    
+                                        <div class="row">
+                                            <div class="col-auto align-self-center avatar">
+                                                <img src="assets/img/trophy.png" alt="" height="80vh"
+                                                    style="padding-bottom: 15px;">
+                                            </div>
+                                            <div class="col px-0 align-self-center" style="padding-top: 15px;">
+                                                <p style="font-size: 18px;color: #dec074;">{{prizee['points']}} {{prizee['type']}}<br>
+                                                    <small style="color: white;">{{prizee['createdDate']}}</small>
+                                                </p>
+                                            </div>
+                                            <div class="col-auto text-end align-self-center">
+                                                <p>
+                                                    <small style="font-size: 20px;color:#ADFF2F;">Claimed</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="col-12" *ngFor = "let prizeee of prizesvoucher">
+                            <div class="card mb-4"
+                                style="background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"
+                                        style="padding: 0px; padding-right: 15px;background-color: transparent;box-shadow: 0 4px 8px 0 rgba(222,192,116,0.5);">
+    
+                                        <div class="row" (click) ="open(prizeee)">
+                                            <div class="col-auto align-self-center avatar">
+                                                <img src="assets/img/trophy.png" alt="" height="80vh"
+                                                    style="padding-bottom: 15px;">
+                                            </div>
+                                            <div class="col px-0 align-self-center" style="padding-top: 15px;">
+                                                <p style="font-size: 18px;color: #dec074;">{{prizeee['title']}}<br>
+                                                    <small style="color: white;">Expired: {{prizeee['edate']}}</small>
+                                                </p>
+                                            </div>
+                                            <div class="col-auto text-end align-self-center" [ngClass] = "prizeee['status']">
+                                                <p>
+                                                    <small style="font-size: 20px;"> {{prizeee['status']}}</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="taskmodalsuccess" tabindex="-1" aria-labelledby="taskmodal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" style="width: 80%;margin: auto;">
+            <div class="modal-content border-0" 
+            style="background-color: transparent; height: auto !important;">
+                <div class="modal-body">                
+                <button
+                style="margin-right: -20px;
+                float: right; font-size: 20px;background-color: #dec074;opacity: 100%;width: 15px;"
+                type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <qr-code [value]="dataToString" [size]="300"></qr-code>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

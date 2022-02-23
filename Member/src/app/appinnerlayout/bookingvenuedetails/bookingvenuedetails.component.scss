@@ -1,0 +1,30 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+.btn {
+    outline: none;
+    background-color: #dec074;
+    border: 1px solid #dec074;
+    color: black;
+    font-weight: 550;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.container-fluid {
+    background-color: transparent;
+    padding-top: 20px;
+}
+
+.call
+{
+    color: black;
+    background-color: greenyellow;    
+    width: 100px;
+    border-radius: 20px;
+    padding: 10px;
+}

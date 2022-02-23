@@ -1,0 +1,101 @@
+<div class="eventhome" style="margin-right: 10px;margin-left: 10px;">
+    <div class="row" style="padding-top: -10px;margin-top: -10px;">
+        <div class="col-auto pr-0">
+            <button type="button" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;"  class="btn btn-link back-btn" routerLink ="/home">
+                <i class="bi bi-arrow-left" style="color: #dec074;"></i>
+            </button>
+        </div>
+        <div class="col text-center align-self-center px-0">
+            <h2 style="color: #dec074;margin: 0px;"> Events List </h2>
+        </div>
+        <div class="col-auto align-self-center">
+            <a routerLink="/home" class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" >
+                <i class="bi bi-house" style="color: #dec074;"></i>
+            </a>
+            <a class="btn btn-link" style="margin: 0px;background-color: transparent;outline: none;border: none;color: #dec074;" (click) ="acc()">
+                <i class="bi bi-person" style="color: #dec074;"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row mb-2">
+        <div class="col-12 col-md-6">
+            <form action="#">
+                <div class="container">
+                    <div id = "event">
+                        <form action="#">
+                            <div class="input-container">
+                                <i class="material-icons icon">search</i>
+                                <input [(ngModel)]="searchEvent" class="input-field" type="text" placeholder="Search Events" name="event" autocomplete="off">
+                            </div>
+                        </form>   
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6" *ngFor = "let onev of oneventArr| event: searchEvent">
+            <div class="card mb-4" style="background-color: transparent;box-shadow:  0 4px 8px 0 rgba(222,192,116,0.5);">
+                <figure class="card-img-top overflow-hidden mb-0 h-100px">
+                    <img src="data:{{ onev['thumbnailType'] }};base64,{{onev['thumbnail']}}" alt="" style="width: 100%; height: 25vh;">
+                </figure>                
+                
+                <a (click) = "open(onev)" class="card-body"
+                style="width: 100%;
+                top: 95%;">    
+                <div class = "details">
+                    <h2 style="color: #dec074;">{{onev['eventname']}}</h2>
+                </div>                
+                    <div class="row">                        
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <i class="bi bi-calendar"></i>
+                                    <span style="color: white;"> &nbsp; {{onev['sdate']}} - {{onev['edate']}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col text-end">
+                            <div class="row">
+                                <div class="col">
+                                    <i class="bi bi-clock"></i>
+                                    <span style="color: white;"> &nbsp; {{onev['stime']}} - {{onev['etime']}}</span>                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span style="color: white;"> {{onev['location']}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col text-end">
+                            <div class="row">
+                                <div class="col"></div>
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="row mt-2">
+                        <hr class="break">                    
+                    </div> 
+                    <button (click) = "open(onev)" 
+                    type="submit"
+                    style="width: 100%;"> Buy Ticket RM {{onev['amount']}} </button>
+                </a>                
+            </div>
+        </div>    
+    </div>
+
+    <div class="result" id="result">
+        <p id="result"></p>
+    </div>
+</div>
+

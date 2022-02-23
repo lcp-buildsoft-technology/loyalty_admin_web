@@ -1,0 +1,136 @@
+<style>
+    .ed {
+        background-color: #dec074;
+        color: #2c2c2c;
+        border: 1px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    
+    .ed:active {
+        transform: translateY(4px);
+    }
+    
+    .form-group input[type=file] {
+        opacity: 1;
+    }
+    /* Save & Cancel button */
+    
+    .sbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        padding: 15px;
+        line-height: 0.3em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 13px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    /* .sbtn:hover {
+        background-color: black;
+        color: white;
+        border: 3px solid black;
+    } */
+    
+    .sbtn:active {
+        transform: translateY(4px);
+    }
+</style>
+
+<div class=" content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class=" card-header">
+                    <h2 class=" title">Add Advertisement</h2>
+                </div>
+                <div class="card-body">
+                    <form class="form" style="color:#dec074">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Title *</label>
+                            <div class="col-md-8">
+                                <input maxlength="80" placeholder="1212 Promotion" name="notititle" [(ngModel)]='ads.title' class=" form-control" type="text" />
+                                <p class="validation">{{ validErr['title'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Publish Date/Time *</label>
+                            <div class="col-md-4">
+                                <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='ads.pdate' class=" form-control" type="date" name="notipdate" />
+                                <p class="validation">{{ validErr['pdate'] }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='ads.ptime' class=" form-control" type="time" name="notiptime">
+                                <p class="validation">{{ validErr['ptime'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Start Date / End Date *</label>
+                            <div class="col-md-4">
+                                <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='ads.sdate' class=" form-control" type="date" name="notisdate" />
+                                <p class="validation">{{ validErr['sdate'] }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <input style="color:rgb(131, 131, 131) !important;" [(ngModel)]='ads.edate' class=" form-control" type="date" name="notietime">
+                                <p class="validation">{{ validErr['edate'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Merchant *</label>
+                            <div class="col-md-8">
+                                <select style="background-color: #2c2c2c;" [(ngModel)]='ads.merchant' class="form-control" name="notireceiver" id="">
+                                    <option value="Non-Merchant(Others)">Non-Merchant(Others)</option>
+                                    <option *ngFor="let merch of merchArr" value="{{merch.companyname}}">
+                                        {{merch.companyname}}</option>
+                                </select>
+                                <p class="validation">{{ validErr['merchant'] }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Poster *</label>
+                            <div class="col-md-8">
+                                <input (change)="onselectFile($event)" name="notithumbnail" id="image-upload" style="color: transparent;" type="file" accept="image/png, image/jpeg" />
+                                <br>
+                                <br>
+                                <img src="{{ url }}" alt="" style="width: 50%; object-fit: cover;">
+                                <p class="validation">{{ validErr['thumbnail'] }}</p>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-12">
+                                <div class=" form-group">
+
+                                    <label> Details *</label>
+                                    <p class="validation">{{ validErr['detail'] }}</p>
+
+                                    <textarea name="notidescription" class=" form-control" [(ngModel)]='ads.detail'></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button type="button" class="ed" (click)='sendAds()'>Save</button>
+                                <button type="button" class="ed" style="margin-left: 10px;" (click)='goBack()'>Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

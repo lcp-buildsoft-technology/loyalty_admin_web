@@ -1,0 +1,229 @@
+.row
+{
+    --bs-gutter-x:0rem;
+}
+
+::ng-deep .container-fluid
+{
+    padding-right:var(--bs-gutter-x, 0rem) !important;
+    padding-left:var(--bs-gutter-x, 0rem) !important;
+}
+
+.row
+{
+    margin-top: 5px;
+}
+button[type = "submit"] {
+    background-color: #dec074;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+ 
+  button:hover {
+    opacity: 0.8;
+  }
+ 
+  .mybutton
+  {
+      margin-top: 30%;
+  }
+ 
+  .container-fluid {
+    background-color: #dec074;
+    padding-top: 20px;
+    border-radius: 20px;
+}
+ 
+.btn {
+    outline: none;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+ 
+.topnav {
+    position: relative;
+    overflow: hidden;
+}  
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}  
+.topnav a:hover {
+    color: black;
+}  
+.topnav a.active {
+    color: #dec074;
+}  
+.topnav-centered a {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-20%, -50%); /*move point collect...word*/
+}  
+.topnav-centered a.active {
+    left: 30%;
+}
+.topnav-right {
+    float: right;
+}
+ 
+button[type = "button"]
+{
+    background-color: #dec074;
+    opacity: 100%;
+}
+ 
+.gbtn
+{
+    background-color: #dec074;
+    border: none;    
+}
+ 
+p a
+{
+    text-decoration: underline;
+    color: white;
+}
+ 
+.mainbox{
+  position: relative;
+  width: 350px;
+  height: 350px;
+  margin-left:-15px;
+}
+.mainbox:after{
+  position: absolute;
+  content: '';
+  width: 32px;
+  height: 32px;
+  background-size: 32px;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.box{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  overflow: hidden;
+  transition: all ease 5s;
+}
+ 
+span{
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+  position: absolute;
+}
+.span1{
+  clip-path: polygon(0 92%, 100% 50%, 0 8%);
+  background-color: #fffb00;
+  top: 80px;
+  left: 0px;
+}
+.span2{
+  clip-path: polygon(100% 92%, 0 50%, 100% 8%);
+  background-color: #ff4fa1;
+  top: 85px;
+  right: 0;
+}
+.span3{
+  clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
+  background-color: #ffaa00;
+  bottom: 0;
+  left: 80px;
+}
+.span4{
+  clip-path: polygon(50% 100%, 92% 0, 8% 0);
+  background-color: #22ff00;
+  top: 0;
+  left: 85px;
+}
+ 
+.box1 .span3 b{
+  transform: translate(-50%, -50%) rotate(-270deg);
+}
+.box1 .span1 b,
+.box2 .span1 b{
+ transform: translate(-50%, -50%) rotate(185deg);
+}
+.box2 .span3 b{
+ transform: translate(-50%, -50%) rotate(90deg);
+}
+.box1 .span4 b,
+.box2 .span4 b{
+ transform: translate(-50%, -50%) rotate(-85deg);
+}
+ 
+span b{
+ font-size: 18px;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+padding-left: 25px;
+}
+ 
+.box2{
+ width: 100%;
+ height: 100%;
+ transform: rotate(-135deg);
+}
+ 
+.spin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: #001aff;
+  color: #fff;
+  box-shadow: 0 5px 20px #000;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+.spin:active{
+  width: 70px;
+  height: 70px;
+  font-size: 16px;
+}
+ 
+.mainbox.animate:after{
+  animation: animateArrow 0.7s ease infinite;
+}
+@keyframes animateArrow{
+  50%{
+    right: -40px;
+  }
+}
+
+.swal-modal {
+  background-color: rgba(63,255,106,0.69);
+  border: 3px solid white;
+}
+

@@ -1,0 +1,263 @@
+<!-- Product Images and titles -->
+<div class="row">
+    <div class="col-12 position-relative px-0 mb-4">
+        <button class="btn btn-info avatar avatar-36 p-0 rounded-circle position-absolute top-0 end-0 m-2 text-white shadow-sm">
+            <i class="bi bi-share h5 mb-0"></i></button>
+        <figure class="overflow-hidden mb-0 coverimg h-190" style="background-image:url('assets/img/product1.jpg')">
+            <img src="assets/img/product1.jpg" alt="project images">
+        </figure>
+    </div>
+    <div class="col-12 mb-4">
+        <h5 class="mb-1">Bag Silver Black</h5>
+        <p class=" text-muted mb-2 small">Men, Unisex</p>
+        <p class="mb-2"><b>$150</b> <s class="text-muted">$180</s></p>
+        <p class="small mb-2">
+            <span class="small text-muted ">
+                <span class="badge rounded-pill bg-success">4.5</span> (4851 reviews)
+            </span>
+            &nbsp;
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star text-warning"></i>
+            <i class="bi bi-star text-warning"></i>
+        </p>
+    </div>
+</div>
+
+<!-- Buttons -->
+<div class="row mb-4">
+    <div class="col-6 d-grid">
+        <a routerLink="/cart" class="btn btn-primary shadow"><i class="bi bi-bag mx-1"></i> Buy Now</a>
+    </div>
+    <div class="col-6 d-grid">
+        <button class="btn btn-outline-danger shadow-sm"><i class="bi bi-heart mx-1"></i> Favorite</button>
+    </div>
+</div>
+
+<!-- Discriptions -->
+<div class="row mb-4">
+    <div class="col-12 text-muted">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sollicitudin dignissim
+            nisi, eget malesuada ligula ultricies sit amet. Suspendisse efficitur ex eu est placerat
+            mattis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sollicitudin dignissim
+            nisi, eget malesuada ligula ultricies sit amet. Suspendisse efficitur ex eu est placerat
+            mattis.</p>
+    </div>
+</div>
+
+<!-- Related Products carousel -->
+<div class="row mb-2">
+    <div class="col">
+        <h6 class="my-1">Related Products</h6>
+    </div>
+</div>
+<div class="row">
+    <div class="container px-0">
+        <swiper class="swipertrending" [slidesPerView]="'auto'" [spaceBetween]="0" [pagination]="false">
+                <ng-template swiperSlide>
+                    <div class="card shadow-sm mb-4">
+                        <button class="btn btn-danger avatar avatar-36 p-0 rounded-circle position-absolute top-0 end-0 m-2  shadow-sm">
+                            <i class="bi bi-heart h5 mb-0"></i></button>
+                        <figure class="card-img-top overflow-hidden mb-0 coverimg h-100px" style="background-image:url('assets/img/product1.jpg')">
+                            <img src="assets/img/product1.jpg" alt="project images">
+                        </figure>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="mb-1">Bag Silver Black</h6>
+                                    <p class=" text-muted mb-2 small">Men, Unisex
+                                        <span class="small mx-2">
+                                            <i class="bi bi-star-fill text-warning"></i> 4.5
+                                        </span>
+                                    </p>
+                                    <div class="row g-0">
+                                        <div class="col small align-self-center">$150</div>
+                                        <div class="col-auto align-self-center ">
+                                            <a routerLink="/product" target="_self" class="btn btn-link p-0"><i class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template swiperSlide>
+                    <div class="card shadow-sm mb-4">
+                        <button class="btn btn-danger avatar avatar-36 p-0 rounded-circle position-absolute top-0 end-0 m-2  shadow-sm">
+                            <i class="bi bi-heart h5 mb-0"></i></button>
+                        <figure class="card-img-top overflow-hidden mb-0 coverimg h-100px" style="background-image:url('assets/img/product2.jpg')">
+                            <img src="assets/img/product2.jpg" alt="project images">
+                        </figure>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="mb-1">Boots Livess</h6>
+                                    <p class=" text-muted mb-2 small">Men, Unisex
+                                        <span class="small mx-2">
+                                            <i class="bi bi-star-fill text-warning"></i> 4.5
+                                        </span>
+                                    </p>
+                                    <div class="row g-0">
+                                        <div class="col small align-self-center">$180</div>
+                                        <div class="col-auto align-self-center ">
+                                            <a routerLink="/product" target="_self" class="btn btn-link p-0"><i class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template swiperSlide>
+                    <div class="card shadow-sm mb-4">
+                        <button class="btn btn-danger avatar avatar-36 p-0 rounded-circle position-absolute top-0 end-0 m-2  shadow-sm">
+                            <i class="bi bi-heart h5 mb-0"></i></button>
+                        <figure class="card-img-top overflow-hidden mb-0 coverimg h-100px" style="background-image:url('assets/img/product3.jpg')">
+                            <img src="assets/img/product3.jpg" alt="project images">
+                        </figure>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="mb-1">Raybns Sunglas</h6>
+                                    <p class=" text-muted mb-2 small">Men, Unisex
+                                        <span class="small mx-2">
+                                            <i class="bi bi-star-fill text-warning"></i> 4.5
+                                        </span>
+                                    </p>
+                                    <div class="row g-0">
+                                        <div class="col small align-self-center">$210</div>
+                                        <div class="col-auto align-self-center ">
+                                            <a routerLink="/product" target="_self" class="btn btn-link p-0"><i class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template swiperSlide>
+                    <div class="card shadow-sm mb-4">
+                        <button class="btn btn-danger avatar avatar-36 p-0 rounded-circle position-absolute top-0 end-0 m-2  shadow-sm">
+                            <i class="bi bi-heart h5 mb-0"></i></button>
+                        <figure class="card-img-top overflow-hidden mb-0 coverimg h-100px" style="background-image:url('assets/img/product4.jpg')">
+                            <img src="assets/img/product4.jpg" alt="project images">
+                        </figure>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="mb-1">High heels</h6>
+                                    <p class=" text-muted mb-2 small">Men, Unisex
+                                        <span class="small mx-2">
+                                            <i class="bi bi-star-fill text-warning"></i> 4.5
+                                        </span>
+                                    </p>
+                                    <div class="row g-0">
+                                        <div class="col small align-self-center">$240</div>
+                                        <div class="col-auto align-self-center ">
+                                            <a routerLink="/product" target="_self" class="btn btn-link p-0"><i class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+        </swiper>
+    </div>
+</div>
+
+<!-- Comments -->
+<div class="row mb-2">
+    <div class="col-12">
+        <h6 class="my-1">Comments</h6>
+    </div>
+</div>
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="row py-3 gx-3">
+            <div class="col-auto position-relative">
+                <figure class="avatar avatar-50 rounded-circle">
+                    <img src="assets/img/user1.jpg" alt="">
+                </figure>
+            </div>
+            <div class="col">
+                <a routerLink="/profile" class="mb-1 text-normal d-block">Ajinkya McMohan <i class="bi bi-arrow-right-short text-primary"></i></a>
+                <p class="small mb-3 text-muted ">
+                    Purchased
+                    <span class="float-end">
+                        <span class="small">
+                            Rating: 4
+                        </span>
+                        &nbsp;
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                    </span>
+                </p>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    sollicitudin dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse
+                    efficitur ex eu est placerat mattis.</p>
+            </div>
+        </div>
+
+        <div class="row py-3 gx-3">
+            <div class="col-auto position-relative">
+                <figure class="avatar avatar-50 rounded-circle">
+                    <img src="assets/img/user2.jpg" alt="">
+                </figure>
+            </div>
+            <div class="col">
+                <a routerLink="/profile" class="mb-1 text-normal d-block">Jessica Willson <i class="bi bi-arrow-right-short text-primary"></i></a>
+                <p class="small mb-3 text-muted ">
+                    Purchased
+                    <span class="float-end">
+                        <span class="small">
+                            Rating: 2
+                        </span>
+                        &nbsp;
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                    </span>
+                </p>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    sollicitudin dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse
+                    efficitur ex eu est placerat mattis.</p>
+            </div>
+        </div>
+
+        <div class="row py-3 gx-3">
+            <div class="col-auto position-relative">
+                <figure class="avatar avatar-50 rounded-circle">
+                    <img src="assets/img/user3.jpg" alt="">
+                </figure>
+            </div>
+            <div class="col">
+                <a routerLink="/profile" class="mb-1 text-normal d-block">Bhagat Chaturvedy <i class="bi bi-arrow-right-short text-primary"></i></a>
+                <p class="small mb-3 text-muted ">
+                    Purchased
+                    <span class="float-end">
+                        <span class="small">
+                            Rating: 3
+                        </span>
+                        &nbsp;
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                    </span>
+                </p>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    sollicitudin dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse
+                    efficitur ex eu est placerat mattis.</p>
+            </div>
+        </div>
+    </div>
+</div>
