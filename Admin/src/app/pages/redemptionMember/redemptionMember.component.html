@@ -138,7 +138,7 @@
                 <div class=" card-body">
                     <div class="row">
                         <div class="col-md-10"></div>
-                        <div class="col-md-2" *ngIf="thisexport"><button (click)="exportexcel()"> <i class="fas fa-download"></i> &nbsp;Export to Excel</button></div>
+                        <div class="col-md-2" *ngIf="thisexport"><button class="mbtn" (click)="exportexcel()"> <i class="fas fa-download"></i> &nbsp;Export to Excel</button></div>
                     </div>
                     <br>
                     <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class=" table tablesorter" id="redemmemtable" style="top: 50%; left: 50%;">

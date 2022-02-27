@@ -41,7 +41,25 @@
         margin-left: 28px;
         margin-top: 20px;
     }
+    .mbtn {
+        background-color: #dec074;
+        color: black;
+        border: 3px solid #dec074;
+        display: inline-block;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 15px;
+        line-height: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 12px;
+        text-decoration: none;
+    }
     
+    .mbtn:active {
+        transform: translateY(4px);
+    }
     .form-control {
         border: none;
         border-bottom: 1px solid #dec074;
@@ -211,7 +229,7 @@
                     <div class=" card-body">
                         <div class="row">
                             <div class="col-md-10"></div>
-                            <div name="exportclass" *ngIf="thisexport" class="col-md-2"><button (click)="exportexcel()">
+                            <div name="exportclass" *ngIf="thisexport" class="col-md-2"><button class="mbtn" (click)="exportexcel()">
                                     <i class="fas fa-download"></i> &nbsp;Export to Excel</button></div>
                         </div>
                         <br>
